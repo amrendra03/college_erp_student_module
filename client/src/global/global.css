@@ -13,7 +13,7 @@
    --logout-icon: url('./src/assets/majesticons_logout.svg');
    --score-icon: url('./src/assets/material-symbols_sleep-score.svg');
    --notification-icon: url('./src/assets/mingcute_notification-fill.svg');
-   --star-icon: url('./src/assets/Star_1.svg');
+   --notifi-h: url('./src/assets/Star_1.svg');
    --faculty-icon: url('./src/assets/fa-solid_user-friends.svg');
 
    --dashboard-H: url('./src/assets/hover/material-symbols_dashboard.svg');
@@ -25,13 +25,17 @@
    --logout-H: url('./src/assets/hover/majesticons_logout.svg');
    --score-H: url('./src/assets/hover/material-symbols_sleep-score.svg');
    --notification-icon: url('./src/assets/hover/mingcute_notification-fill.svg');
-   --star-H: url('./src/assets/hover/Star_1.svg');
    --faculty-H: url('./src/assets/hover/fa-solid_user-friends.svg');
 
    --search-a: url('./src/assets/header/circum_search.svg');
    --notifi-a: url('./src/assets/header/Group.svg');
    --profile-a: url('./src/assets/header/iconamoon_profile-circle-thin.svg');
-   /* --search-a: url('./src/assets/header/'); */
+   --notifi-d: url('./src/assets/delight/Star_3.svg');
 
+
+   --rupee-r: url('./src/assets/status/Group.svg');
+   --hat-s: url('./src/assets/status/icon-park_degree-hat.svg');
+   --score-s: url('./src/assets/status/material-symbols_sleep-score.svg');
+   --rupee-y: url('./src/assets/status/tabler_coin-rupee-filled.svg');
 
 }

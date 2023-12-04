@@ -1,0 +1,16 @@
+<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon-park:degree-hat">
+<rect width="45" height="45" rx="22.5" fill="#E3E3E3"/>
+<g id="Group">
+<g id="Vector">
+<path d="M12.1573 20.4615V32.1233C12.1573 32.1233 16.324 36.56 22.0901 36.56C27.8562 36.56 32.0229 32.1233 32.0229 32.1233V20.4615" fill="black"/>
+<path d="M12.1573 20.4615V32.1233C12.1573 32.1233 16.324 36.56 22.0901 36.56C27.8562 36.56 32.0229 32.1233 32.0229 32.1233V20.4615" stroke="#FBD300" stroke-width="0.33" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Vector_2">
+<path d="M39.3 17.4167V26.062V17.4167Z" fill="#006DFF"/>
+<path d="M39.3 17.4167V26.062" stroke="#FE6610" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path id="Vector_3" d="M3.88 16.3136L22.09 8.44L40.3 16.3136L22.09 24.1873L3.88 16.3136Z" fill="black" stroke="#006DFF" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>
