@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap');
+
+
+:root {
+   --main-Background: #D0DAFF;
+   --kit-ogo: url('./src/assets/KIT-Logo3.webp');
+   --dashboard-icon: url('./src/assets/material-symbols_dashboard.svg');
+   --group-icon: url('./src/assets/Group.svg');
+   --exam-icon: url('./src/assets/healthicons_i-exam-multiple-choice.svg');
+   --hat-icon: url('./src/assets/icon-park_degree-hat.svg');
+   --setting-icon: url('./src/assets/icon-park-solid_setting-two.svg');
+   --profile-icon: url('./src/assets/iconamoon_profile-circle-thin.svg');
+   --logout-icon: url('./src/assets/majesticons_logout.svg');
+   --score-icon: url('./src/assets/material-symbols_sleep-score.svg');
+   --notification-icon: url('./src/assets/mingcute_notification-fill.svg');
+   --star-icon: url('./src/assets/Star_1.svg');
+   --faculty-icon: url('./src/assets/fa-solid_user-friends.svg');
+
+   --dashboard-H: url('./src/assets/hover/material-symbols_dashboard.svg');
+   --group-H: url('./src/assets/hover/Group.svg');
+   --exam-H: url('./src/assets/hover/healthicons_i-exam-multiple-choice.svg');
+   --hat-H: url('./src/assets/hover/icon-park_degree-hat.svg');
+   --setting-H: url('./src/assets/hover/icon-park-solid_setting-two.svg');
+   --profile-H: url('./src/assets/hover/iconamoon_profile-circle-thin.svg');
+   --logout-H: url('./src/assets/hover/majesticons_logout.svg');
+   --score-H: url('./src/assets/hover/material-symbols_sleep-score.svg');
+   --notification-icon: url('./src/assets/hover/mingcute_notification-fill.svg');
+   --star-H: url('./src/assets/hover/Star_1.svg');
+   --faculty-H: url('./src/assets/hover/fa-solid_user-friends.svg');
+
+   --search-a: url('./src/assets/header/circum_search.svg');
+   --notifi-a: url('./src/assets/header/Group.svg');
+   --profile-a: url('./src/assets/header/iconamoon_profile-circle-thin.svg');
+   /* --search-a: url('./src/assets/header/'); */
+
+
+}

@@ -1,0 +1,78 @@
+.Head {
+   width: 1012px;
+   height: 64px;
+
+   background: white;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+
+}
+
+.CircumSearch {
+   width: 20px;
+   height: 20px;
+   background-image: var(--search-a);
+}
+
+.IconamoonProfileCircleThin {
+   width: 40px;
+   height: 40px;
+   background-image: var(--profile-a);
+   cursor: pointer;
+}
+
+
+.MingcuteNotificationFill {
+   width: 20px;
+   height: 20px;
+   background-image: var(--notifi-a);
+   cursor: pointer;
+}
+
+.Rectangle3 {
+   width: 650px;
+   height: 32px;
+
+   background: white;
+   border-radius: 8px;
+   border: 1px black solid;
+
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.Dashboard {
+   width: 196px;
+   height: auto;
+
+   text-align: center;
+   color: black;
+   font-size: 27px;
+   font-family: 'Inria Sans';
+   font-weight: 700;
+   letter-spacing: 1.35px;
+   word-wrap: break-word;
+}
+
+
+
+
+.Search {
+   width: 95%;
+   height: 85%;
+
+   color: #3a3a3a;
+   font-size: 14px;
+   font-family: 'Inter';
+   font-weight: 600;
+   letter-spacing: 0.50px;
+   word-wrap: break-word;
+
+   border: none;
+   outline: none;
+   cursor: pointer;
+}
