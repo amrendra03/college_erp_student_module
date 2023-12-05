@@ -28,7 +28,7 @@
 
 .ds-4 {
    height: 100%;
-   width: 252px;
+   width: 238px;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
@@ -319,7 +319,7 @@
 }
 
 .ds-hex {
-   width: 237px;
+   width: 238px;
    height: 198px;
 
    border-radius: 10px;

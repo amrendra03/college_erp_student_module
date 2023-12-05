@@ -1,8 +1,8 @@
-import React from 'react'
-
+import React from 'react';
+import './exam.css';
 const Exam = () => {
    return (
-      <div>
+      <div className='exam'>
          from exam
       </div>
    )

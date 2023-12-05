@@ -83,6 +83,7 @@
    word-wrap: break-word;
    margin-left: 18px;
    color: #ffffff;
+   text-decoration: none;
 }
 
 .nav-txt:hover {
@@ -103,6 +104,13 @@
 .Rectangle5:hover .MaterialSymbolsDashboard {
 
    background-image: var(--dashboard-H);
+
+}
+
+.active-link {
+
+   /* background-image: var(--dashboard-H); */
+   background-color: aqua;
 
 }
 

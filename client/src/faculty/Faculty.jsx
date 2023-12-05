@@ -1,8 +1,8 @@
-import React from 'react'
-
+import React from 'react';
+import './faculty.css';
 const Faculty = () => {
    return (
-      <div>
+      <div className='faculty'>
          from faculty
       </div>
    )

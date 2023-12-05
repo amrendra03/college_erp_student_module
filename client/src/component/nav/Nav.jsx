@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { NavLink } from 'react-router-dom';
 import './nav.css';
 
 const Nav = () => {
@@ -9,32 +10,30 @@ const Nav = () => {
          </div>
          <div className='nav-c1'>
 
-            <div className="Rectangle5  nav-txt" >
+            <NavLink to='/' className="Rectangle5  nav-txt" activeClassName="active-link" exact>
                <div className="MaterialSymbolsDashboard" >
                </div>
                Dashboard
-            </div>
-            < div className='Rectangle5 nav-txt'>
+            </NavLink>
+            <NavLink to='/course' className='Rectangle5 nav-txt'>
                <div className="IconParkDegreeHat" />
                Course
-            </div>
+            </NavLink>
 
-            < div className='Rectangle5 nav-txt'>
+            < NavLink to='/exam' className='Rectangle5 nav-txt'>
                <div className="HealthiconsIExamMultipleChoice" />
                Exam
-            </div>
+            </NavLink>
 
-            < div className='Rectangle5 nav-txt'>
+            < NavLink to='faculty' div className='Rectangle5 nav-txt'>
                <div className="FaSolidUserFriends" />
                Faculty
+            </NavLink>
 
-            </div>
-
-            <div className='Rectangle5 nav-txt'>
+            <NavLink to='payment' className='Rectangle5 nav-txt'>
                <div className="Group" />
                Payment
-            </div>
-
+            </NavLink>
 
          </div>
 
