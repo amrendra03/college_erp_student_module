@@ -1,12 +1,12 @@
 import React from 'react';
 import './header.css';
 
-const Header = () => {
+const Header = ({ data }) => {
    return (
 
       <div className="Head">
 
-         <div className="Dashboard">Dashboard</div>
+         <div className="Dashboard">Dashboard{data}</div>
 
          <div className="Rectangle3">
             <div className="CircumSearch">

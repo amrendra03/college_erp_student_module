@@ -1,5 +1,7 @@
 import React from 'react';
+import Doughnut from '../component/chart/Doughnut';
 import Header from '../component/header/Header';
+import CalendarC from '../component/other/Calendar';
 import './dashboard.css';
 
 const Dashboard = () => {
@@ -105,11 +107,11 @@ const Dashboard = () => {
             <div className='ds-4'>
 
                <div className='ds-hex'>
-
+                  <Doughnut style={{ borderRadius: 10 }} />
                </div>
-               <div className='ds-cal'>
-
-               </div>
+               {/* <div className='ds-cal'>
+               </div> */}
+               <CalendarC />
 
             </div>
          </div>
