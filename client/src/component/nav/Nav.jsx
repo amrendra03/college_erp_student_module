@@ -10,7 +10,7 @@ const Nav = () => {
          </div>
          <div className='nav-c1'>
 
-            <NavLink to='/' className="Rectangle5  nav-txt" activeClassName="active-link" exact>
+            <NavLink to='/' className="Rectangle5  nav-txt" >
                <div className="MaterialSymbolsDashboard" >
                </div>
                Dashboard
@@ -38,10 +38,10 @@ const Nav = () => {
          </div>
 
          <div className='nav-c2'>
-            < div className='Rectangle5 nav-txt'>
+            <NavLink to='/form' className='Rectangle5 nav-txt'>
                <div className="MajesticonsLogout" />
                Logout
-            </div>
+            </NavLink>
             < div className='Rectangle5 nav-txt'>
                <div className="IconParkSolidSettingTwo" />
                Setting

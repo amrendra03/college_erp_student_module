@@ -5,6 +5,8 @@ import Course from './course/Course';
 import Dashboard from './dashboard/Dashboard';
 import Exam from './exam/Exam';
 import Faculty from './faculty/Faculty';
+// import Form from './form/Form';
+import FormB from './form/FormB';
 import './global/global.css';
 import Payment from './payment/Payment';
 
@@ -18,6 +20,7 @@ function App() {
         <Route path="/exam" element={<Exam />} />
         <Route path="/faculty" element={<Faculty />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path='/form' element={<FormB />} />
       </Routes>
 
     </div>
