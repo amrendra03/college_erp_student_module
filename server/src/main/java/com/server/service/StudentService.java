@@ -1,19 +1,18 @@
 package com.server.service;
 
-import java.util.List;
-
+import com.server.dto.ResponseStudent;
 import com.server.dto.StudentDto;
 
 public interface StudentService {
 
    StudentDto create(StudentDto studentDto);
 
-   StudentDto update(StudentDto studentDto);
+   StudentDto update(StudentDto studentDto, Long rollNo);
 
    StudentDto get(Long rollNo);
 
-   List<StudentDto> getAll();
+   ResponseStudent getAll(int pageNUmber, int pageSize, String sortBy);
 
-   Void delete(StudentDto studentDto);
+   void delete(Long rollNo);
 
 }

@@ -1,13 +1,20 @@
 package com.server.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.server.dto.ResponseStudent;
 import com.server.dto.StudentDto;
 import com.server.entities.Student;
+import com.server.exception.ResourceNotFoundException;
 import com.server.repository.StudentRepo;
 import com.server.service.StudentService;
 
@@ -29,27 +36,62 @@ public class StudentServiceImpl implements StudentService {
    }
 
    @Override
-   public StudentDto update(StudentDto studentDto) {
+   public StudentDto update(StudentDto studentDto, Long rollNo) {
 
-      throw new UnsupportedOperationException("Unimplemented method 'update'");
+      Student st = this.studentRepo.findById(rollNo)
+            .orElseThrow(() -> new ResourceNotFoundException("Student Not found", "Roll No", rollNo));
+
+      st.setName(studentDto.getName());
+      st.setCourse(studentDto.getCourse());
+      st.setFee(studentDto.getFee());
+      st.setFine(studentDto.getFine());
+      st.setScore(studentDto.getScore());
+      st.setSem(studentDto.getSem());
+
+      this.studentRepo.save(st);
+      return this.modelMapper.map(st, StudentDto.class);
    }
 
    @Override
    public StudentDto get(Long rollNo) {
 
-      throw new UnsupportedOperationException("Unimplemented method 'get'");
+      Student st = this.studentRepo.findById(rollNo)
+            .orElseThrow(() -> new ResourceNotFoundException("Student Not found", "Roll No", rollNo));
+
+      return this.modelMapper.map(st, StudentDto.class);
    }
 
    @Override
-   public List<StudentDto> getAll() {
+   public ResponseStudent getAll(int pageNumber, int pageSize, String sortBy) {
 
-      throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+      Pageable page = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy).descending());
+
+      Page<Student> stPage = this.studentRepo.findAll(page);
+
+      List<Student> allStudent = stPage.getContent();
+
+      List<StudentDto> stDto = allStudent.stream().map((st) -> this.modelMapper.map(st, StudentDto.class))
+            .collect(Collectors.toList());
+
+      ResponseStudent st = new ResponseStudent();
+
+      st.setContent(stDto);
+      st.setPageNumber(stPage.getNumber());
+      st.setPageSize(stPage.getSize());
+      st.setTotalPage(stPage.getTotalPages());
+      st.setTotalElement(stPage.getTotalElements());
+      st.setLastPage(stPage.isLast());
+
+      return st;
+
    }
 
    @Override
-   public Void delete(StudentDto studentDto) {
-
-      throw new UnsupportedOperationException("Unimplemented method 'delete'");
+   public void delete(Long rollNo) {
+      Student st = studentRepo.findById(rollNo)
+            .orElseThrow(() -> new ResourceNotFoundException("Studetn not Found", "RollNumber", rollNo));
+      System.out.println(st);
+      this.studentRepo.delete(st);
    }
 
 }

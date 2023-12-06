@@ -11,6 +11,6 @@ public class StudentDto {
    private int sem;
    private double fee;
    private double fine;
-   private double score;
+   private int score;
 
 }
