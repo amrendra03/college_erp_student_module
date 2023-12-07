@@ -1,8 +1,11 @@
-import React from 'react';
-import { dummyCourses, dummyStatuses, dummyStudents } from './data';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import './form.css';
 
 import { useState } from 'react';
+import { API_URL } from '../config/env';
+
+
 
 // CourseDto Component
 const CourseForm = () => {
@@ -198,29 +201,41 @@ const StudentForm = () => {
       score: 0,
    });
 
-   const submitStudent = () => {
-      const submitStudent = async () => {
-         try {
-            // Make an API call using Axios
-            const response = await axios.post('http://localhost:8080/student', studentData);
 
-            // Log the response from the server
-            console.log('API Response:', response.data);
+   const submitStudent = async () => {
+      console.log("Submit student..")
+      try {
+         // console.log(studentData);
+         // delete studentData.rollNo;
+         const { rollNo, ...studentDataWithoutRollNo } = studentData;
 
-            // You can reset the form or perform any other actions after a successful submission
-         } catch (error) {
-            // Handle errors
-            console.error('Error submitting student data:', error.message);
-         }
-      };
+         console.log(studentDataWithoutRollNo);
+         const response = await axios.post(`${API_URL}/student/create`, studentDataWithoutRollNo);
+         console.log('API Response:', response.data);
+      } catch (error) {
+         console.error('Error submitting student data:', error.message);
+      }
    };
+
+   const updateStudent = async () => {
+      console.log("Submit student..")
+      console.log(studentData);
+      try {
+         // console.log(studentData);
+         const response = await axios.put(`${API_URL}/student/update/${studentData.rollNo}`, studentData);
+         console.log('API Response:', response.data);
+      } catch (error) {
+         console.error('Error submitting student data:', error.message);
+      }
+   };
+
 
    const handleChange = (e) => {
       setStudentData({ ...studentData, [e.target.name]: e.target.value });
    };
 
    return (
-      <form className="form-container">
+      <div className="form-container">
          <h2>Student Information</h2>
          <label htmlFor="rollNo">Roll No:</label>
          <input
@@ -229,7 +244,6 @@ const StudentForm = () => {
             name="rollNo"
             value={studentData.rollNo}
             onChange={handleChange}
-            required
             className="input"
          />
 
@@ -300,9 +314,12 @@ const StudentForm = () => {
          />
 
          <button type="button" onClick={submitStudent} className="button">
-            Submit
+            Create
          </button>
-      </form>
+         <button type="button" onClick={updateStudent} className="button">
+            Update
+         </button>
+      </div>
    );
 };
 
@@ -363,11 +380,47 @@ const ListStatus = ({ statuses, onDelete }) => {
 };
 
 // ListStudents Component
-const ListStudents = ({ students, onDelete }) => {
+const ListStudents = () => {
+   const [students, setStudents] = useState([]);
+
+   const studentList = async () => {
+      console.log("Fetching student data...");
+      try {
+         const response = await axios.get(`${API_URL}/student/all?pageNumber=&pageSize=&sortBy=rollNo`);
+         console.log('API Response:', response.data);
+         setStudents(response.data.content);
+      } catch (error) {
+         console.error('Error fetching student data:', error.message);
+      }
+   }
+
+
+
+   // Implement your delete logic here
+
+   const onDelete = async (rollNo) => {
+      console.log("-- " + rollNo);
+      try {
+         const response = await axios.delete(`${API_URL}/student/delete/${rollNo}`);
+         console.log('API Response:', response.data);
+         // delete the studetn from memory
+         setStudents((prevStudents) => prevStudents.filter((student) => student.rollNo !== rollNo));
+
+      } catch (error) {
+         console.error('Error fetching student data:', error.message);
+      }
+   };
+
+   useEffect(() => {
+      studentList();
+   }, []); // Use an empty dependency array to run the effect only once on mount
+
+
    return (
       <div className="list-container">
          <h2>List of Students</h2>
          {students.map((student) => (
+
             <div className="list-item" key={student.rollNo}>
                <div>
                   <span>Name:</span> {student.name}
@@ -400,21 +453,54 @@ const ListStudents = ({ students, onDelete }) => {
 };
 
 
+const SingleStudentForm = () => {
+   const [rollNo, setRollNo] = useState('');
+   const [studentInfo, setStudentInfo] = useState(null);
+   const [error, setError] = useState('');
 
-// Main App Component
-const Form = () => {
+   const getStudentInfo = async () => {
+      try {
+         const response = await axios.get(`${API_URL}/student/get/${rollNo}`);
+         setStudentInfo(response.data);
+         setError('');
+      } catch (error) {
+         setStudentInfo(null);
+         setError('Student not found.');
+      }
+   };
+
    return (
-      <div className='form-1'>
-         <CourseForm />
-         <StatusForm />
-         <StudentForm />
-         <ListCourses courses={dummyCourses} onDelete={(id) => console.log(`Delete course with ID: ${id}`)} />
-         <ListStatus statuses={dummyStatuses} onDelete={(id) => console.log(`Delete status with ID: ${id}`)} />
-         <ListStudents students={dummyStudents} onDelete={(rollNo) => console.log(`Delete student with Roll No: ${rollNo}`)} />
-
+      <div className="single-student-form">
+         <h2>Get Student Information</h2>
+         <div className="form-group">
+            <label htmlFor="rollNo">Roll No:</label>
+            <input
+               type="text"
+               id="rollNo"
+               value={rollNo}
+               className="input"
+               onChange={(e) => setRollNo(e.target.value)}
+            />
+         </div>
+         <button onClick={getStudentInfo}>Get Student Info</button>
+         {error && <p className="error-message">{error}</p>}
+         {studentInfo && (
+            <div className="student-info">
+               <h3 style={{ margin: 0 }}>Student Information</h3>
+               <p><strong>Name:</strong> {studentInfo.name}</p>
+               <p><strong>Roll No:</strong> {studentInfo.rollNo}</p>
+               <p><strong>Course:</strong> {studentInfo.course}</p>
+               <p><strong>Sem:</strong> {studentInfo.sem}</p>
+               <p><strong>Fee:</strong> {studentInfo.fee}</p>
+               <p><strong>Fine:</strong> {studentInfo.fine}</p>
+               <p><strong>Score:</strong> {studentInfo.score}</p>
+               {/* Add more details as needed */}
+            </div>
+         )}
       </div>
    );
 };
 
-export { CourseForm, ListCourses, ListStatus, ListStudents, StatusForm, StudentForm };
-export default Form;
+
+
+export { CourseForm, ListCourses, ListStatus, ListStudents, SingleStudentForm, StatusForm, StudentForm };

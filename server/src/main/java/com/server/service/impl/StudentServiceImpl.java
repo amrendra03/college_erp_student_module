@@ -41,12 +41,18 @@ public class StudentServiceImpl implements StudentService {
       Student st = this.studentRepo.findById(rollNo)
             .orElseThrow(() -> new ResourceNotFoundException("Student Not found", "Roll No", rollNo));
 
-      st.setName(studentDto.getName());
-      st.setCourse(studentDto.getCourse());
-      st.setFee(studentDto.getFee());
-      st.setFine(studentDto.getFine());
-      st.setScore(studentDto.getScore());
-      st.setSem(studentDto.getSem());
+      if (studentDto.getName() != st.getName())
+         st.setName(studentDto.getName());
+      if (studentDto.getCourse() != st.getCourse())
+         st.setCourse(studentDto.getCourse());
+      if (studentDto.getFee() != st.getFee())
+         st.setFee(studentDto.getFee());
+      if (studentDto.getFine() != st.getFee())
+         st.setFine(studentDto.getFine());
+      if (studentDto.getScore() != st.getScore())
+         st.setScore(studentDto.getScore());
+      if (studentDto.getSem() != st.getScore())
+         st.setSem(studentDto.getSem());
 
       this.studentRepo.save(st);
       return this.modelMapper.map(st, StudentDto.class);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { CourseForm, ListCourses, ListStatus, ListStudents, StatusForm, StudentForm } from './Form';
-import { dummyCourses, dummyStatuses, dummyStudents } from './data';
+import { CourseForm, ListCourses, ListStatus, ListStudents, SingleStudentForm, StatusForm, StudentForm } from './Form';
+import { dummyCourses, dummyStatuses } from './data';
 
 
 const App = () => {
@@ -32,8 +32,10 @@ const App = () => {
          <div className='form-2'>
             <ListCourses courses={dummyCourses} onDelete={(id) => console.log(`Delete course with ID: ${id}`)} />
             <ListStatus statuses={dummyStatuses} onDelete={(id) => console.log(`Delete status with ID: ${id}`)} />
-            <ListStudents students={dummyStudents} onDelete={(rollNo) => console.log(`Delete student with Roll No: ${rollNo}`)} />
+            <ListStudents />
+            <SingleStudentForm />
          </div>
+
       </div>
    );
 };

@@ -16,7 +16,7 @@ public class CorsConfig {
 
       // Allow all origins, headers, and methods. You may want to customize this based
       // on your requirements.
-      config.addAllowedOrigin("*");
+      config.addAllowedOriginPattern("*");
       config.addAllowedHeader("*");
       config.addAllowedMethod("*");
 
