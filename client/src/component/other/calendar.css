@@ -4,10 +4,12 @@
 
 .react-calendar__navigation {
    margin: 0px;
+   color: black;
 }
 
 .react-calendar__month-view__weekdays__weekday {
    padding: 0 0 2px 0;
+   color: rgb(46, 24, 24);
 }
 
 .react-calendar__month-view__weekdays abbr {
@@ -17,4 +19,5 @@
 .react-calendar__tile {
    height: 34px;
    padding: 10px;
+   color: black;
 }
