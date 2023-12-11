@@ -26,4 +26,7 @@ public class StudentDetail {
     @OneToMany(mappedBy = "studentDetail", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StudentCourseRegistration> studentCourseRegistrations;
 
+    @OneToMany(mappedBy = "studentDetail", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudentStatus> statuses;
+
 }
