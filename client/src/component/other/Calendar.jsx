@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
 import './calendar.css';
 
 export default function CalendarC() {
@@ -9,10 +9,7 @@ export default function CalendarC() {
 
   return (
     <div className="ds-cal">
-      <Calendar
-        onChange={onChange}
-        value={value}
-      />
+      <Calendar onChange={onChange} value={value} />
     </div>
   );
 }
