@@ -56,7 +56,7 @@ public class StudentController {
 
    // get student
    @GetMapping("/get/{rollNo}")
-   public ResponseEntity<StudentDto> getMethodName(@PathVariable Long rollNo) {
+   public ResponseEntity<StudentDto> get(@PathVariable Long rollNo) {
 
       StudentDto res = this.studentService.get(rollNo);
       System.out.println(rollNo);
@@ -67,12 +67,15 @@ public class StudentController {
 
    // get all student
    @GetMapping("/all")
-   public ResponseEntity<ResponseStudent> getMethodName(
+   public ResponseEntity<ResponseStudent> getAll(
          @RequestParam(value = "pageNumber", defaultValue = AppConstant.PAGE_NUMBER, required = false) Integer pageNumber,
          @RequestParam(value = "pageSize", defaultValue = AppConstant.PAGE_SIZE, required = false) Integer pageSize,
          @RequestParam(value = "sortBy", defaultValue = AppConstant.SORT_BY, required = false) String sortBy) {
 
       ResponseStudent res = this.studentService.getAll(pageNumber, pageSize, sortBy);
+
+      // System.out.println("from get all student
+      // .....................................");
 
       return new ResponseEntity<>(res, HttpStatus.OK);
    }

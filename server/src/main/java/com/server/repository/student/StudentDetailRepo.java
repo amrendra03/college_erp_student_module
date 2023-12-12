@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.server.entities.student.StudentDetail;
 
-public interface StudetnRepo extends JpaRepository<StudentDetail, Long> {
+public interface StudentDetailRepo extends JpaRepository<StudentDetail, Long> {
 
 }
