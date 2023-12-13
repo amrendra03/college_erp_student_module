@@ -3,7 +3,7 @@ import './setting.css';
 const Setting = () => {
    return (
       <div>
-         from setting
+         
       </div>
    )
 }
