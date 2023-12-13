@@ -8,5 +8,6 @@ import lombok.Data;
 public class CourseDetailDTO {
    private Long courseId;
    private String duration;
+   private String courseName;
    private List<SemesterDTO> semesters;
 }

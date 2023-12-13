@@ -20,6 +20,8 @@ public class CourseDetail {
 
    private String duration;
 
+   private String courseName;
+
    @OneToMany(mappedBy = "courseDetail", cascade = CascadeType.ALL, orphanRemoval = true)
    private List<Semester> semesters;
 
