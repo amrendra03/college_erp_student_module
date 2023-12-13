@@ -1,6 +1,7 @@
 package com.server.service.impl.course;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.server.dto.course.CourseDetailDTO;
 import com.server.entities.course.CourseDetail;
+import com.server.exception.ResourceNotFoundException;
 import com.server.repository.course.CourseDetailRepo;
 import com.server.service.course.CourseDetailService;
 
@@ -28,21 +30,35 @@ public class CourseDetailServiceImpl implements CourseDetailService {
    }
 
    @Override
-   public CourseDetailDTO update(CourseDetailDTO courseDetailDTO, Long id) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'update'");
+   public CourseDetailDTO update(CourseDetailDTO x, Long id) {
+      CourseDetail y = this.courseDetailRepo.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Course id not found !.", "Course id", id));
+
+      if (x.getCourseName() != y.getCourseName())
+         y.setCourseName(x.getCourseName());
+      if (x.getDuration() != y.getDuration())
+         y.setDuration(x.getDuration());
+
+      return this.modelMapper.map(this.courseDetailRepo.save(y), CourseDetailDTO.class);
    }
 
    @Override
    public CourseDetailDTO get(Long id) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'get'");
+      CourseDetail course = this.courseDetailRepo.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Course id not found !.", "Course id", id));
+
+      return this.modelMapper.map(course, CourseDetailDTO.class);
+
    }
 
    @Override
    public List<CourseDetailDTO> getAll() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+      List<CourseDetail> list = this.courseDetailRepo.findAll();
+
+      List<CourseDetailDTO> dtoList = list.stream().map((x) -> this.modelMapper.map(x, CourseDetailDTO.class))
+            .collect(Collectors.toList());
+
+      return dtoList;
    }
 
 }
