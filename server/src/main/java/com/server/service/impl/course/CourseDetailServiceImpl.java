@@ -61,4 +61,11 @@ public class CourseDetailServiceImpl implements CourseDetailService {
       return dtoList;
    }
 
+   @Override
+   public void delete(Long id) {
+      CourseDetail course = this.courseDetailRepo.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Course not found !.", "Course Id", id));
+      this.courseDetailRepo.delete(course);
+   }
+
 }

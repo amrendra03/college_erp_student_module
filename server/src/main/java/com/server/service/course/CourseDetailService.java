@@ -14,4 +14,6 @@ public interface CourseDetailService {
 
    List<CourseDetailDTO> getAll();
 
+   void delete(Long id);
+
 }
