@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity
-class Semester {
+public class Semester {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)

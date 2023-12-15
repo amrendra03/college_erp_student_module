@@ -8,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.server.dto.course.CourseDetailDTO;
+import com.server.dto.course.SemesterDTO;
 import com.server.entities.course.CourseDetail;
+import com.server.entities.course.Semester;
 import com.server.exception.ResourceNotFoundException;
 import com.server.repository.course.CourseDetailRepo;
+import com.server.repository.course.SemesterRepo;
 import com.server.service.course.CourseDetailService;
 
 @Service
@@ -18,6 +21,9 @@ public class CourseDetailServiceImpl implements CourseDetailService {
 
    @Autowired
    private CourseDetailRepo courseDetailRepo;
+
+   @Autowired
+   private SemesterRepo semesterRepo;
 
    @Autowired
    private ModelMapper modelMapper;
@@ -66,6 +72,15 @@ public class CourseDetailServiceImpl implements CourseDetailService {
       CourseDetail course = this.courseDetailRepo.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Course not found !.", "Course Id", id));
       this.courseDetailRepo.delete(course);
+   }
+
+   @Override
+   public SemesterDTO addSem(Long id, SemesterDTO sem) {
+
+      Semester x = this.semesterRepo.save(this.modelMapper.map(sem, Semester.class));
+
+      return this.modelMapper.map(x, SemesterDTO.class);
+
    }
 
 }

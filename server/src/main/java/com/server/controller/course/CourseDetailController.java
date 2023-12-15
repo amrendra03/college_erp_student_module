@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.server.dto.ApiResponse;
 import com.server.dto.course.CourseDetailDTO;
+import com.server.dto.course.SemesterDTO;
 import com.server.service.course.CourseDetailService;
 
 @RestController
@@ -25,6 +26,7 @@ public class CourseDetailController {
    @Autowired
    private CourseDetailService courseDetailService;
 
+   // add new course
    @PostMapping("/")
    public ResponseEntity<CourseDetailDTO> create(@RequestBody CourseDetailDTO course) {
 
@@ -32,28 +34,39 @@ public class CourseDetailController {
       return new ResponseEntity<>(this.courseDetailService.create(course), HttpStatus.CREATED);
    }
 
+   // update course
    @PutMapping("/{id}")
    public ResponseEntity<CourseDetailDTO> update(@RequestBody CourseDetailDTO course, @PathVariable Long id) {
       return new ResponseEntity<>(this.courseDetailService.update(course, id), HttpStatus.OK);
    }
 
+   // get course by id
    @GetMapping("/{id}")
    public ResponseEntity<CourseDetailDTO> get(@PathVariable Long id) {
 
       return new ResponseEntity<>(this.courseDetailService.get(id), HttpStatus.OK);
    }
 
+   // get all course list
    @GetMapping("/")
    public ResponseEntity<List<CourseDetailDTO>> getAll() {
       return new ResponseEntity<>(this.courseDetailService.getAll(), HttpStatus.OK);
    }
 
+   // delete course list by id
    @DeleteMapping("/{id}")
    public ResponseEntity<ApiResponse> delete(@PathVariable Long id) {
       System.out.println("fom delted...");
       this.courseDetailService.delete(id);
 
       return new ResponseEntity<>(new ApiResponse("Course Successfully delete", true), HttpStatus.OK);
+   }
+
+   // add sem in course
+   @PostMapping("/{id}/sem/")
+   public ResponseEntity<SemesterDTO> addSem(@PathVariable Long id, @RequestBody SemesterDTO sem) {
+
+      return new ResponseEntity<>(this.courseDetailService.addSem(id, sem), HttpStatus.CREATED);
    }
 
 }
