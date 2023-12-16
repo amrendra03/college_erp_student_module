@@ -83,4 +83,13 @@ public class CourseDetailServiceImpl implements CourseDetailService {
 
    }
 
+   @Override
+   public void deleteSem(Long id, Long semId) {
+      Semester course = this.semesterRepo.findById(semId)
+            .orElseThrow(() -> new ResourceNotFoundException("Semester not found", "Course id ", id));
+
+      this.semesterRepo.delete(course);
+
+   }
+
 }

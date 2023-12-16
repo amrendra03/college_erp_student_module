@@ -69,4 +69,11 @@ public class CourseDetailController {
       return new ResponseEntity<>(this.courseDetailService.addSem(id, sem), HttpStatus.CREATED);
    }
 
+   // delete sem
+   @DeleteMapping("/{id}/sem/{semId}")
+   public ResponseEntity<ApiResponse> deleteSem(@PathVariable Long id, @PathVariable Long semId) {
+      this.courseDetailService.deleteSem(id, semId);
+      return new ResponseEntity<>(new ApiResponse("Successfully deleted Sem", true), HttpStatus.OK);
+   }
+
 }

@@ -19,4 +19,6 @@ public interface CourseDetailService {
 
    SemesterDTO addSem(Long id, SemesterDTO sem);
 
+   void deleteSem(Long id, Long semId);
+
 }
