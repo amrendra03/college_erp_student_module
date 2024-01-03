@@ -6,7 +6,7 @@ const Header = ({ data }) => {
 
       <div className="Head">
 
-         <div className="Dashboard">Dashboard{data}</div>
+         <div className="Dashboard">{data}</div>
 
          <div className="Rectangle3">
             <div className="CircumSearch">

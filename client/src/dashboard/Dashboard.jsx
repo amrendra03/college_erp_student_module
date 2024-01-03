@@ -35,7 +35,7 @@ const Dashboard = () => {
 
    return (
       <div className='dashboard' >
-         <Header />
+         <Header data={"Dashboard"} />
          <div className='ds-1'>
             <div className="Status1 display" >
                <div className='st-icon' />
