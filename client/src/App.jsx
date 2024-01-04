@@ -9,6 +9,7 @@ import Faculty from './faculty/Faculty';
 import FormB from './form/FormB';
 import './global/global.css';
 import Payment from './payment/Payment';
+import Setting from './setting/Setting';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/faculty" element={<Faculty />} />
         <Route path="/payment" element={<Payment />} />
         <Route path='/form' element={<FormB />} />
+        <Route path='/setting' element={<Setting />} />
       </Routes>
 
     </div>

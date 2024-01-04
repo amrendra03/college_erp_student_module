@@ -42,10 +42,10 @@ const Nav = () => {
                <div className="MajesticonsLogout" />
                Logout
             </NavLink>
-            < div className='Rectangle5 nav-txt'>
+            <NavLink to='/setting' className='Rectangle5 nav-txt'>
                <div className="IconParkSolidSettingTwo" />
                Setting
-            </div>
+            </NavLink>
          </div>
       </div>
    )

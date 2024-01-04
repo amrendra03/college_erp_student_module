@@ -4,7 +4,7 @@ import { CourseForm, ListCourses, ListStatus, ListStudents, SingleStudentForm, S
 import { dummyCourses, dummyStatuses } from './data';
 
 
-const App = () => {
+const FormB = () => {
    const [activeComponent, setActiveComponent] = useState('course'); // Default to 'course'
 
    const switchComponent = (component) => {
@@ -40,4 +40,4 @@ const App = () => {
    );
 };
 
-export default App;
+export default FormB;

@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../component/header/Header';
 import './faculty.css';
 const Faculty = () => {
    return (
       <div className='faculty'>
-         from faculty
+         <Header data={"Faculty"} />
       </div>
    )
 }

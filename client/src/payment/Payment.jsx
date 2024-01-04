@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../component/header/Header';
 import './payment.css';
 const Payment = () => {
    return (
       <div className='payment'>
-         from Payment
+         <Header data={"Payment"} />
       </div>
    )
 }

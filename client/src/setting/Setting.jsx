@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../component/header/Header';
 import './setting.css';
 const Setting = () => {
    return (
-      <div>
-         from setting
+      <div className='setting'>
+         <Header data={"Setting"} />
       </div>
    )
 }
