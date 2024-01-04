@@ -96,7 +96,93 @@ const Course = () => {
             </div>
             <div className='course-time-table'>
                <p className='ctt-n'>B. Tech CSE (AI & ML) Session 2023-24 sem 7th</p>
+               <table >
+                  <thead>
+                     <tr style={{ backgroundColor: '#313132' }}>
+                        <th style={{ background: '#313132' }}></th>
+                        <th>9:00-10:00</th>
+                        <th>10:00-11:00</th>
+                        <th>11:00-12:00</th>
+                        <th>12:00-1:00</th>
+                        <th>1:00-2:00</th>
+                        <th>2:00-3:00</th>
+                        <th>3:00-4:00</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Monday</td>
+                        <td>Row 1, Cell 2</td>
+                        <td>Row 1, Cell 3</td>
+                        <td>Row 1, Cell 4</td>
+                        <td>Row 1, Cell 5</td>
+                        <td>Row 1, Cell 6</td>
+                        <td>Row 1, Cell 7</td>
+                        <td>Row 1, Cell 8</td>
 
+                     </tr>
+                     <tr>
+                        <td>Tuesday</td>
+                        <td>Row 2, Cell 2</td>
+                        <td>Row 2, Cell 3 </td>
+                        <td>Row 2, Cell 4</td>
+                        <td>Row 2, Cell 5</td>
+                        <td>Row 2, Cell 6</td>
+                        <td>Row 2, Cell 7</td>
+                        <td>Row 2, Cell 8</td>
+                     </tr>
+                     <tr>
+                        <td>Wednesday</td>
+                        <td>Row 3, Cell 2</td>
+                        <td>Row 3, Cell 3 </td>
+                        <td>Row 3, Cell 4</td>
+                        <td>Row 3, Cell 5</td>
+                        <td>Row 3, Cell 6</td>
+                        <td>Row 3, Cell 7</td>
+                        <td>Row 3, Cell 8</td>
+                     </tr>
+                     <tr>
+                        <td>Thursday</td>
+                        <td>Row 4, Cell 2</td>
+                        <td>Row 4, Cell 3 </td>
+                        <td>Row 4, Cell 4</td>
+                        <td>Row 4, Cell 5</td>
+                        <td>Row 4, Cell 6</td>
+                        <td>Row 4, Cell 7</td>
+                        <td>Row 4, Cell 8</td>
+                     </tr>
+                     <tr>
+                        <td>Friday</td>
+                        <td>Row 5, Cell 2</td>
+                        <td>Row 5, Cell 3 </td>
+                        <td>Row 5, Cell 4</td>
+                        <td>Row 5, Cell 5</td>
+                        <td>Row 5, Cell 6</td>
+                        <td>Row 5, Cell 7</td>
+                        <td>Row 5, Cell 8</td>
+                     </tr>
+                     <tr>
+                        <td>Saturday</td>
+                        <td>Row 6, Cell 2</td>
+                        <td>Row 6, Cell 3 </td>
+                        <td>Row 6, Cell 4</td>
+                        <td>Row 6, Cell 5</td>
+                        <td>Row 6, Cell 6</td>
+                        <td>Row 6, Cell 7</td>
+                        <td>Row 6, Cell 8</td>
+                     </tr>
+                     <tr>
+                        <td style={{ borderRadius: '0 0 0 10px' }}>Sunday</td>
+                        <td>Row 7, Cell 2</td>
+                        <td>Row 7, Cell 3 </td>
+                        <td>Row 7, Cell 4</td>
+                        <td>Row 7, Cell 5</td>
+                        <td>Row 7, Cell 6</td>
+                        <td>Row 7, Cell 7</td>
+                        <td style={{ borderRadius: '0 0 10px 0' }}>Row 7, Cell 8</td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
          </div>
       </div>
