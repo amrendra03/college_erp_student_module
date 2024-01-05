@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../component/header/Header';
 import './exam.css';
 const Exam = () => {
@@ -70,7 +70,7 @@ const ExamProcess = () => {
    }
    return (
       <>
-         <ExamStatus />
+         <ExamStatus status={3} />
          {
             setps('A')
          }
@@ -80,20 +80,40 @@ const ExamProcess = () => {
    )
 }
 
-const ExamStatus = (data) => {
+const ExamStatus = ({ status }) => {
+
    return (
       <div className='exam-status'>
 
          <div className='es-1'>
-            <div className='es-2'>
-               <div className='es-3'>
-                  <div className='es-3-1' />
-                  <div className='es-3-2' />
-               </div>
-               <div className='es-4'>
-                  Start
-               </div>
+
+            <div className={`status ${status >= 1 ? (status !== 1 ? 'active2' : 'active') : ''}`}>
+               Start
             </div>
+
+            <div className={`status ${status >= 2 ? (status !== 2 ? 'active2' : 'active') : ''}`} >
+               Fill Form
+            </div>
+
+            <div className={`status ${status >= 3 ? (status !== 3 ? 'active2' : 'active') : ''}`} >
+               Payment
+            </div>
+            <div className={`status ${status >= 4 ? (status !== 4 ? 'active2' : 'active') : ''}`} >
+               Correction
+            </div>
+            <div className={`status ${status >= 5 ? (status !== 5 ? 'active2' : 'active') : ''}`} >
+               Verification
+            </div>
+            <div className={`status ${status >= 6 ? (status !== 6 ? 'active2' : 'active') : ''}`} >
+               Schedule
+            </div>
+            <div className={`status ${status >= 7 ? (status !== 7 ? 'active2' : 'active') : ''}`} >
+               Exam
+            </div>
+            <div className={`status ${status >= 8 ? (status !== 8 ? 'active2' : 'active') : ''}`} >
+               Result
+            </div>
+
          </div>
 
       </div>
@@ -103,12 +123,102 @@ const ExamStatus = (data) => {
 
 
 const ExamStepA = () => {
+
+   const initialCheckboxValues = {
+      checkbox1: false,
+      checkbox2: false,
+      checkbox3: false,
+      checkbox4: false,
+      checkbox5: false,
+      checkbox6: false,
+      checkbox7: false,
+      checkbox8: false,
+      checkbox9: false,
+      checkbox10: false,
+      checkbox11: false,
+      checkbox12: false,
+      checkbox13: false,
+      checkbox14: false,
+      checkbox15: false,
+      checkbox16: false,
+      checkbox17: false,
+      checkbox18: false,
+      checkbox19: false,
+      checkbox20: false,
+      checkbox21: false,
+   };
+
+   const [checkboxValues, setCheckboxValues] = useState(initialCheckboxValues);
+
+   const handleCheckboxChange = (checkboxName) => {
+      setCheckboxValues((prevValues) => ({
+         ...prevValues,
+         [checkboxName]: !prevValues[checkboxName],
+      }));
+   };
+
+
+
+
    return (
       <div className='exam-steps'>
-         Setps A
+         <div className='ex-sa-1'>
+            <table >
+               <tr>
+                  <td>B. Tech CSE (AI & ML)</td>
+                  <td>Sem 7th</td>
+               </tr>
+               <tr>
+                  <td>Amrendra Yadav</td>
+                  <td>2004282530002</td>
+               </tr>
+            </table>
+         </div>
+         <div className='ex-sa-2'>
+            <div className='ex-sa-list'>
+               <p className='ex-sa-n'>Exam List</p>
+               <div className="ex-sa-list-c1" >
+                  {Object.keys(checkboxValues).map((checkboxName) => (
+                     <label className='exam-sub-li-1' key={checkboxName}>
+                        <input
+                           type="checkbox"
+                           checked={checkboxValues[checkboxName]}
+                           onChange={() => handleCheckboxChange(checkboxName)}
+                        />
+                        {`Check me ${checkboxName.charAt(checkboxName.length - 1)}`}
+                     </label>
+                  ))}
+               </div>
+            </div>
+            <div className='ex-sa-list-view'>
+               <div className='ex-sa-list-view-1'>
+                  <p className='ex-sa-n'>Selected Subject</p>
+                  <div className='ex-sa-list-view-1-1'>
+                     {
+                        Object.keys(initialCheckboxValues).map((item, index) => {
+                           console.log(item + "---")
+                           return (<ListA key={index} data={item} />)
+                        })
+                     }
+                  </div>
+               </div>
+               <button>Submit</button>
+            </div>
+         </div>
+
       </div>
    )
 }
+
+const ListA = ({ data }) => {
+   // console.log(data + "+++")
+   return (
+      <div className='exam-sub-li-2'>
+         <p>{data}</p>
+      </div>
+   )
+}
+
 const ExamStepB = () => {
    return (
       <div className='exam-steps'>
