@@ -259,7 +259,7 @@
 .ex-sa-list-view-1-1 {
    width: 100%;
    height: 297px;
-   border-radius: 8px;
+   border-radius: 0 0 8px 8px;
 
    background: #F6F6F6;
    overflow: auto;
@@ -321,15 +321,63 @@
 
 .exam-sub-li-1 {
    width: 100%;
-   height: 40px;
+
+
+   font-family: "Inria Sans";
+   font-size: 16px;
+   background-color: white;
+   border-bottom: 1px solid #aeaeae;
+
+   display: flex;
+   align-items: center;
+
+   padding: 10px 0px 10px 0;
+
+}
+
+.exam-sub-li-1 span {
+   margin-left: 4px;
+
+}
+
+.exam-sub-li-2 {
+   width: 100%;
+   height: 60px;
+
 
    font-family: "Inria Sans";
    font-size: 16px;
    background-color: white;
    border: 1px solid #aeaeae;
 
+   display: flex;
+   align-items: center;
+
+   padding: 10px 0px 10px 0;
 }
 
-.exam-sub-li-2 {}
-
 .exam-sub-li-2 p {}
+
+
+.esl-1-2 {
+   display: flex;
+   justify-content: space-between;
+}
+
+.esl-1-2 p {
+   width: 20px;
+   height: 20px;
+   margin: 0;
+   margin-right: 10px;
+   background-image: var(--delete);
+   cursor: pointer;
+}
+
+.esl-1-2 p:hover {
+   background-color: rgb(255, 16, 16);
+   border-radius: 4px;
+}
+
+.esl-1-2 span {
+   margin-left: 10px;
+}

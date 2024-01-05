@@ -120,8 +120,6 @@ const ExamStatus = ({ status }) => {
    )
 }
 
-
-
 const ExamStepA = () => {
 
    const initialCheckboxValues = {
@@ -157,7 +155,18 @@ const ExamStepA = () => {
       }));
    };
 
-
+   const submitHandle = () => {
+      const trueCheckboxValues = Object.entries(checkboxValues).reduce(
+         (acc, [key, value]) => {
+            if (value === true) {
+               acc[key] = value;
+            }
+            return acc;
+         },
+         {}
+      );
+      console.log(trueCheckboxValues)
+   };
 
 
    return (
@@ -185,7 +194,7 @@ const ExamStepA = () => {
                            checked={checkboxValues[checkboxName]}
                            onChange={() => handleCheckboxChange(checkboxName)}
                         />
-                        {`Check me ${checkboxName.charAt(checkboxName.length - 1)}`}
+                        <span >{` ${checkboxName}`}</span>
                      </label>
                   ))}
                </div>
@@ -195,14 +204,20 @@ const ExamStepA = () => {
                   <p className='ex-sa-n'>Selected Subject</p>
                   <div className='ex-sa-list-view-1-1'>
                      {
-                        Object.keys(initialCheckboxValues).map((item, index) => {
-                           console.log(item + "---")
-                           return (<ListA key={index} data={item} />)
+                        Object.entries(checkboxValues).map(([key, value], index) => {
+
+                           if (value === true) {
+                              return (<ListA key={index} data={[key, value]} handleCheckboxChange={handleCheckboxChange} />)
+                           }
+                           else {
+                              return null
+                           }
                         })
                      }
+
                   </div>
                </div>
-               <button>Submit</button>
+               <button onClick={submitHandle}>Submit</button>
             </div>
          </div>
 
@@ -210,14 +225,19 @@ const ExamStepA = () => {
    )
 }
 
-const ListA = ({ data }) => {
-   // console.log(data + "+++")
+const ListA = ({ data, handleCheckboxChange }) => {
+   // console.log(data);
+   const [key, value] = data;
+
    return (
-      <div className='exam-sub-li-2'>
-         <p>{data}</p>
-      </div>
-   )
-}
+      <label className='exam-sub-li-1 esl-1-2' key={key}>
+         <span>{` ${key}: ${value}`}</span>
+         <p onClick={() => handleCheckboxChange(key)}>
+
+         </p>
+      </label>
+   );
+};
 
 const ExamStepB = () => {
    return (

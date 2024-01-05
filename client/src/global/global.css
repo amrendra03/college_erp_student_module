@@ -38,4 +38,6 @@
    --score-s: url('./src/assets/status/material-symbols_sleep-score.svg');
    --rupee-y: url('./src/assets/status/tabler_coin-rupee-filled.svg');
 
+   --delete: url('./src/assets/material-symbols_delete-outline.svg');
+
 }
