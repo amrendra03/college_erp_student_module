@@ -11,7 +11,7 @@ const Exam = () => {
                <div className='exam-list-container'>
 
 
-                  {Array.from({ length: 60 }).map((_, index) => (
+                  {Array.from({ length: 4 }).map((_, index) => (
                      <ExamList key={index} />
                   ))}
 
@@ -70,9 +70,9 @@ const ExamProcess = () => {
    }
    return (
       <>
-         <ExamStatus status={3} />
+         <ExamStatus status={4} />
          {
-            setps('A')
+            setps('C')
          }
 
       </>
@@ -242,14 +242,109 @@ const ListA = ({ data, handleCheckboxChange }) => {
 const ExamStepB = () => {
    return (
       <div className='exam-steps'>
-         Setps B
+         <div className='ex-sa-1'>
+            <table >
+               <tr>
+                  <td>B. Tech CSE (AI & ML)</td>
+                  <td>Sem 7th</td>
+                  <td>Total sub 7</td>
+                  <td>Ref id: 12342379</td>
+               </tr>
+               <tr>
+                  <td>Amrendra Yadav</td>
+                  <td>2004282530002</td>
+                  <td>Put</td>
+                  <td>$2000</td>
+               </tr>
+
+            </table>
+         </div>
+         <div className='ex-sa-2'>
+            <div className='ex-sb-opt'>
+               <p className='ex-sa-n'>Payment Options</p>
+               <div className="ex-sb-py-list" >
+
+                  <div className='ex-sb-py-o1'>
+                     <p>
+                        BHIM UPI
+                     </p>
+                  </div>
+                  <div className='ex-sb-py-o1'>
+                     <p>
+                        Net Banking
+                     </p>
+                  </div>
+                  <div className='ex-sb-py-o1'>
+                     <p>
+                        Credit Card
+                     </p>
+                  </div>
+                  <div className='ex-sb-py-o1'>
+                     <p>
+                        Debit Card
+                     </p>
+                  </div>
+                  <div className='ex-sb-py-o1'>
+                     <p>
+                        PayTm
+                     </p>
+                  </div>
+                  <div className='ex-sb-py-o1'>
+                     <p>
+                        Google  Pay
+                     </p>
+                  </div>
+                  <div className='ex-sb-py-o1'>
+                     <p>
+                        Phone Pay
+                     </p>
+                  </div>
+                  <div className='ex-sb-py-o1'>
+                     <p>
+                        NEFT
+                     </p>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+
       </div>
    )
 }
 const ExamStepC = () => {
    return (
-      <div>
-         Setps A
+      <div className='exam-steps'>
+         <div className='ex-sa-1'>
+            <table >
+               <tr>
+                  <td>B. Tech CSE (AI & ML)</td>
+                  <td>Sem 7th</td>
+               </tr>
+               <tr>
+                  <td>Amrendra Yadav</td>
+                  <td>2004282530002</td>
+               </tr>
+            </table>
+         </div>
+         <div className='ex-sa-2'>
+            <div className='ex-sa-list'>
+               <p className='ex-sa-n'>Exam List</p>
+               <div className="ex-sa-list-c1" >
+
+               </div>
+            </div>
+            <div className='ex-sa-list-view'>
+               <div className='ex-sa-list-view-1'>
+                  <p className='ex-sa-n'>Selected Subject</p>
+                  <div className='ex-sa-list-view-1-1'>
+
+                  </div>
+               </div>
+               <button >Submit</button>
+            </div>
+         </div>
+
       </div>
    )
 }

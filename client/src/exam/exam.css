@@ -381,3 +381,74 @@
 .esl-1-2 span {
    margin-left: 10px;
 }
+
+.ex-sb-opt {
+   width: 100%;
+   height: 100%;
+
+   border-radius: 8px;
+   border: 1px solid #aeaeae;
+   background: #F6F6F6;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.ex-sb-py-list {
+   width: 100%;
+   height: 383px;
+
+   overflow: auto;
+
+   border-radius: 0 0 10px 10px;
+   display: grid;
+
+   grid-template-areas: 'a a a';
+   grid-template-rows: 180px;
+
+   align-items: center;
+   justify-content: center;
+}
+
+.ex-sb-py-list::-webkit-scrollbar {
+   display: none;
+}
+
+.ex-sb-py-o1 {
+   margin: 10px;
+   width: 180px;
+   height: 120px;
+   border-radius: 8px;
+   border: 1px solid #d4d4d4;
+   background: #FFF;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+
+.ex-sb-py-o1:hover {
+   background-color: #81fff0;
+
+   width: 210px;
+   height: 150px;
+}
+
+.ex-sb-py-o1:hover p {
+   color: #FFF;
+   font-size: 32px;
+}
+
+
+
+.ex-sb-py-o1>p {
+   color: #555;
+   text-align: center;
+   font-family: "Inria Sans";
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: normal;
+   letter-spacing: 1px;
+}
