@@ -10,27 +10,27 @@ const Nav = () => {
          </div>
          <div className='nav-c1'>
 
-            <NavLink to='/' className="Rectangle5  nav-txt" >
-               <div className="MaterialSymbolsDashboard" >
-               </div>
+            <NavLink to="/" className="Rectangle5  nav-txt" >
+               <div className="MaterialSymbolsDashboard" />
+
                Dashboard
             </NavLink>
-            <NavLink to='/course' className='Rectangle5 nav-txt'>
+            <NavLink to="/course" className='Rectangle5 nav-txt'>
                <div className="IconParkDegreeHat" />
                Course
             </NavLink>
 
-            < NavLink to='/exam' className='Rectangle5 nav-txt'>
+            < NavLink to="/exam" className='Rectangle5 nav-txt'>
                <div className="HealthiconsIExamMultipleChoice" />
                Exam
             </NavLink>
 
-            < NavLink to='faculty' div className='Rectangle5 nav-txt'>
+            < NavLink to="faculty" className='Rectangle5 nav-txt'>
                <div className="FaSolidUserFriends" />
                Faculty
             </NavLink>
 
-            <NavLink to='payment' className='Rectangle5 nav-txt'>
+            <NavLink to="payment" className='Rectangle5 nav-txt'>
                <div className="Group" />
                Payment
             </NavLink>
@@ -38,11 +38,11 @@ const Nav = () => {
          </div>
 
          <div className='nav-c2'>
-            <NavLink to='/form' className='Rectangle5 nav-txt'>
+            <NavLink to="/form" className='Rectangle5 nav-txt'>
                <div className="MajesticonsLogout" />
                Logout
             </NavLink>
-            <NavLink to='/setting' className='Rectangle5 nav-txt'>
+            <NavLink to="/setting" className='Rectangle5 nav-txt'>
                <div className="IconParkSolidSettingTwo" />
                Setting
             </NavLink>
