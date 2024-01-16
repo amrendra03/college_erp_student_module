@@ -22,6 +22,8 @@ public class CourseDetail {
 
    private String courseName;
 
+   private String courseBranch;
+
    @OneToMany(mappedBy = "courseDetail", cascade = CascadeType.ALL, orphanRemoval = true)
    private List<Semester> semesters;
 
