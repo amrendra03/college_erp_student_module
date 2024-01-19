@@ -10,15 +10,25 @@ import { API_URL } from '../config/env';
 // CourseDto Component
 const CourseForm = () => {
    const [courseData, setCourseData] = useState({
-      courseName: '',
-      batch: '',
       duration: '',
+      courseName: '',
+      courseBranch: '',
    });
 
-   const submitCourse = () => {
+   const submitCourse = async () => {
       // Implement API interaction for CourseDto
       console.log('Course submitted', courseData);
       // You can make an API call here with the courseData
+      try {
+
+
+         const res = await axios.post(`${API_URL}/student/course/`, courseData)
+         console.log(res.data);
+
+      } catch (error) {
+         console.log(error)
+
+      }
    };
 
    const handleChange = (e) => {
@@ -39,12 +49,12 @@ const CourseForm = () => {
             className="input"
          />
 
-         <label htmlFor="batch">Batch:</label>
+         <label htmlFor="batch">Branch:</label>
          <input
             type="text"
             id="batch"
-            name="batch"
-            value={courseData.batch}
+            name="courseBranch"
+            value={courseData.courseBranch}
             onChange={handleChange}
             required
             className="input"
@@ -60,6 +70,77 @@ const CourseForm = () => {
             required
             className="input"
          />
+
+         <button type="button" onClick={submitCourse} className="button">
+            Submit
+         </button>
+      </form>
+   );
+};
+
+// SemesterDto Component
+const SemesterForm = () => {
+   const [semData, setSemData] = useState({
+      courseId: '',
+      semesterNumber: '',
+      // courseBranch: '',
+   });
+
+   const submitCourse = async () => {
+      // Implement API interaction for CourseDto
+      console.log('Course submitted', semData);
+      // You can make an API call here with the courseData
+      try {
+
+
+         const res = await axios.post(`${API_URL}/student/course/`, semData)
+         console.log(res.data);
+
+      } catch (error) {
+         console.log(error)
+
+      }
+   };
+
+   const handleChange = (e) => {
+      setSemData({ ...semData, [e.target.name]: e.target.value });
+   };
+
+   return (
+      <form className="form-container">
+         <h2>Sem Information</h2>
+         <label htmlFor="courseName">Course Id:</label>
+         <input
+            type="number"
+            id="courseName"
+            name="courseId"
+            value={semData.courseId}
+            onChange={handleChange}
+            required
+            className="input"
+         />
+
+         <label htmlFor="batch">Sem No:</label>
+         <input
+            type="number"
+            id="batch"
+            name="semesterNumber"
+            value={semData.semesterNumber}
+            onChange={handleChange}
+            required
+            className="input"
+         />
+
+         {/* <label htmlFor="duration">Duration:</label>
+         <input
+            type="text"
+            id="duration"
+            name="duration"
+            value={semData.duration}
+            onChange={handleChange}
+            required
+            className="input"
+         /> */}
 
          <button type="button" onClick={submitCourse} className="button">
             Submit
@@ -384,10 +465,10 @@ const ListStudents = () => {
    const [students, setStudents] = useState([]);
 
    const studentList = async () => {
-      console.log("Fetching student data...");
+      // console.log("Fetching student data...");
       try {
          const response = await axios.get(`${API_URL}/student/all?pageNumber=&pageSize=&sortBy=rollNo`);
-         console.log('API Response:', response.data);
+         // console.log('API Response:', response.data);
          setStudents(response.data.content);
       } catch (error) {
          console.error('Error fetching student data:', error.message);
@@ -503,4 +584,5 @@ const SingleStudentForm = () => {
 
 
 
-export { CourseForm, ListCourses, ListStatus, ListStudents, SingleStudentForm, StatusForm, StudentForm };
+export { CourseForm, ListCourses, ListStatus, ListStudents, SemesterForm, SingleStudentForm, StatusForm, StudentForm };
+

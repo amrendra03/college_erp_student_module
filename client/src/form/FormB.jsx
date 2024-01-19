@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { CourseForm, ListCourses, ListStatus, ListStudents, SingleStudentForm, StatusForm, StudentForm } from './Form';
+import { CourseForm, ListCourses, ListStatus, ListStudents, SemesterForm, SingleStudentForm, StatusForm, StudentForm } from './Form';
 import { dummyCourses, dummyStatuses } from './data';
 
 
@@ -18,6 +18,9 @@ const FormB = () => {
             <button className="button" onClick={() => switchComponent('course')}>
                Course Form
             </button>
+            <button className="button" onClick={() => switchComponent('sem')}>
+               Sem Form
+            </button>
             <button className="button" onClick={() => switchComponent('status')}>
                Status Form
             </button>
@@ -26,6 +29,7 @@ const FormB = () => {
             </button>
 
             {activeComponent === 'course' && <CourseForm />}
+            {activeComponent === 'sem' && <SemesterForm />}
             {activeComponent === 'status' && <StatusForm />}
             {activeComponent === 'student' && <StudentForm />}
          </div>

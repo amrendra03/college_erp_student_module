@@ -1,16 +1,13 @@
 package com.server.service.impl.course;
 
-import com.server.dto.course.CourseDetailDTO;
-import com.server.dto.course.SemesterDTO;
+
 import com.server.dto.student.StudentCourseDetailDTO;
 import com.server.dto.student.StudentSemesterDTO;
-import com.server.entities.course.CourseDetail;
-import com.server.entities.course.Semester;
+
 import com.server.entities.student.StudentCourseDetail;
 import com.server.entities.student.StudentSemester;
 import com.server.exception.ResourceNotFoundException;
-import com.server.repository.course.CourseDetailRepo;
-import com.server.repository.course.SemesterRepo;
+
 import com.server.repository.course.StudentCourseDetailRepo;
 import com.server.repository.course.StudentSemesterRepo;
 import com.server.service.course.StudentCourseService;
