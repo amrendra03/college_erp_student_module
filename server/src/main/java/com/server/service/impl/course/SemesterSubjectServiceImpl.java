@@ -99,7 +99,7 @@ public class SemesterSubjectServiceImpl implements SemesterSubjectService {
     public ApiResponse delete(Long courseId, int semId, Long subId) {
         StudentSubject res = this.semesterSubjectRepo.findByCourseIdAndSemesterNumberAndSubjectId(courseId,semId,subId);
         this.semesterSubjectRepo.delete(res);
-        return new ApiResponse("Successfully deleted subId"+subId,true);
+        return new ApiResponse("Successfully deleted subId "+subId,true);
     }
 
 }

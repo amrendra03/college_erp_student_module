@@ -4,15 +4,20 @@ import com.server.dto.ApiResponse;
 import com.server.dto.student.StudentSubjectDto;
 import com.server.repository.course.SemesterSubjectRepo;
 import com.server.service.course.SemesterSubjectService;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/course")
+@Validated
 public class SemesterSubjectController {
 
     @Autowired
@@ -60,7 +65,9 @@ public class SemesterSubjectController {
     }
 
     @DeleteMapping("/{courseId}/semester/{semId}/subject/{subId}")
-    public ResponseEntity<?> getAll(@PathVariable Long courseId,@PathVariable int semId,@PathVariable Long subId){
+    public ResponseEntity<?> getAll(@PathVariable @NotNull(message = "Enter Valid Course Id") Long courseId,
+                                    @PathVariable @Min(value = 1,message = "Value must be positive") int semId,
+                                    @PathVariable @NotNull(message = "Enter Valid Semester Id") Long subId){
 
         ApiResponse res =this.semesterSubjectService.delete(courseId,semId,subId);
 
