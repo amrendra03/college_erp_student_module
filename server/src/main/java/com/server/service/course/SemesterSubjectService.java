@@ -1,5 +1,6 @@
 package com.server.service.course;
 
+import com.server.dto.ApiResponse;
 import com.server.dto.student.StudentSubjectDto;
 import com.server.entities.student.StudentSubject;
 
@@ -7,13 +8,14 @@ import java.util.List;
 
 public interface SemesterSubjectService {
 
-    StudentSubject create(Long id, StudentSubjectDto sem);
+    StudentSubjectDto create(Long courseId,Long semId, StudentSubjectDto sub);
 
-    StudentSubject update(StudentSubjectDto courseDetailDTO, Long id);
+    StudentSubjectDto update(Long courseId,int semId,Long subId,StudentSubjectDto courseDetailDTO);
 
-    StudentSubject get(Long subId);
+    StudentSubjectDto get(Long courseId,int semId,Long subId);
 
-    List<StudentSubject> getAll(Long semId);
+    List<StudentSubjectDto> getAll(Long courseId,int semId);
 
-    void delete(Long id);
+    ApiResponse delete(Long courseId, int semId, Long subId);
+
 }

@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
 
    // resourse not found exception
    @ExceptionHandler(ResourceNotFoundException.class)
-   public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandlerr(ResourceNotFoundException ex) {
+   public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFoundException ex) {
       String message = ex.getMessage();
       ApiResponse apiResponse = new ApiResponse(message, false);
       return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.NOT_FOUND);
@@ -34,6 +34,13 @@ public class GlobalExceptionHandler {
       String message = ex.getMessage();
       ApiResponse apiResponse = new ApiResponse(message, false);
       return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.NOT_FOUND);
+   }
+
+   @ExceptionHandler(IllegalArgumentException.class)
+   public ResponseEntity<ApiResponse> handleIllegalArgummentException(IllegalArgumentException ex){
+      String message = ex.getMessage();
+      ApiResponse apiResponse= new ApiResponse(message,false);
+      return new ResponseEntity<>(apiResponse,HttpStatus.BAD_REQUEST);
    }
 
 }

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,17 +39,21 @@ public class StudentCourseServiceImpl implements StudentCourseService {
     }
 
     @Override
-    public StudentCourseDetailDTO update(StudentCourseDetailDTO x, Long id) {
-        StudentCourseDetail  y = this.courseDetailRepo.findById(id)
+    public StudentCourseDetailDTO update(StudentCourseDetailDTO updatedCourseDetail, Long id) {
+        StudentCourseDetail existingCourseDetail = this.courseDetailRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Course id not found !.", "Course id", id));
 
-        if (x.getCourseName() != y.getCourseName())
-            y.setCourseName(x.getCourseName());
-        if (x.getDuration() != y.getDuration())
-            y.setDuration(x.getDuration());
+        if (!Objects.equals(updatedCourseDetail.getCourseName(), existingCourseDetail.getCourseName())) {
+            existingCourseDetail.setCourseName(updatedCourseDetail.getCourseName());
+        }
 
-        return this.modelMapper.map(this.courseDetailRepo.save(y), StudentCourseDetailDTO.class);
+        if (updatedCourseDetail.getDuration() != existingCourseDetail.getDuration()) {
+            existingCourseDetail.setDuration(updatedCourseDetail.getDuration());
+        }
+
+        return this.modelMapper.map(this.courseDetailRepo.save(existingCourseDetail), StudentCourseDetailDTO.class);
     }
+
 
     @Override
     public StudentCourseDetailDTO get(Long id) {

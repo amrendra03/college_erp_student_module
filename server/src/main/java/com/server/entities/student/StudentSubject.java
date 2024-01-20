@@ -18,6 +18,10 @@ public class StudentSubject {
    private String subjectName;
    private String facultyName;
 
+   private int semesterNumber;
+
+   private Long courseId;
+
    @ManyToOne
    @JoinColumn(name = "student_semester_id")
    private StudentSemester studentSemester;
