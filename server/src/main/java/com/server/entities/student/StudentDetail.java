@@ -19,6 +19,13 @@ public class StudentDetail {
     private Long studentId;
 
     private String name;
+
+    private String email;
+
+    private String phone;
+
+    private Date DOB;
+
     private String rollNo;
     private String enrollmentNo;
     private Date registrationDate;

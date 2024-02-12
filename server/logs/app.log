@@ -1,0 +1,93 @@
+15:22:43.698 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 16352 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+15:22:43.709 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+15:22:43.710 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+15:22:52.437 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 9.228 seconds (process running for 10.786)
+15:22:52.446 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+15:59:50.140 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 15076 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+15:59:50.144 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+15:59:50.145 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+15:59:58.024 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.303 seconds (process running for 9.383)
+15:59:58.035 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+16:04:40.475 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 20220 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+16:04:40.480 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+16:04:40.481 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+16:04:51.103 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 11.061 seconds (process running for 12.086)
+16:04:51.131 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+16:09:16.808 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 17364 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+16:09:16.811 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+16:09:16.813 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+16:09:24.359 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 7.972 seconds (process running for 8.991)
+16:09:24.370 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+17:04:38.621 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 15980 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:04:38.624 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:04:38.625 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:04:47.036 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.836 seconds (process running for 9.908)
+17:04:47.043 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+17:04:52.716 [http-nio-8085-exec-1] INFO  com.server.controller.student.StudentControllerDetail - Creating a new student:StudentRegisterDTO(name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null)
+17:04:52.717 [http-nio-8085-exec-1] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Received Student registration request: StudentRegisterDTO(name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null)
+17:04:52.752 [http-nio-8085-exec-1] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Save Student registration response: StudentDetail(studentId=null, name=John Doe, email=john.doe@example.com, phone=1234567890, DOB=null, rollNo=null, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null, statuses=null)
+17:04:52.871 [http-nio-8085-exec-1] INFO  com.server.controller.student.StudentControllerDetail - Created student: StudentDetailDTO(studentId=2, name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null)
+17:05:02.051 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentControllerDetail - Creating a new student:StudentRegisterDTO(name=null, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null)
+17:05:02.051 [http-nio-8085-exec-3] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Received Student registration request: StudentRegisterDTO(name=null, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null)
+17:05:02.052 [http-nio-8085-exec-3] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Save Student registration response: StudentDetail(studentId=null, name=null, email=john.doe@example.com, phone=1234567890, DOB=null, rollNo=null, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null, statuses=null)
+17:05:02.066 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentControllerDetail - Created student: StudentDetailDTO(studentId=3, name=null, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null)
+17:05:25.488 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 16968 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:05:25.492 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:05:25.494 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:05:35.209 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 10.14 seconds (process running for 11.142)
+17:05:35.228 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+17:11:44.243 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 3916 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:11:44.246 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:11:44.248 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:11:51.972 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.171 seconds (process running for 9.067)
+17:11:51.981 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+17:12:12.413 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Creating a new student:StudentRegisterDTO(name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null)
+17:12:12.414 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Received Student registration request: StudentRegisterDTO(name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null)
+17:12:12.463 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Save Student registration response: StudentDetail(studentId=null, name=John Doe, email=john.doe@example.com, phone=1234567890, DOB=null, rollNo=null, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null, statuses=null)
+17:12:12.655 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Created student: StudentDetailDTO(studentId=4, name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=null, DOB=null, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null)
+17:13:44.147 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 17388 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:13:44.150 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:13:44.152 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:13:52.064 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.335 seconds (process running for 9.243)
+17:13:52.077 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+17:15:08.888 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 13252 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:15:08.892 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:15:08.894 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:15:17.047 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.586 seconds (process running for 9.516)
+17:15:17.056 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+17:26:47.840 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 14692 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:26:47.843 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:26:47.845 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:26:55.199 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 7.793 seconds (process running for 8.836)
+17:26:55.209 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+17:31:49.781 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 1240 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:31:49.784 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:31:49.785 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:32:27.654 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 16560 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:32:27.660 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:32:27.661 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:32:35.455 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.219 seconds (process running for 9.069)
+17:32:35.463 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+22:04:03.808 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 14464 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+22:04:03.812 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+22:04:03.813 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+22:04:12.339 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 9.058 seconds (process running for 10.516)
+22:04:12.349 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+22:04:51.984 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Creating a new student:StudentRegisterDTO(name=John Doe, email=null, phone=null, rollNo=null, DOB=null)
+22:04:51.985 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Received Student registration request: StudentRegisterDTO(name=John Doe, email=null, phone=null, rollNo=null, DOB=null)
+22:04:52.022 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Save Student registration response: StudentDetail(studentId=null, name=John Doe, email=null, phone=null, DOB=null, rollNo=null, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null, statuses=null)
+22:04:52.124 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Created student: StudentDetailDTO(studentId=5, name=John Doe, email=null, phone=null, rollNo=null, DOB=null, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null)
+22:05:21.701 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 8596 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+22:05:21.704 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+22:05:21.706 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+22:05:29.080 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 7.79 seconds (process running for 8.923)
+22:05:29.088 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+22:24:26.831 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 8316 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+22:24:26.834 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+22:24:26.836 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+22:24:34.836 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.487 seconds (process running for 9.461)
+22:24:34.844 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+22:24:44.705 [http-nio-8085-exec-1] INFO  com.server.controller.student.StudentControllerDetail - Creating a new student:StudentRegisterDTO(name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=ABC123, DOB=Mon Jan 01 05:30:00 IST 1990)
+22:24:44.707 [http-nio-8085-exec-1] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Received Student registration request: StudentRegisterDTO(name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=ABC123, DOB=Mon Jan 01 05:30:00 IST 1990)
+22:24:44.794 [http-nio-8085-exec-1] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Save Student registration response: StudentDetail(studentId=null, name=John Doe, email=john.doe@example.com, phone=1234567890, DOB=Mon Jan 01 05:30:00 IST 1990, rollNo=ABC123, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null, statuses=null)
+22:24:45.043 [http-nio-8085-exec-1] INFO  com.server.controller.student.StudentControllerDetail - Created student: StudentDetailDTO(studentId=6, name=John Doe, email=john.doe@example.com, phone=1234567890, rollNo=ABC123, DOB=Mon Jan 01 05:30:00 IST 1990, enrollmentNo=null, registrationDate=null, studentCourseRegistrations=null)

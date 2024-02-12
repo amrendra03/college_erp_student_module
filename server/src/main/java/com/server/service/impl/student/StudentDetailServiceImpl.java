@@ -1,10 +1,15 @@
 package com.server.service.impl.student;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.server.dto.student.StudentRegisterDTO;
+import com.server.exception.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,15 +27,20 @@ public class StudentDetailServiceImpl implements StudentService {
    @Autowired
    private ModelMapper modelMapper;
 
+   private static  final Logger log = LoggerFactory.getLogger(StudentDetailServiceImpl.class);
+
    // create
    @Override
-   public StudentDetailDTO creat(StudentDetailDTO x) {
+   public StudentDetailDTO creat(StudentRegisterDTO req) {
 
-      StudentDetail st = this.modelMapper.map(x, StudentDetail.class);
+      log.info("Received Student registration request: {}", req);
+      StudentDetail st = this.modelMapper.map(req, StudentDetail.class);
 
-      StudentDetail y = this.studentRepo.save(st);
+      log.info("Save Student registration response: {}", st);
 
-      return this.modelMapper.map(y, StudentDetailDTO.class);
+      StudentDetail res = this.studentRepo.save(st);
+
+      return this.modelMapper.map(res, StudentDetailDTO.class);
    }
 
    // update
@@ -38,20 +48,32 @@ public class StudentDetailServiceImpl implements StudentService {
    public StudentDetailDTO update(StudentDetailDTO dto, Long id) {
       Optional<StudentDetail> x = this.studentRepo.findById(id);
 
-      StudentDetail y = x.get();
+      Optional<StudentDetail> optionalStudent = this.studentRepo.findById(id);
 
-      if (y.getName() != dto.getName())
-         y.setName(dto.getName());
-
-      return this.modelMapper.map(x, StudentDetailDTO.class);
+      if (optionalStudent.isPresent()) {
+         StudentDetail existingStudent = optionalStudent.get();
+         if (!Objects.equals(existingStudent.getName(), dto.getName())) {
+            existingStudent.setName(dto.getName());
+            this.studentRepo.save(existingStudent);
+         }
+         return this.modelMapper.map(existingStudent, StudentDetailDTO.class);
+      } else {
+         log.warn("Student with ID {} not found for update.", id);
+         throw new ResourceNotFoundException("Student not found for update.", "Student ID", id);
+      }
    }
 
    // get
    @Override
    public StudentDetailDTO get(Long id) {
-      Optional<StudentDetail> x = this.studentRepo.findById(id);
+      Optional<StudentDetail> optionalStudent = this.studentRepo.findById(id);
 
-      return this.modelMapper.map(x.get(), StudentDetailDTO.class);
+      if (optionalStudent.isPresent()) {
+         return this.modelMapper.map(optionalStudent.get(), StudentDetailDTO.class);
+      } else {
+         log.warn("Student with ID {} not found.", id);
+         throw new ResourceNotFoundException("Student not found.", "Student ID", id);
+      }
    }
 
    // get all
@@ -59,17 +81,23 @@ public class StudentDetailServiceImpl implements StudentService {
    public List<StudentDetailDTO> getAll() {
       List<StudentDetail> x = this.studentRepo.findAll();
 
-      List<StudentDetailDTO> y = x.stream().map((x2) -> this.modelMapper.map(x2, StudentDetailDTO.class))
+      List<StudentDetailDTO> res = x.stream().map((x2) -> this.modelMapper.map(x2, StudentDetailDTO.class))
             .collect(Collectors.toList());
 
-      return y;
+      return res;
    }
 
    // delete
    @Override
    public void delete(Long id) {
-      Optional<StudentDetail> x = this.studentRepo.findById(id);
-      this.studentRepo.delete(x.get());
+      Optional<StudentDetail> optionalStudent = this.studentRepo.findById(id);
+
+      if (optionalStudent.isPresent()) {
+         this.studentRepo.delete(optionalStudent.get());
+      } else {
+         log.warn("Student with ID {} not found for deletion.", id);
+         throw new ResourceNotFoundException("Student not found for deletion.", "Student ID", id);
+      }
    }
 
 }

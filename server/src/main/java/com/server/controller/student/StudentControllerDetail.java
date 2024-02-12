@@ -1,10 +1,20 @@
 package com.server.controller.student;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.server.constant.API;
+import com.server.dto.student.StudentRegisterDTO;
+import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,48 +29,76 @@ import com.server.dto.student.StudentDetailDTO;
 import com.server.service.student.StudentService;
 
 @RestController
-@RequestMapping("/st1")
+@RequestMapping(API.student)
+@Validated
 public class StudentControllerDetail {
 
    @Autowired
    private StudentService studentService;
 
+   private  static  final Logger Log = LoggerFactory.getLogger(StudentControllerDetail.class);
+
    // create
    @PostMapping("/")
-   public ResponseEntity<StudentDetailDTO> create(@RequestBody StudentDetailDTO st) {
+   public ResponseEntity<?> create(@Valid @RequestBody StudentRegisterDTO st, BindingResult bindingResult) {
 
-      StudentDetailDTO x = this.studentService.creat(st);
+      Log.info("Creating a new student:{}",st);
 
-      return new ResponseEntity<>(x, HttpStatus.CREATED);
+      if (bindingResult.hasErrors()) {
+         // If there are validation errors, build a response with error details
+         Map<String,String> errors = new HashMap<>();
+         for (FieldError error : bindingResult.getFieldErrors()) {
+            errors.put("-", error.getDefaultMessage());
+         }
+         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+      }
+
+      StudentDetailDTO res = this.studentService.creat(st);
+
+      Log.info("Created student: {}",res);
+      return new ResponseEntity<>(res, HttpStatus.CREATED);
    }
 
    // update
    @PutMapping("/{id}")
    public ResponseEntity<StudentDetailDTO> update(@RequestBody StudentDetailDTO st, @PathVariable Long id) {
 
-      StudentDetailDTO x = this.studentService.update(st, id);
+      Log.info("Updating student with Id{}: {}",id,st);
+      StudentDetailDTO res = this.studentService.update(st, id);
 
-      return new ResponseEntity<>(x, HttpStatus.OK);
+      Log.info("Update student:{}",res);
+      return new ResponseEntity<>(res, HttpStatus.OK);
    }
 
    // get
    @GetMapping("/{id}")
    public ResponseEntity<StudentDetailDTO> get(@PathVariable Long id) {
-      StudentDetailDTO st = this.studentService.get(id);
-      return new ResponseEntity<>(st, HttpStatus.OK);
+      Log.info("Fetching student with id: {}",id);
+
+      StudentDetailDTO res = this.studentService.get(id);
+
+      Log.info("Fetched student: {}",res);
+      return new ResponseEntity<>(res, HttpStatus.OK);
    }
 
    // get all
    @GetMapping("/")
    public ResponseEntity<List<StudentDetailDTO>> getAll() {
-      List<StudentDetailDTO> st = this.studentService.getAll();
-      return new ResponseEntity<>(st, HttpStatus.OK);
+
+      Log.info(" Fetching all student");
+      List<StudentDetailDTO> res = this.studentService.getAll();
+
+      Log.info("Fetched {} students",res);
+      return new ResponseEntity<>(res, HttpStatus.OK);
    }
 
    @DeleteMapping("/{id}")
    public ResponseEntity<ApiResponse> delete(@PathVariable Long id) {
 
+      Log.info("Deleting student with id: {}",id);
       this.studentService.delete(id);
+
+      Log.info("Deleted student with Id: {}",id);
       return new ResponseEntity<>(new ApiResponse("Deleted Student successfully", true), HttpStatus.OK);
    }
 
