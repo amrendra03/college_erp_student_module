@@ -44,15 +44,6 @@ public class StudentControllerDetail {
 
       Log.info("Creating a new student:{}",st);
 
-      if (bindingResult.hasErrors()) {
-         // If there are validation errors, build a response with error details
-         Map<String,String> errors = new HashMap<>();
-         for (FieldError error : bindingResult.getFieldErrors()) {
-            errors.put("-", error.getDefaultMessage());
-         }
-         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
-      }
-
       StudentDetailDTO res = this.studentService.creat(st);
 
       Log.info("Created student: {}",res);

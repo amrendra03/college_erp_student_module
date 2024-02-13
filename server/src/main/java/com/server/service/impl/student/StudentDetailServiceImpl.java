@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.server.dto.ApiResponse;
 import com.server.dto.student.StudentRegisterDTO;
 import com.server.exception.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
@@ -46,21 +47,69 @@ public class StudentDetailServiceImpl implements StudentService {
    // update
    @Override
    public StudentDetailDTO update(StudentDetailDTO dto, Long id) {
-      Optional<StudentDetail> x = this.studentRepo.findById(id);
 
+      log.info("Processing Update Student ID {}:",id);
       Optional<StudentDetail> optionalStudent = this.studentRepo.findById(id);
 
       if (optionalStudent.isPresent()) {
          StudentDetail existingStudent = optionalStudent.get();
-         if (!Objects.equals(existingStudent.getName(), dto.getName())) {
-            existingStudent.setName(dto.getName());
-            this.studentRepo.save(existingStudent);
+
+         //RollNo and EnrollmentNo set
+         if (existingStudent.getRollNo() == null && existingStudent.getEnrollmentNo() == null) {
+            log.info("Student Roll no and Enrollment no not Assigned...");
+
+            String latestRollNo = studentRepo.findLatestRollNo();
+            String latestEnrollmentNo = studentRepo.findLatestEnrollmentNo();
+
+            existingStudent.setRollNo(generateRollOrEnrollmentNo(latestRollNo, "RN10000"));
+            existingStudent.setEnrollmentNo(generateRollOrEnrollmentNo(latestEnrollmentNo, "EN10000"));
+
+            log.info("Assigned RollNo: {} and EnrollmentNo: {} to the student.", existingStudent.getRollNo(), existingStudent.getEnrollmentNo());
+         } else {
+            log.info("Student Roll no and Enrollment No already Assigned");
          }
-         return this.modelMapper.map(existingStudent, StudentDetailDTO.class);
+
+         log.info("Ready to save in Table Student: {}",existingStudent);
+
+         existingStudent.setName(dto.getName());
+         existingStudent.setEmail(dto.getEmail());
+         existingStudent.setPhone(dto.getPhone());
+         existingStudent.setDOB(dto.getDOB());
+
+         StudentDetail res=null;
+         res = this.studentRepo.save(existingStudent);
+         log.debug("Response after saved in Table: {}",res);
+
+         return this.modelMapper.map(res, StudentDetailDTO.class);
       } else {
          log.warn("Student with ID {} not found for update.", id);
          throw new ResourceNotFoundException("Student not found for update.", "Student ID", id);
       }
+   }
+
+   private String generateRollOrEnrollmentNo(String latestValue, String defaultValue) {
+      if (latestValue == null) {
+         log.debug("Latest value is null.");
+         return defaultValue;
+      } else {
+         log.debug("Found latest value: {}", latestValue);
+         return alphaString(latestValue);
+      }
+   }
+
+   // Handle Alpha numeric value in String for Roll No nad Enrollment No
+   public  String alphaString(String input){
+
+      String alphaPart = input.replaceAll("[^A-Za-z]", "");
+      String numericPart = input.replaceAll("[^0-9]", "");
+
+      // Increment the numeric part
+      int numericValue = Integer.parseInt(numericPart);
+      numericValue++;
+
+      // Combine alpha and incremented numeric parts
+      String result = alphaPart + numericValue;
+      return result;
    }
 
    // get

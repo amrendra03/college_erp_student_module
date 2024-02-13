@@ -18,15 +18,11 @@ import java.util.logging.Logger;
 
 @ControllerAdvice
 public class ValidationExceptionHandler extends ResponseEntityExceptionHandler {
-
-//    private static final Logger log = (Logger) LoggerFactory.getLogger(ValidationExceptionHandler.class);
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<?> handleConstraintViolation(ConstraintViolationException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getConstraintViolations().forEach(violation ->
                 errors.put(violation.getPropertyPath().toString(), violation.getMessage()));
-
-//        log.info(errors.toString());
         return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
     }
 

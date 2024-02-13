@@ -20,8 +20,6 @@ public class StudentRegisterDTO {
     @Pattern(regexp = "\\d{10}", message = "Phone number must be 10 digits")
     private String phone;
 
-    private String rollNo;
-
     @NotNull(message = "Date of Birth must not be null")
     @Past(message = "Date of Birth must be in the past")
     @JsonFormat(pattern = "yyyy-MM-dd")
