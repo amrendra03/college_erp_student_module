@@ -14,4 +14,8 @@ public interface StudentDetailRepo extends JpaRepository<StudentDetail, Long> {
     @Query("SELECT MAX(s.enrollmentNo) FROM StudentDetail s")
     String findLatestEnrollmentNo();
 
+    StudentDetail findByEmail(String email);
+
+    StudentDetail findByRollNo(String rollNo);
+
 }

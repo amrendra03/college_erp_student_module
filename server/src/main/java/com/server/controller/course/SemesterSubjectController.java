@@ -1,5 +1,6 @@
 package com.server.controller.course;
 
+import com.server.constant.API;
 import com.server.dto.ApiResponse;
 import com.server.dto.student.StudentSubjectDto;
 import com.server.repository.course.SemesterSubjectRepo;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/course")
+@RequestMapping(API.student+"/course")
 @Validated
 public class SemesterSubjectController {
 

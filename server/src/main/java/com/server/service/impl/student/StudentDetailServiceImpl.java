@@ -8,10 +8,12 @@ import java.util.stream.Collectors;
 import com.server.dto.ApiResponse;
 import com.server.dto.student.StudentRegisterDTO;
 import com.server.exception.ResourceNotFoundException;
+import com.server.exception.custom.UserExistAlready;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.server.dto.student.StudentDetailDTO;
@@ -28,16 +30,25 @@ public class StudentDetailServiceImpl implements StudentService {
    @Autowired
    private ModelMapper modelMapper;
 
+   @Autowired
+   private BCryptPasswordEncoder bCryptPasswordEncoder;
+
    private static  final Logger log = LoggerFactory.getLogger(StudentDetailServiceImpl.class);
 
    // create
    @Override
    public StudentDetailDTO creat(StudentRegisterDTO req) {
 
+      req.setPassword(bCryptPasswordEncoder.encode(req.getPassword()));
+
       log.info("Received Student registration request: {}", req);
       StudentDetail st = this.modelMapper.map(req, StudentDetail.class);
 
       log.info("Save Student registration response: {}", st);
+
+      if(this.studentRepo.findByEmail(st.getEmail())!=null){
+         throw new UserExistAlready("Email Already exist");
+      }
 
       StudentDetail res = this.studentRepo.save(st);
 

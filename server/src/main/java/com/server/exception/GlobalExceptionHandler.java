@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import com.server.exception.custom.UserExistAlready;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -47,5 +49,20 @@ public class GlobalExceptionHandler {
       ApiResponse apiResponse= new ApiResponse(message,false);
       return new ResponseEntity<>(apiResponse,HttpStatus.BAD_REQUEST);
    }
+
+   @ExceptionHandler(UserExistAlready.class)
+   public ResponseEntity<ApiResponse> userAlreadyExistHandler(UserExistAlready ex){
+      String message = ex.getMessage();
+      ApiResponse apiResponse= new ApiResponse(message,false);
+      return new ResponseEntity<>(apiResponse,HttpStatus.BAD_REQUEST);
+   }
+
+   @ExceptionHandler(ExpiredJwtException.class)
+   public ResponseEntity<ApiResponse> jwtTokenExpiredHandler (ExpiredJwtException ex){
+      String message = ex.getMessage();
+      ApiResponse apiResponse= new ApiResponse(message,false);
+      return new ResponseEntity<>(apiResponse,HttpStatus.BAD_REQUEST);
+   }
+
 
 }

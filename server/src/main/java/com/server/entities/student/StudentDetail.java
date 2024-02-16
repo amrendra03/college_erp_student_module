@@ -1,5 +1,6 @@
 package com.server.entities.student;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -8,10 +9,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Data
 @Entity
-public class StudentDetail {
+public class StudentDetail implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentId;
@@ -19,9 +23,12 @@ public class StudentDetail {
     @NotBlank(message = "Name must not be blank")
     private String name;
 
+    @Column(unique = true)
     @NotBlank(message = "Email must not be blank")
     @Email(message = "Invalid email format")
     private String email;
+
+    private String password;
 
     @NotBlank(message = "Phone must not be blank")
     @Pattern(regexp = "\\d{10}", message = "Phone number must be 10 digits")
@@ -33,6 +40,9 @@ public class StudentDetail {
     @Temporal(TemporalType.DATE)
     private Date DOB;
 
+    @NotBlank(message = "ROLE of User must define")
+    private String role;
+
     @Column(unique = true)
     private String rollNo;
 
@@ -40,6 +50,7 @@ public class StudentDetail {
     private String enrollmentNo;
 
     private Date registrationDate;
+
 
     @OneToMany(mappedBy = "studentDetail", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StudentCourseRegistration> studentCourseRegistrations;
@@ -50,5 +61,37 @@ public class StudentDetail {
     // Constructor to generate rollNo and enrollmentNo
     public StudentDetail() {
         this.registrationDate = new Date();
+    }
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

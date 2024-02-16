@@ -28,6 +28,7 @@ public class StudentDetailDTO {
    @JsonFormat(pattern = "yyyy-MM-dd")
    private Date DOB;
 
+   public String role;
 
    private String rollNo;
 

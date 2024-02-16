@@ -24,4 +24,9 @@ public class StudentRegisterDTO {
     @Past(message = "Date of Birth must be in the past")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date DOB;
+
+    @NotBlank(message = "Password must not be blank")
+    private String password;
+
+    private String role;
 }

@@ -39,16 +39,7 @@ public class StudentControllerDetail {
    private  static  final Logger Log = LoggerFactory.getLogger(StudentControllerDetail.class);
 
    // create
-   @PostMapping("/")
-   public ResponseEntity<?> create(@Valid @RequestBody StudentRegisterDTO st, BindingResult bindingResult) {
-
-      Log.info("Creating a new student:{}",st);
-
-      StudentDetailDTO res = this.studentService.creat(st);
-
-      Log.info("Created student: {}",res);
-      return new ResponseEntity<>(res, HttpStatus.CREATED);
-   }
+   // JWT Controller
 
    // update
    @PutMapping("/{id}")
