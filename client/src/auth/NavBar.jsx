@@ -24,6 +24,15 @@ const NavBar = ({ authenticated, onLogout }) => {
          <Link to="/home" style={linkStyles}>
             Home
          </Link>
+         <Link to="/profile" style={linkStyles}>
+            Profile
+         </Link>
+         {authenticated && (
+            <Link to="/payment" style={linkStyles}>
+               Payment
+            </Link>
+         )}
+
          {authenticated ? (
             <button onClick={onLogout}>Logout</button>
          ) : (

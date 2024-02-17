@@ -1,7 +1,10 @@
 // Login.jsx
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const Login = ({ onLogin }) => {
+const Login = ({ onLogin, setRedirectedFrom }) => {
+   const navigate = useNavigate();
+   const location = useLocation();
    const [formData, setFormData] = useState({
       username: '',
       password: '',
@@ -25,15 +28,17 @@ const Login = ({ onLogin }) => {
          localStorage.setItem('token', token);
          // Notify the parent component about successful login
          onLogin();
+         // Redirect to the home page or the stored redirected route
+         navigate(location.state?.from || '/');
       } else {
          alert('Invalid username or password');
       }
    };
 
    const loginContainerStyles = {
-      width: '60%', // Set the width to 60% of the container
-      margin: 'auto', // Center the login box horizontally
-      marginTop: '100px', // Adjust the top margin as needed
+      width: '60%',
+      margin: 'auto',
+      marginTop: '100px',
       padding: '20px',
       border: '1px solid #ccc',
       borderRadius: '5px',
