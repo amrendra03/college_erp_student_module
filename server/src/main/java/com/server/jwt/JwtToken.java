@@ -18,7 +18,7 @@ import java.util.function.Function;
 @Component
 public class JwtToken {
 
-    private static final long JWT_TOKEN_VALIDITY = 1*60;
+    private static final long JWT_TOKEN_VALIDITY = 5*60;
 
     private final String secret ="amrendrayadavsecretkeyforjwtauthenticationforthecollegeerpstudentmoduleselfworkproject";
 

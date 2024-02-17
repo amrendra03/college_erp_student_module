@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import './form.css';
 
 import { useState } from 'react';
-import { API_URL } from '../config/env';
+import { API } from '../config/env';
 
 
 
@@ -22,7 +22,7 @@ const CourseForm = () => {
       try {
 
 
-         const res = await axios.post(`${API_URL}/student/course/`, courseData)
+         const res = await axios.post(`${API.HOST}/student/course/`, courseData)
          console.log(res.data);
 
       } catch (error) {
@@ -93,7 +93,7 @@ const SemesterForm = () => {
       try {
 
 
-         const res = await axios.post(`${API_URL}/student/course/`, semData)
+         const res = await axios.post(`${API.HOST}/student/course/`, semData)
          console.log(res.data);
 
       } catch (error) {
@@ -291,7 +291,7 @@ const StudentForm = () => {
          const { rollNo, ...studentDataWithoutRollNo } = studentData;
 
          console.log(studentDataWithoutRollNo);
-         const response = await axios.post(`${API_URL}/student/create`, studentDataWithoutRollNo);
+         const response = await axios.post(`${API.HOST}/student/create`, studentDataWithoutRollNo);
          console.log('API Response:', response.data);
       } catch (error) {
          console.error('Error submitting student data:', error.message);
@@ -303,7 +303,7 @@ const StudentForm = () => {
       console.log(studentData);
       try {
          // console.log(studentData);
-         const response = await axios.put(`${API_URL}/student/update/${studentData.rollNo}`, studentData);
+         const response = await axios.put(`${API.HOST}/student/update/${studentData.rollNo}`, studentData);
          console.log('API Response:', response.data);
       } catch (error) {
          console.error('Error submitting student data:', error.message);
@@ -467,7 +467,7 @@ const ListStudents = () => {
    const studentList = async () => {
       // console.log("Fetching student data...");
       try {
-         const response = await axios.get(`${API_URL}/student/all?pageNumber=&pageSize=&sortBy=rollNo`);
+         const response = await axios.get(`${API.HOST}/student/all?pageNumber=&pageSize=&sortBy=rollNo`);
          // console.log('API Response:', response.data);
          setStudents(response.data.content);
       } catch (error) {
@@ -482,7 +482,7 @@ const ListStudents = () => {
    const onDelete = async (rollNo) => {
       console.log("-- " + rollNo);
       try {
-         const response = await axios.delete(`${API_URL}/student/delete/${rollNo}`);
+         const response = await axios.delete(`${API.HOST}/student/delete/${rollNo}`);
          console.log('API Response:', response.data);
          // delete the studetn from memory
          setStudents((prevStudents) => prevStudents.filter((student) => student.rollNo !== rollNo));
@@ -541,7 +541,7 @@ const SingleStudentForm = () => {
 
    const getStudentInfo = async () => {
       try {
-         const response = await axios.get(`${API_URL}/student/get/${rollNo}`);
+         const response = await axios.get(`${API.HOST}/student/get/${rollNo}`);
          setStudentInfo(response.data);
          setError('');
       } catch (error) {

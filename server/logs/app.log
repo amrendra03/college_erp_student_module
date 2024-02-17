@@ -865,3 +865,23 @@ io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-02-16T12:11:18Z. Curren
 17:53:13.207 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
 17:53:13.207 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
 17:53:13.207 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+17:54:02.520 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 23800 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+17:54:02.525 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+17:54:02.526 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+17:54:09.370 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
+17:54:12.340 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 10.226 seconds (process running for 11.139)
+17:54:12.362 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+17:54:15.306 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+17:54:15.307 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+17:54:15.307 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+17:54:15.634 [http-nio-8085-exec-3] DEBUG com.server.jwt.JwtController - Received token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQGdtYWlsLmNvbSIsImlhdCI6MTcwODA4NjAxMiwiZXhwIjoxNzA4MDg2MDcyfQ.difYDi-nrHHRjoB7szt2jiu4KDJMwduyGpgbPv33WfcbMZ6q6x3MvBFZthg9IWHYWTjNd0jP1g760cMOFVzh8w
+17:54:15.634 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+17:54:15.635 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+17:54:15.635 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+17:54:17.195 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+17:54:17.196 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+17:54:17.196 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+17:54:17.206 [http-nio-8085-exec-5] DEBUG com.server.jwt.JwtController - Received token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQGdtYWlsLmNvbSIsImlhdCI6MTcwODA4NjAxMiwiZXhwIjoxNzA4MDg2MDcyfQ.difYDi-nrHHRjoB7szt2jiu4KDJMwduyGpgbPv33WfcbMZ6q6x3MvBFZthg9IWHYWTjNd0jP1g760cMOFVzh8w
+17:54:17.206 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+17:54:17.206 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+17:54:17.206 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
