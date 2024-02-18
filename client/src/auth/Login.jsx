@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import './login.css';
+
 const Login = ({ onLogin, setRedirectedFrom }) => {
    const navigate = useNavigate();
    const location = useLocation();
@@ -45,32 +47,86 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
       boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
    };
 
+   // return (
+   //    <div style={loginContainerStyles}>
+   //       <h2>Login</h2>
+   //       <form onSubmit={handleFormSubmit}>
+   //          <label>
+   //             Username:
+   //             <input
+   //                type="text"
+   //                name="username"
+   //                value={formData.username}
+   //                onChange={handleInputChange}
+   //             />
+   //          </label>
+   //          <label>
+   //             Password:
+   //             <input
+   //                type="password"
+   //                name="password"
+   //                value={formData.password}
+   //                onChange={handleInputChange}
+   //             />
+   //          </label>
+   //          <button type="submit">Login</button>
+   //       </form>
+   //    </div>
+   // );
+
+
+
    return (
-      <div style={loginContainerStyles}>
-         <h2>Login</h2>
-         <form onSubmit={handleFormSubmit}>
-            <label>
-               Username:
-               <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleInputChange}
-               />
-            </label>
-            <label>
-               Password:
-               <input
-                  type="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-               />
-            </label>
-            <button type="submit">Login</button>
-         </form>
+      <div className='login-a'>
+         <div className='login-a-a'>
+
+            <div className='login-a-icon'></div>
+
+            <h1>College ERP</h1>
+
+         </div>
+         <div className='login-a-b'>
+            <h1 className='login-ab-log'>Login</h1>
+            <div className='login-ab'>
+               <p className='login-p'>Email/ Roll no</p>
+               <div className='login-ab-a'>
+                  <div className='login-email'></div>
+                  <input type="text"
+                     name="username"
+                     value={formData.username}
+                     onChange={handleInputChange} />
+               </div>
+            </div>
+
+            <div className='login-ab' style={{ height: "100px" }}>
+               <p className='login-p'>Password</p>
+               <div className='login-ab-a'>
+                  <div className='login-password '></div>
+                  <input type="password"
+                     name="password"
+                     value={formData.password}
+                     onChange={handleInputChange} />
+               </div>
+               <p className='login-forget'>Forget password.</p>
+            </div>
+
+            <div className='login-ab-c' onClick={handleFormSubmit}> Login</div>
+
+            <div className='login-ab-d'>
+               <div className='login-abd-a'>
+                  <span style={{ backgroundImage: "var(--auth-faculty)" }}></span>
+                  <p>Faculty</p>
+               </div>
+               <div className='login-abd-a'>
+                  <span style={{ backgroundImage: "var(--auth-student)" }}></span>
+                  <p>Student</p>
+               </div>
+            </div>
+         </div>
       </div>
    );
+
+
 };
 
 export default Login;

@@ -1,6 +1,7 @@
 // App.jsx
 import React, { useEffect, useState } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import '../global/global.css';
 import Home from './Home';
 import Login from './Login';
 import NavBar from './NavBar';

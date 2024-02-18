@@ -39,4 +39,11 @@
 
    --delete: url('./src/assets/material-symbols_delete-outline.svg');
 
+   --auth-email: url('./src/assets/auth/email.svg');
+   --auth-password: url('./src/assets/auth/password.svg');
+   --auth-faculty: url('./src/assets/auth/faculty.svg');
+   --auth-student: url('./src/assets/auth/student.svg');
+   --auth-icon: url('./src/assets/auth/Icon.svg');
+   --auth-college_erp: url('./src/assets/auth/college_erp.svg');
+
 }
