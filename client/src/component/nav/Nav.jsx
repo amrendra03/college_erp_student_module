@@ -3,9 +3,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './nav.css';
 
-const Nav = () => {
+const Nav = ({ authenticated, onLogout }) => {
    return (
-      <div className="Nav">
+      <div className={authenticated ? 'Nav' : 'Nav navauuthset'} >
          <div className="Frame3" >
          </div>
          <div className='nav-c1'>
@@ -38,10 +38,13 @@ const Nav = () => {
          </div>
 
          <div className='nav-c2'>
-            <NavLink to="/form" className='Rectangle5 nav-txt'>
-               <div className="MajesticonsLogout" />
-               Logout
-            </NavLink>
+            {
+               authenticated ?
+                  <NavLink to="/logout" className='Rectangle5 nav-txt' onClick={onLogout}>
+                     <div className="MajesticonsLogout" />
+                     Logout
+                  </NavLink> : <></>
+            }
             <NavLink to="/setting" className='Rectangle5 nav-txt'>
                <div className="IconParkSolidSettingTwo" />
                Setting

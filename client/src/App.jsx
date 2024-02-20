@@ -1,63 +1,79 @@
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router';
 import './App.css';
+// import Form from './form/Form';
+import { useEffect, useState } from 'react';
+import './global/global.css';
+
+import { useCookies } from 'react-cookie';
+import Login from './auth/Login';
 import Nav from './component/nav/Nav';
 import Course from './course/Course';
 import Dashboard from './dashboard/Dashboard';
 import Exam from './exam/Exam';
 import Faculty from './faculty/Faculty';
-// import Form from './form/Form';
-import FormB from './form/FormB';
-import './global/global.css';
 import Payment from './payment/Payment';
 import Setting from './setting/Setting';
 
+
 function App() {
+
+  const [cookies] = useCookies(['token']);
+  const [authenticated, setAuthenticated] = useState(false);
+  const [redirectedFrom, setRedirectedFrom] = useState(null); // To store the redirected route
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isAuthenticatedUser = !!cookies.token;
+
+    // console.log(cookies.token);
+
+    // If not authenticated, store the current route in redirectedFrom state
+    if (!isAuthenticatedUser) {
+      setRedirectedFrom(location.pathname);
+    }
+
+    setAuthenticated(isAuthenticatedUser);
+  }, [cookies.token, location.pathname]);
+
+
+  const handleLogin = () => {
+    setAuthenticated(true);
+  };
+  const handleLogout = () => {
+    // Clear the token from cookies on logout
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    setAuthenticated(false);
+  };
+
+
   return (
-    <div className='app'>
-      <Nav />
+    <div className={authenticated ? 'app' : 'app2'}>
+      {console.log(authenticated)}
+      {authenticated ? <Nav authenticated={authenticated} onLogout={handleLogout} /> : <></>}
       <Routes>
-        <Route path='/' element={<Dashboard />} />
-        <Route path='/course' element={<Course />} />
-        <Route path="/exam" element={<Exam />} />
-        <Route path="/faculty" element={<Faculty />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path='/form' element={<FormB />} />
-        <Route path='/setting' element={<Setting />} />
+        <Route
+          path="/login"
+          element={authenticated ? (
+            <Navigate to={redirectedFrom || '/'} />
+          ) : (
+
+            <Login onLogin={handleLogin} setRedirectedFrom={setRedirectedFrom} />
+          )} />
+
+        <Route path='/' element={authenticated ? <Dashboard /> : <Navigate to='/login' />} />
+        <Route path='/course' element={authenticated ? <Course /> : <Navigate to='/login' />} />
+        <Route path='/exam' element={authenticated ? <Exam /> : <Navigate to='/login' />} />
+        <Route path='/faculty' element={authenticated ? <Faculty /> : <Navigate to='/login' />} />
+        <Route path='/payment' element={authenticated ? <Payment /> : <Navigate to='/login' />} />
+        <Route path='/setting' element={authenticated ? <Setting /> : <Navigate to='/login' />} />
+        <Route path='/logout' element={authenticated ? <></> : <Navigate to='/login' />} />
+
+        {/* <Route path='*' element={<Navigate to='/login' />} /> */}
       </Routes>
 
     </div>
-  )
+  );
 }
 
 export default App
-
-// function App() {
-//   const [authenticated, setAuthenticated] = useState(false);
-
-//   useEffect(() => {
-//     // Check for the presence of a token (modify this logic based on your authentication mechanism)
-//     // const token = localStorage.getItem('token');
-//     const isAuthenticatedUser = !!token;
-
-//     setAuthenticated(isAuthenticatedUser);
-//   }, []);
-
-//   return (
-//     <div className='app'>
-//       {authenticated && <Nav />}
-//       <Routes>
-//         <Route path='/' element={<Dashboard />} />
-//         <Route path='/login' element={<Login />} />
-//         <AuthenticatedRoute path='/course' element={<Course />} />
-//         <AuthenticatedRoute path="/exam" element={<Exam />} />
-//         <AuthenticatedRoute path="/faculty" element={<Faculty />} />
-//         <AuthenticatedRoute path="/payment" element={<Payment />} />
-//         <AuthenticatedRoute path='/form' element={<FormB />} />
-//         <AuthenticatedRoute path='/setting' element={<Setting />} />
-//         {!authenticated && <Navigate to={API.LOGIN} />} {/* Redirect to login page if not authenticated */}
-//       </Routes>
-//     </div>
-//   );
-// }
-
-// export default App;

@@ -11,6 +11,10 @@
    align-items: flex-start;
 }
 
+.navauthset {
+   display: none;
+}
+
 .Frame3 {
    width: 150px;
    height: 72px;
