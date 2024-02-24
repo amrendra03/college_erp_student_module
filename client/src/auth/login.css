@@ -48,7 +48,7 @@
 
 }
 
-.login-a-b {
+.login-a-bb {
 
    width: 50%;
    height: 450px;
@@ -60,9 +60,9 @@
 
 }
 
-.login-a-bb {
+.login-a-b {
    width: 400px;
-   height: 100%;
+   height: 450px;
 
    background-color: #fff;
    box-shadow: 5px 6px 5px 2px #00000055;
@@ -208,6 +208,7 @@
 
    .login-a {
       flex-direction: column;
+      height: 140vh;
    }
 
    .login-a-b {
@@ -264,5 +265,13 @@
 
    .login-ab-d {
       margin-bottom: 20px;
+   }
+
+   .login-email {
+      width: 30px;
+   }
+
+   .login-password {
+      width: 30px;
    }
 }

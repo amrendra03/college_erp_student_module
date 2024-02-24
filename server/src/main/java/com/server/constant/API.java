@@ -9,4 +9,6 @@ public final class API {
     public static final String auth = "/auth";
     public static final String login = "/login";
     public static final String checkToken = "/checktoken";
+
+    public static final String status="/status";
 }

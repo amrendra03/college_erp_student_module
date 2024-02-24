@@ -3,7 +3,7 @@ package com.server.dto.student;
 import lombok.Data;
 
 @Data
-public class StaudentStatusDTO {
+public class StudentStatusDTO {
 
    private Long id;
 

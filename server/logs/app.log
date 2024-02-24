@@ -1,150 +1,198 @@
-16:04:26.033 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 23172 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-16:04:26.042 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-16:04:26.044 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-16:04:32.467 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-16:04:33.911 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.359 seconds (process running for 9.744)
-16:04:33.918 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-16:12:30.240 [http-nio-8085-exec-4] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:12:30.245 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:12:30.245 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:12:30.247 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:12:30.362 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:12:30.701 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:12:30.806 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:12:30.806 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:12:30.807 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:12:30.814 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:12:30.815 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:12:30.815 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:12:30.901 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:12:30.901 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-16:13:19.846 [http-nio-8085-exec-5] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:13:19.846 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:13:19.846 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:13:19.846 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:13:19.846 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:13:19.850 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:13:19.915 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:13:19.916 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:13:19.916 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:13:19.921 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:13:19.921 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:13:19.921 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:13:19.922 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:13:19.922 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-16:13:44.517 [http-nio-8085-exec-9] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:13:44.517 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:13:44.517 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:13:44.517 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:13:44.517 [http-nio-8085-exec-9] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:13:44.522 [http-nio-8085-exec-9] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:13:44.595 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:13:44.595 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:13:44.596 [http-nio-8085-exec-9] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:13:44.598 [http-nio-8085-exec-9] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:13:44.598 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:13:44.598 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:13:44.599 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:13:44.599 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-16:14:03.981 [http-nio-8085-exec-3] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:14:03.981 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:14:03.981 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:14:03.981 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:14:03.981 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:14:03.985 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:14:04.056 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:14:04.056 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:14:04.056 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:14:04.060 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:14:04.060 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:14:04.060 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:14:04.061 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:14:04.062 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-16:15:04.383 [http-nio-8085-exec-5] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:15:04.383 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:15:04.383 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:15:04.383 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:15:04.383 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:15:04.386 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:15:04.454 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:15:04.455 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:15:04.455 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:15:04.457 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:15:04.457 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:15:04.457 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:15:04.458 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:15:04.458 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-16:17:54.190 [http-nio-8085-exec-10] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:17:54.190 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:17:54.190 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:17:54.190 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:17:54.190 [http-nio-8085-exec-10] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:17:54.194 [http-nio-8085-exec-10] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:17:54.260 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:17:54.260 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:17:54.260 [http-nio-8085-exec-10] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:17:54.262 [http-nio-8085-exec-10] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:17:54.262 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:17:54.262 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:17:54.263 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:17:54.263 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-16:21:17.055 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 13236 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-16:21:17.059 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-16:21:17.061 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-16:21:23.692 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-16:21:26.072 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 9.461 seconds (process running for 10.569)
-16:21:26.082 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-16:22:15.095 [http-nio-8085-exec-3] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:22:15.097 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:22:15.097 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:22:15.099 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:22:15.442 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:22:15.816 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:22:16.115 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:22:16.115 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:22:16.116 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:22:16.126 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:22:16.126 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:22:16.126 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:22:16.261 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:22:16.262 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-16:23:21.134 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 18176 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-16:23:21.137 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-16:23:21.138 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-16:23:28.133 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-16:23:32.657 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 11.893 seconds (process running for 13.066)
-16:23:32.682 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-16:23:45.200 [http-nio-8085-exec-4] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:23:45.202 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:23:45.202 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:23:45.204 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:23:45.504 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:23:45.879 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:23:46.182 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:23:46.183 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:23:46.183 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:23:46.192 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:23:46.193 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:23:46.193 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:23:46.300 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:23:46.300 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-16:29:39.981 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 19988 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-16:29:39.984 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-16:29:39.986 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-16:29:46.351 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-16:29:51.085 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 11.515 seconds (process running for 12.5)
-16:29:51.107 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-16:30:16.703 [http-nio-8085-exec-2] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-16:30:16.705 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-16:30:16.706 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-16:30:16.707 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-16:30:17.055 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:30:17.409 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:30:17.705 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-16:30:17.705 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-16:30:17.705 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-16:30:17.720 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-16:30:17.720 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-16:30:17.721 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-16:30:17.833 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-16:30:17.833 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
+16:24:42.266 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:24:42.266 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:24:42.266 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:24:42.347 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:24:42.521 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:24:42.524 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:24:42.524 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:24:42.524 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:24:42.524 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:24:42.528 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:24:42.528 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:24:42.675 [http-nio-8085-exec-2] INFO  com.server.controller.student.StudentControllerDetail - Student 45 registeration for course 8 is Processing
+16:24:42.675 [http-nio-8085-exec-2] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=8, studentRollNo=RN10001)
+16:24:42.721 [http-nio-8085-exec-2] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Student Detail found: StudentDetail(studentId=46, name=Yadav, email=amrendra@gmail.com, password=$2a$10$G53MjQQViidGylBLekL/OuGCnhUpeucZ0ncrQJ080fMjca0oO23k2, phone=9335349251, DOB=2000-01-23, role=student, rollNo=RN10001, enrollmentNo=EN10001, registrationDate=2024-02-16 16:02:28.49, studentCourseRegistrations=[], statuses=[])
+16:24:42.743 [http-nio-8085-exec-2] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Course Detail found: [!!!com.server.entities.student.StudentCourseDetail@aa89ac6=>java.lang.StackOverflowError:null!!!]
+16:24:42.852 [http-nio-8085-exec-2] INFO  com.server.controller.student.StudentControllerDetail - Successfully 45 Registered to Course 8
+16:28:05.078 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 17016 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+16:28:05.081 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+16:28:05.082 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+16:28:10.979 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
+16:28:12.747 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.023 seconds (process running for 8.954)
+16:28:12.754 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+16:28:21.804 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:28:21.805 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:28:21.805 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:28:21.958 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:28:22.384 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:28:22.390 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:28:22.390 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:28:22.390 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:28:22.390 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:28:22.412 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:28:22.412 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:28:22.738 [http-nio-8085-exec-2] INFO  com.server.controller.student.StudentControllerDetail - Student 45 registeration for course 8 is Processing
+16:28:22.738 [http-nio-8085-exec-2] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=8, studentRollNo=RN10001)
+16:28:22.796 [http-nio-8085-exec-2] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration done already in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=8, studentRollNo=RN10001)
+16:28:22.797 [http-nio-8085-exec-2] INFO  com.server.controller.student.StudentControllerDetail - Successfully 45 Registered to Course 8
+16:28:26.158 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:28:26.158 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:28:26.158 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:28:26.162 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:28:26.171 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:28:26.172 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:28:26.173 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:28:26.173 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:28:26.173 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:28:26.176 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:28:26.177 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:28:26.190 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Student 45 registeration for course 8 is Processing
+16:28:26.190 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=8, studentRollNo=RN10001)
+16:28:26.206 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration done already in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=8, studentRollNo=RN10001)
+16:28:26.206 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Successfully 45 Registered to Course 8
+16:29:31.576 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:29:31.576 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:29:31.577 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:29:31.581 [http-nio-8085-exec-6] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:29:31.594 [http-nio-8085-exec-6] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:29:31.595 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:29:31.595 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:29:31.595 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:29:31.595 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:29:31.600 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:29:31.602 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:29:31.613 [http-nio-8085-exec-6] INFO  com.server.controller.student.StudentControllerDetail - Student 45 registeration for course 7 is Processing
+16:29:31.613 [http-nio-8085-exec-6] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=7, studentRollNo=RN10001)
+16:29:31.685 [http-nio-8085-exec-6] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Student Detail found: [!!!com.server.entities.student.StudentDetail@e447f30=>java.lang.StackOverflowError:null!!!]
+16:29:31.757 [http-nio-8085-exec-6] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Course Detail found: [!!!com.server.entities.student.StudentCourseDetail@645596a0=>java.lang.StackOverflowError:null!!!]
+16:29:31.785 [http-nio-8085-exec-6] INFO  com.server.controller.student.StudentControllerDetail - Successfully 45 Registered to Course 7
+16:29:39.634 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:29:39.634 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:29:39.634 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:29:39.638 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:29:39.648 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:29:39.650 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:29:39.650 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:29:39.650 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:29:39.650 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:29:39.655 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:29:39.655 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:29:39.666 [http-nio-8085-exec-7] INFO  com.server.controller.student.StudentControllerDetail - Student 45 registeration for course 7 is Processing
+16:29:39.667 [http-nio-8085-exec-7] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=7, studentRollNo=RN10000)
+16:29:39.682 [http-nio-8085-exec-7] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration done already in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=7, studentRollNo=RN10000)
+16:29:39.682 [http-nio-8085-exec-7] INFO  com.server.controller.student.StudentControllerDetail - Successfully 45 Registered to Course 7
+16:30:21.150 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 27272 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+16:30:21.154 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+16:30:21.156 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+16:30:28.709 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
+16:30:31.084 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 10.346 seconds (process running for 11.3)
+16:30:31.092 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+16:30:59.764 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:30:59.764 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:30:59.764 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:30:59.821 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:31:00.016 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:31:00.023 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:31:00.023 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:31:00.023 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:31:00.023 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:31:00.026 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:31:00.026 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:31:00.133 [http-nio-8085-exec-2] INFO  com.server.controller.student.StudentControllerDetail - Student 45 registeration for course 7 is Processing
+16:31:00.133 [http-nio-8085-exec-2] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=45, studentCourseDetailId=7, studentRollNo=RN10000)
+16:31:00.177 [http-nio-8085-exec-2] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Student Detail found: StudentDetail(studentId=45, name=Amrendra, email=user@gmail.com, password=$2a$10$eoEi0ZQm91wSmmFnbTK7buq5ZM.P1rrK26lP.tATNhdx8fvsDX.Wi, phone=9335349251, DOB=2000-01-23, role=student, rollNo=RN10000, enrollmentNo=EN10000, registrationDate=2024-02-16 14:48:10.168, studentCourseRegistrations=[], statuses=[])
+16:31:00.199 [http-nio-8085-exec-2] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Course Detail found: StudentCourseDetail(courseId=7, duration=4 years, courseName=B. Tech, courseBranch=Civil, studentSemesters=[], studentCourseRegistrations=[])
+16:31:00.276 [http-nio-8085-exec-2] INFO  com.server.controller.student.StudentControllerDetail - Successfully 45 Registered to Course 7
+16:31:14.451 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:31:14.451 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:31:14.452 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:31:14.458 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:31:14.464 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:31:14.464 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:31:14.464 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:31:14.464 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:31:14.464 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:31:14.466 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:31:14.467 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:31:14.475 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentControllerDetail - Student 46 registeration for course 8 is Processing
+16:31:14.475 [http-nio-8085-exec-3] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=46, studentCourseDetailId=8, studentRollNo=RN10001)
+16:31:14.496 [http-nio-8085-exec-3] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Student Detail found: StudentDetail(studentId=46, name=Yadav, email=amrendra@gmail.com, password=$2a$10$G53MjQQViidGylBLekL/OuGCnhUpeucZ0ncrQJ080fMjca0oO23k2, phone=9335349251, DOB=2000-01-23, role=student, rollNo=RN10001, enrollmentNo=EN10001, registrationDate=2024-02-16 16:02:28.49, studentCourseRegistrations=[], statuses=[])
+16:31:14.502 [http-nio-8085-exec-3] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Course Detail found: StudentCourseDetail(courseId=8, duration=4 years, courseName=B. Tech, courseBranch=CSE, studentSemesters=[], studentCourseRegistrations=[])
+16:31:14.522 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentControllerDetail - Successfully 46 Registered to Course 8
+16:31:20.296 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:31:20.296 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:31:20.296 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:31:20.301 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:31:20.312 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:31:20.312 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:31:20.312 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:31:20.312 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:31:20.312 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:31:20.318 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:31:20.319 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:31:20.326 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Student 46 registeration for course 7 is Processing
+16:31:20.326 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=46, studentCourseDetailId=7, studentRollNo=RN10001)
+16:31:20.348 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Student Detail found: [!!!com.server.entities.student.StudentDetail@2e1d769e=>java.lang.StackOverflowError:null!!!]
+16:31:20.375 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration Course Detail found: [!!!com.server.entities.student.StudentCourseDetail@1b0d1147=>java.lang.StackOverflowError:null!!!]
+16:31:20.414 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Successfully 46 Registered to Course 7
+16:45:28.431 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 19940 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+16:45:28.436 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+16:45:28.437 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+16:45:33.328 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
+16:45:34.830 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 6.713 seconds (process running for 7.46)
+16:45:34.839 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+16:45:42.241 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:45:42.241 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:45:42.241 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:45:42.288 [http-nio-8085-exec-1] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:45:42.471 [http-nio-8085-exec-1] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:45:42.472 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:45:42.472 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:45:42.473 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:45:42.473 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:45:42.474 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:45:42.474 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:45:42.582 [http-nio-8085-exec-1] INFO  com.server.controller.student.StudentControllerDetail - Student 46 registeration for course 7 is Processing
+16:45:42.582 [http-nio-8085-exec-1] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=46, studentCourseDetailId=7, studentRollNo=RN10001)
+16:45:42.603 [http-nio-8085-exec-1] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration done already in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=46, studentCourseDetailId=7, studentRollNo=RN10001)
+16:45:42.603 [http-nio-8085-exec-1] INFO  com.server.controller.student.StudentControllerDetail - Successfully 46 Registered to Course 7
+16:46:43.102 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:46:43.102 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:46:43.102 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:46:43.105 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:46:43.110 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:46:43.110 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:46:43.110 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:46:43.110 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:46:43.110 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:46:43.113 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:46:43.113 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:46:43.123 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentControllerDetail - Student 46 registration 1 Deleting Processing
+16:46:43.210 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentControllerDetail - Successfully 46 Registration deleted id 1
+16:46:46.632 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:46:46.632 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:46:46.632 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:46:46.635 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:46:46.641 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:46:46.641 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:46:46.641 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:46:46.641 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:46:46.641 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:46:46.645 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:46:46.645 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:46:46.651 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentControllerDetail - Student 46 registration 1 Deleting Processing
+16:47:24.075 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:47:24.075 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:47:24.075 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:47:24.076 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+16:47:24.081 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+16:47:24.081 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
+16:47:24.081 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
+16:47:24.081 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:47:24.081 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:47:24.084 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
+16:47:24.084 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
+16:47:24.092 [http-nio-8085-exec-5] INFO  com.server.controller.student.StudentControllerDetail - Student 46 registeration for course 7 is Processing
+16:47:24.092 [http-nio-8085-exec-5] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=46, studentCourseDetailId=7, studentRollNo=RN10001)
+16:47:24.101 [http-nio-8085-exec-5] INFO  com.server.service.impl.student.StudentDetailServiceImpl - Student Registration done already in Course Req: StudentCourseRegistrationDTO(registrationId=null, studentDetailId=46, studentCourseDetailId=7, studentRollNo=RN10001)
+16:47:24.102 [http-nio-8085-exec-5] INFO  com.server.controller.student.StudentControllerDetail - Successfully 46 Registered to Course 7

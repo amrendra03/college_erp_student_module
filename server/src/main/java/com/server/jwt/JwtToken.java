@@ -18,7 +18,7 @@ import java.util.function.Function;
 @Component
 public class JwtToken {
 
-    private static final long JWT_TOKEN_VALIDITY = 5*60;
+    private static final long JWT_TOKEN_VALIDITY = 30*60;
 
     private final String secret ="amrendrayadavsecretkeyforjwtauthenticationforthecollegeerpstudentmoduleselfworkproject";
 
@@ -55,7 +55,7 @@ public class JwtToken {
     public String generateToken(UserDetails userDetails){
         Map<String, Object> claims = new HashMap<>();
         return doGenerateToken(claims,userDetails.getUsername());
-    }   
+    }
 
     private String doGenerateToken(Map<String , Object>claims,String subject) {
 

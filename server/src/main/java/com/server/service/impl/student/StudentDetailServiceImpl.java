@@ -6,9 +6,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.server.dto.ApiResponse;
+import com.server.dto.student.StudentCourseRegistrationDTO;
 import com.server.dto.student.StudentRegisterDTO;
+import com.server.entities.student.StudentCourseDetail;
+import com.server.entities.student.StudentCourseRegistration;
 import com.server.exception.ResourceNotFoundException;
 import com.server.exception.custom.UserExistAlready;
+import com.server.repository.course.StudentCourseDetailRepo;
+import com.server.repository.student.StudentCourseRegistrationRepo;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +32,11 @@ public class StudentDetailServiceImpl implements StudentService {
    @Autowired
    private StudentDetailRepo studentRepo;
 
+   @Autowired
+   private StudentCourseRegistrationRepo studentCourseRegistrationRepo;
+
+   @Autowired
+   private StudentCourseDetailRepo studentCourseDetailRepo;
    @Autowired
    private ModelMapper modelMapper;
 
@@ -59,8 +69,16 @@ public class StudentDetailServiceImpl implements StudentService {
    @Override
    public StudentDetailDTO update(StudentDetailDTO dto, Long id) {
 
+      List<StudentDetail> students=(this.studentRepo.findAllByEmail(dto.getEmail()));
+
+      if(students.size()>1 && id!=students.get(0).getStudentId()){
+         throw new UserExistAlready("User already exist by the email please enter another email: "+dto.getEmail());
+      }
+
+
       log.info("Processing Update Student ID {}:",id);
       Optional<StudentDetail> optionalStudent = this.studentRepo.findById(id);
+
 
       if (optionalStudent.isPresent()) {
          StudentDetail existingStudent = optionalStudent.get();
@@ -83,7 +101,7 @@ public class StudentDetailServiceImpl implements StudentService {
          log.info("Ready to save in Table Student: {}",existingStudent);
 
          existingStudent.setName(dto.getName());
-         existingStudent.setEmail(dto.getEmail());
+         existingStudent.setEmail(existingStudent.getEmail());
          existingStudent.setPhone(dto.getPhone());
          existingStudent.setDOB(dto.getDOB());
 
@@ -158,6 +176,55 @@ public class StudentDetailServiceImpl implements StudentService {
          log.warn("Student with ID {} not found for deletion.", id);
          throw new ResourceNotFoundException("Student not found for deletion.", "Student ID", id);
       }
+   }
+
+   @Override
+   public ApiResponse studentRegisterCourse(StudentCourseRegistrationDTO req) {
+      log.info("Student Registration in Course Req: {}",req);
+      if (this.studentCourseRegistrationRepo.findByStudentDetailRollNoAndStudentCourseDetailCourseId(req.getStudentRollNo(), req.getStudentCourseDetailId()).isPresent()) {
+
+         log.info("Student Registration done already in Course Req: {}",req);
+         return new ApiResponse("Student Already Registered with this course", false);
+      } else {
+         StudentDetail st = this.studentRepo.findByRollNo(req.getStudentRollNo());
+         Optional<StudentCourseDetail> cor = this.studentCourseDetailRepo.findById(req.getStudentCourseDetailId());
+
+
+         log.info("Student Registration Student Detail found: {}",st);
+
+         log.info("Student Registration Course Detail found: {}",cor.get());
+         // Check if StudentDetail and StudentCourseDetail exist
+         if (st == null || !cor.isPresent() ) {
+            return new ApiResponse("Invalid Student or Course details", false);
+         }
+         else if(req.getStudentDetailId() != st.getStudentId()){
+            return new ApiResponse("Roll No and Student ID not Identical.", false);
+         }
+
+         StudentCourseRegistration res = new StudentCourseRegistration();
+         res.setStudentDetail(st);
+         res.setStudentCourseDetail(cor.get());
+         res.setRollNo(req.getStudentRollNo());
+
+         // Save the StudentCourseRegistration entity
+         this.studentCourseRegistrationRepo.save(res);
+
+         return new ApiResponse("Registration successfully completed. ID: " + res.getRegistrationId(), true);
+      }
+   }
+
+   @Override
+   public ApiResponse studentRegisterCourseDelete(StudentCourseRegistrationDTO req) {
+      StudentCourseRegistration res = this.studentCourseRegistrationRepo.findById(req.getRegistrationId())
+              .orElseThrow();
+
+      if(res!=null)
+      {
+         this.studentCourseRegistrationRepo.delete(res);
+      }else{
+         return new ApiResponse("Not found Student not registered with this course: "+req.getRegistrationId(),false);
+      }
+    return  new ApiResponse("Student Registration deleted Successfully: "+res.getRegistrationId(),true);
    }
 
 }

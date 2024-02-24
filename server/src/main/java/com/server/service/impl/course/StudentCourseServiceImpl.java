@@ -72,6 +72,18 @@ public class StudentCourseServiceImpl implements StudentCourseService {
             throw e; // Rethrow the exception for global exception handling
         }
     }
+    private void updateCourseDetails(StudentCourseDetail existingCourseDetail, StudentCourseDetailDTO updatedCourseDetail) {
+        if (!Objects.equals(existingCourseDetail.getCourseName(), updatedCourseDetail.getCourseName())) {
+            existingCourseDetail.setCourseName(updatedCourseDetail.getCourseName());
+        }
+
+        if (existingCourseDetail.getDuration() != updatedCourseDetail.getDuration()) {
+            existingCourseDetail.setDuration(updatedCourseDetail.getDuration());
+        }
+        if (existingCourseDetail.getCourseBranch() != updatedCourseDetail.getCourseBranch()) {
+            existingCourseDetail.setCourseBranch(updatedCourseDetail.getCourseBranch());
+        }
+    }
 
 
     @Override
@@ -159,14 +171,6 @@ public class StudentCourseServiceImpl implements StudentCourseService {
 
     }
 
-    private void updateCourseDetails(StudentCourseDetail existingCourseDetail, StudentCourseDetailDTO updatedCourseDetail) {
-        if (!Objects.equals(existingCourseDetail.getCourseName(), updatedCourseDetail.getCourseName())) {
-            existingCourseDetail.setCourseName(updatedCourseDetail.getCourseName());
-        }
 
-        if (existingCourseDetail.getDuration() != updatedCourseDetail.getDuration()) {
-            existingCourseDetail.setDuration(updatedCourseDetail.getDuration());
-        }
-    }
 
 }

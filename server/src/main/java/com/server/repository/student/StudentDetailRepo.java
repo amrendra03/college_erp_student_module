@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.server.entities.student.StudentDetail;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 public interface StudentDetailRepo extends JpaRepository<StudentDetail, Long> {
 
     @Query("SELECT MAX(s.rollNo) FROM StudentDetail s")
@@ -15,6 +17,8 @@ public interface StudentDetailRepo extends JpaRepository<StudentDetail, Long> {
     String findLatestEnrollmentNo();
 
     StudentDetail findByEmail(String email);
+
+    List<StudentDetail> findAllByEmail(String email);
 
     StudentDetail findByRollNo(String rollNo);
 

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.server.constant.API;
+import com.server.dto.student.StudentCourseRegistrationDTO;
 import com.server.dto.student.StudentRegisterDTO;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -81,7 +82,31 @@ public class StudentControllerDetail {
       this.studentService.delete(id);
 
       Log.info("Deleted student with Id: {}",id);
+
       return new ResponseEntity<>(new ApiResponse("Deleted Student successfully", true), HttpStatus.OK);
    }
+
+   @PostMapping("/course/registration")
+   public ResponseEntity<ApiResponse> registerCourse(@RequestBody StudentCourseRegistrationDTO req){
+      Log.info("Student {} registeration for course {} is Processing",req.getStudentDetailId(),req.getStudentCourseDetailId());
+      ApiResponse res  = this.studentService.studentRegisterCourse(req);
+      Log.info("Successfully {} Registered to Course {}",req.getStudentDetailId(),req.getStudentCourseDetailId());
+      if(res.isSuccess()==false){
+         return new ResponseEntity<>(res,HttpStatus.CONFLICT);
+      }
+      return new ResponseEntity<>(res,HttpStatus.CREATED);
+   }
+
+   @DeleteMapping("/course/registration")
+   public ResponseEntity<ApiResponse> registerCourseDelete(@RequestBody StudentCourseRegistrationDTO req){
+      Log.info("Student {} registration {} Deleting Processing",req.getStudentDetailId(),req.getRegistrationId());
+      ApiResponse res  = this.studentService.studentRegisterCourseDelete(req);
+      Log.info("Successfully {} Registration deleted id {}",req.getStudentDetailId(),req.getRegistrationId());
+      if(res.isSuccess()==false){
+         return new ResponseEntity<>(res,HttpStatus.NOT_FOUND);
+      }
+      return new ResponseEntity<>(res,HttpStatus.CREATED);
+   }
+
 
 }

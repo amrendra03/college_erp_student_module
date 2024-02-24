@@ -13,54 +13,53 @@ import Exam from './exam/Exam';
 import Faculty from './faculty/Faculty';
 import Payment from './payment/Payment';
 import Setting from './setting/Setting';
+// import Logout from './auth/Logout';
 
 
 function App() {
-
   const [cookies] = useCookies(['token']);
   const [authenticated, setAuthenticated] = useState(false);
-  const [redirectedFrom, setRedirectedFrom] = useState(null); // To store the redirected route
+  const [redirectedFrom, setRedirectedFrom] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     const isAuthenticatedUser = !!cookies.token;
 
-    // console.log(cookies.token);
-
-    // If not authenticated, store the current route in redirectedFrom state
     if (!isAuthenticatedUser) {
       setRedirectedFrom(location.pathname);
+      navigate('/login'); // Redirect to login if not authenticated
     }
 
     setAuthenticated(isAuthenticatedUser);
   }, [cookies.token, location.pathname]);
 
-
   const handleLogin = () => {
     setAuthenticated(true);
-  };
-  const handleLogout = () => {
-    // Clear the token from cookies on logout
-    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    setAuthenticated(false);
+    navigate(redirectedFrom || '/'); // Redirect to the original route after login
   };
 
+  const handleLogout = () => {
+    console.log("Logout procede")
+    setAuthenticated(false);
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    cookies.token = "";
+    navigate('/login')
+  };
+
+  useEffect(() => {
+    console.log("authentication update: " + authenticated)
+
+  }, [authenticated])
 
   return (
     <div className={authenticated ? 'app' : 'app2'}>
-      {console.log(authenticated)}
-      {authenticated ? <Nav authenticated={authenticated} onLogout={handleLogout} /> : <></>}
+      {authenticated && <Nav authenticated={authenticated} onLogout={handleLogout} />}
       <Routes>
         <Route
           path="/login"
-          element={authenticated ? (
-            <Navigate to={redirectedFrom || '/'} />
-          ) : (
-
-            <Login onLogin={handleLogin} setRedirectedFrom={setRedirectedFrom} />
-          )} />
-
+          element={authenticated ? <Navigate to={redirectedFrom || '/'} /> : <Login onLogin={handleLogin} setRedirectedFrom={setRedirectedFrom} />}
+        />
         <Route path='/' element={authenticated ? <Dashboard /> : <Navigate to='/login' />} />
         <Route path='/course' element={authenticated ? <Course /> : <Navigate to='/login' />} />
         <Route path='/exam' element={authenticated ? <Exam /> : <Navigate to='/login' />} />
@@ -68,10 +67,7 @@ function App() {
         <Route path='/payment' element={authenticated ? <Payment /> : <Navigate to='/login' />} />
         <Route path='/setting' element={authenticated ? <Setting /> : <Navigate to='/login' />} />
         <Route path='/logout' element={authenticated ? <></> : <Navigate to='/login' />} />
-
-        {/* <Route path='*' element={<Navigate to='/login' />} /> */}
       </Routes>
-
     </div>
   );
 }

@@ -1,5 +1,6 @@
 package com.server.entities.student;
 
+import com.server.dto.student.StudentCourseRegistrationDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,5 +24,8 @@ public class StudentCourseRegistration {
     @ManyToOne
     @JoinColumn(name = "student_course_id")
     private StudentCourseDetail studentCourseDetail;
+
+    private String RollNo;
+
 
 }
