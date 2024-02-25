@@ -6,8 +6,7 @@ import lombok.Data;
 public class StudentStatusDTO {
 
    private Long id;
-
-   // private Long studentRollNo;
+   private String studentRollNo;
    private String subject;
    private String subjectCode;
    private String facultyName;

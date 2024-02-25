@@ -10,6 +10,6 @@ public interface StatusService {
     StudentStatusDTO create(StudentStatusDTO req);
     StudentStatusDTO update (StudentStatusDTO req);
     ApiResponse delete (StudentStatusDTO req);
-    List<StudentStatusDTO> getAllStatus();
+    List<StudentStatusDTO> getAllStatus(String rollNo);
 
 }
