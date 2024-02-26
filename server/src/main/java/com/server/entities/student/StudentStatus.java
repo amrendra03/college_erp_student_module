@@ -29,6 +29,6 @@ public class StudentStatus {
    private int absent;
 
    private int submitted;
-   private int notSubmited;
+   private int notSubmitted;
 
 }

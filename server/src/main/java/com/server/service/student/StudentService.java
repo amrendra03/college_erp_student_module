@@ -13,7 +13,7 @@ public interface StudentService {
 
     StudentDetailDTO update(StudentDetailDTO dto, Long id);
 
-    StudentDetailDTO get(Long id);
+    StudentDetailDTO get(String token);
 
     List<StudentDetailDTO> getAll();
 

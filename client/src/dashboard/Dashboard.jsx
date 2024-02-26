@@ -1,23 +1,91 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 import Doughnut from '../component/chart/Doughnut';
 import Header from '../component/header/Header';
 import CalendarC from '../component/other/Calendar';
+import { API } from '../config/env';
 import './dashboard.css';
 
 const Dashboard = () => {
 
-   const data = [
-      { subject: 'Math', faculty: 'Dr. Smith', present: 8, absent: 2, totalAssignment: 15, submitted: 12, notSubmitted: 3 },
-      { subject: 'English', faculty: 'Prof. Johnson', present: 9, absent: 1, totalAssignment: 12, submitted: 10, notSubmitted: 2 },
-      { subject: 'Science', faculty: 'Dr. Brown', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
-      { subject: 'History', faculty: 'Prof. Davis', present: 6, absent: 4, totalAssignment: 8, submitted: 7, notSubmitted: 1 },
-      { subject: 'Geography', faculty: 'Dr. Wilson', present: 8, absent: 2, totalAssignment: 12, submitted: 9, notSubmitted: 3 },
-      { subject: 'Computer Science', faculty: 'Prof. Miller', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
-      { subject: 'Art', faculty: 'Dr. Turner', present: 9, absent: 1, totalAssignment: 15, submitted: 12, notSubmitted: 3 },
-      { subject: 'Physical Education', faculty: 'Prof. Clark', present: 8, absent: 2, totalAssignment: 12, submitted: 10, notSubmitted: 2 },
-      { subject: 'Music', faculty: 'Dr. Harris', present: 6, absent: 4, totalAssignment: 8, submitted: 7, notSubmitted: 1 },
-      { subject: 'Language', faculty: 'Prof. Robinson', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
-   ];
+   const [cookies, setCookie] = useCookies(['token', 'student']);
+
+   const [student, setStudent] = useState({});
+
+   const [status, setStatus] = useState([])
+
+   // const data = [
+   //    { subject: 'Math', faculty: 'Dr. Smith', present: 8, absent: 2, totalAssignment: 15, submitted: 12, notSubmitted: 3 },
+   //    { subject: 'English', faculty: 'Prof. Johnson', present: 9, absent: 1, totalAssignment: 12, submitted: 10, notSubmitted: 2 },
+   //    { subject: 'Science', faculty: 'Dr. Brown', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
+   //    { subject: 'History', faculty: 'Prof. Davis', present: 6, absent: 4, totalAssignment: 8, submitted: 7, notSubmitted: 1 },
+   //    { subject: 'Geography', faculty: 'Dr. Wilson', present: 8, absent: 2, totalAssignment: 12, submitted: 9, notSubmitted: 3 },
+   //    { subject: 'Computer Science', faculty: 'Prof. Miller', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
+   //    { subject: 'Art', faculty: 'Dr. Turner', present: 9, absent: 1, totalAssignment: 15, submitted: 12, notSubmitted: 3 },
+   //    { subject: 'Physical Education', faculty: 'Prof. Clark', present: 8, absent: 2, totalAssignment: 12, submitted: 10, notSubmitted: 2 },
+   //    { subject: 'Music', faculty: 'Dr. Harris', present: 6, absent: 4, totalAssignment: 8, submitted: 7, notSubmitted: 1 },
+   //    { subject: 'Language', faculty: 'Prof. Robinson', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
+   // ];
+
+   const statusCall = async () => {
+
+      console.log("STATUS.......")
+      // console.log("Token get from cookies: " + cookies.token)
+      const student = cookies.student;
+      const rollNo = student.rollNo;
+      // console.log(student);
+      // console.log(rollNo)
+      try {
+
+         const response = await axios.get(`${API.status}/${rollNo}`, {
+            withCredentials: true,
+            headers: {
+               'Authorization': `Bearer ${cookies.token}`
+            }
+         });
+         // console.log("Student Status:")
+         console.log(response.data);
+         setStatus(response.data)
+
+      } catch (error) {
+         console.log(error)
+      }
+      console.log("Status exite.")
+   }
+   const studentDetail = async () => {
+      console.log("Student DETAIL.........")
+      // console.log("Token get from cookies: " + cookies.token)
+      try {
+         const response = await axios.get(API.studentDetail, {
+            headers: {
+               'Authorization': `Bearer ${cookies.token}`
+            }
+         })
+
+
+         // console.log(response.data);
+         setStudent(response.data);
+         // console.log("Student detail:");
+         console.log(student);
+         setCookie('student', response.data, { path: '/' });
+         // console.log(student.rollNo)
+         statusCall();
+
+      } catch (error) {
+         console.log(error)
+      }
+      console.log("Student Detail exit.")
+
+   }
+
+
+   useEffect(() => {
+      studentDetail();
+   }, [])
+
+
+
    const notifi = [
       { message: "Final exam date", active: 0 },
       { message: "Project submission deadline", active: 0 },
@@ -40,8 +108,8 @@ const Dashboard = () => {
             <div className="Status1 display" >
                <div className='st-icon' />
                <div>
-                  <span className='txt'>Amrendra</span><br />
-                  <span className='txt'>26546465688798</span>
+                  <span className='txt'>{student.name}</span><br />
+                  <span className='txt'>{student.rollNo}</span>
                </div>
             </div>
             <div className="Status2 display" >
@@ -86,7 +154,7 @@ const Dashboard = () => {
                      <div className='cl-1' style={{ width: 110, border: 'none' }}>Not Submitted</div>
                   </div>
                   <div className='ds-6' id='t-row' >
-                     {data.map((item, index) => (
+                     {status.map((item, index) => (
                         <Row key={index} data={item} />
                      ))}
                   </div>
@@ -125,10 +193,10 @@ const Row = ({ data }) => {
    return (
       <div className='ds-6-row-1'>
          <div className='row-1' style={{ width: 160 }}>{data.subject}</div>
-         <div className='row-1' style={{ width: 150 }}>{data.faculty}</div>
+         <div className='row-1' style={{ width: 150 }}>{data.facultyName}</div>
          <div className='row-1' style={{ width: 70 }}>{data.present}</div>
          <div className='row-1' style={{ width: 70 }}>{data.absent}</div>
-         <div className='row-1' style={{ width: 120 }}>{data.totalAssignment}</div>
+         <div className='row-1' style={{ width: 120 }}>{data.submitted + data.notSubmitted}</div>
          <div className='row-1' style={{ width: 90 }}>{data.submitted}</div>
          <div className='row-1' style={{ width: 110, border: 'none' }}>{data.notSubmitted}</div>
       </div>

@@ -35,13 +35,18 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
          });
 
          const token = response.data.token;
+         console.log("login token" + token)
          const decodedToken = jwtDecode(token);
          const expirationTimeInSeconds = decodedToken.exp;
 
+         // console.log("Received token from the server:", token);
+
          setCookie('token', token, {
             path: '/',
-            expires: new Date(expirationTimeInSeconds), // Convert to milliseconds
+            expires: new Date(expirationTimeInSeconds * 1000),
          });
+
+         // console.log("Token saved in cookies:", document.cookie);
 
 
          // Redirect to the home page or the stored redirected route

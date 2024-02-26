@@ -12,6 +12,7 @@ import com.server.entities.student.StudentCourseDetail;
 import com.server.entities.student.StudentCourseRegistration;
 import com.server.exception.ResourceNotFoundException;
 import com.server.exception.custom.UserExistAlready;
+import com.server.jwt.JwtToken;
 import com.server.repository.course.StudentCourseDetailRepo;
 import com.server.repository.student.StudentCourseRegistrationRepo;
 import org.modelmapper.ModelMapper;
@@ -45,6 +46,8 @@ public class StudentDetailServiceImpl implements StudentService {
 
    private static  final Logger log = LoggerFactory.getLogger(StudentDetailServiceImpl.class);
 
+   @Autowired
+   private JwtToken jwtToken;
    // create
    @Override
    public StudentDetailDTO creat(StudentRegisterDTO req) {
@@ -143,14 +146,16 @@ public class StudentDetailServiceImpl implements StudentService {
 
    // get
    @Override
-   public StudentDetailDTO get(Long id) {
-      Optional<StudentDetail> optionalStudent = this.studentRepo.findById(id);
+   public StudentDetailDTO get(String token) {
+//      Optional<StudentDetail> optionalStudent = this.studentRepo.findById(id);
+      String email = this.jwtToken.getUsernameFromToken(token);
+     StudentDetail optionalStudent =  this.studentRepo.findByEmail(email);
 
-      if (optionalStudent.isPresent()) {
-         return this.modelMapper.map(optionalStudent.get(), StudentDetailDTO.class);
+      if (optionalStudent!=null) {
+         return this.modelMapper.map(optionalStudent, StudentDetailDTO.class);
       } else {
-         log.warn("Student with ID {} not found.", id);
-         throw new ResourceNotFoundException("Student not found.", "Student ID", id);
+         log.warn("Student with ID {} not found.", email);
+         throw new ResourceNotFoundException("Student not found.", "email: "+email,0L);
       }
    }
 

@@ -7,12 +7,15 @@ import java.util.Map;
 import com.server.constant.API;
 import com.server.dto.student.StudentCourseRegistrationDTO;
 import com.server.dto.student.StudentRegisterDTO;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -54,14 +57,22 @@ public class StudentControllerDetail {
    }
 
    // get
-   @GetMapping("/{id}")
-   public ResponseEntity<StudentDetailDTO> get(@PathVariable Long id) {
-      Log.info("Fetching student with id: {}",id);
+   @GetMapping("/detail")
+   public ResponseEntity<StudentDetailDTO> get(HttpServletRequest request) {
+      Log.info("Fetching student..........");
+      String token = this.extractTokenFromRequest(request);
+      StudentDetailDTO res = this.studentService.get(token);
 
-      StudentDetailDTO res = this.studentService.get(id);
-
-      Log.info("Fetched student: {}",res);
+      Log.info("Successfully fetched student: {}",res);
       return new ResponseEntity<>(res, HttpStatus.OK);
+   }
+
+   private String extractTokenFromRequest(HttpServletRequest request) {
+      String bearerToken = request.getHeader("Authorization");
+      if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+         return bearerToken.substring(7);
+      }
+      return null;
    }
 
    // get all
