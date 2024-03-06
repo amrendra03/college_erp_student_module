@@ -21,5 +21,6 @@ public interface StudentService {
 
     ApiResponse studentRegisterCourse(StudentCourseRegistrationDTO req);
     ApiResponse studentRegisterCourseDelete(StudentCourseRegistrationDTO req);
+    List<StudentCourseRegistrationDTO> getAllRegisteredCourses(String roll);
 
 }

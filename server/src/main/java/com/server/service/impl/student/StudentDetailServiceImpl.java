@@ -194,7 +194,6 @@ public class StudentDetailServiceImpl implements StudentService {
          StudentDetail st = this.studentRepo.findByRollNo(req.getStudentRollNo());
          Optional<StudentCourseDetail> cor = this.studentCourseDetailRepo.findById(req.getStudentCourseDetailId());
 
-
          log.info("Student Registration Student Detail found: {}",st);
 
          log.info("Student Registration Course Detail found: {}",cor.get());
@@ -230,6 +229,22 @@ public class StudentDetailServiceImpl implements StudentService {
          return new ApiResponse("Not found Student not registered with this course: "+req.getRegistrationId(),false);
       }
     return  new ApiResponse("Student Registration deleted Successfully: "+res.getRegistrationId(),true);
+   }
+
+   @Override
+   public List<StudentCourseRegistrationDTO> getAllRegisteredCourses(String roll) {
+      log.info("Getting courses for student with roll number: {}", roll);
+
+      List<StudentCourseRegistration> courseList = studentCourseRegistrationRepo.findByRollNo(roll);
+      log.info("Registered courses found: {}", courseList.size());
+
+      if (courseList.isEmpty()) {
+         throw new ResourceNotFoundException("Student has not registered for any course", roll, 0L);
+      }
+
+      return courseList.stream()
+              .map(course -> modelMapper.map(course, StudentCourseRegistrationDTO.class))
+              .collect(Collectors.toList());
    }
 
 }

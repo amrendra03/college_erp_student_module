@@ -1,141 +1,162 @@
-00:00:14.145 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 8320 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-00:00:14.156 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-00:00:14.157 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-00:00:24.814 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-00:00:30.351 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 16.65 seconds (process running for 17.943)
-00:00:30.377 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-00:01:56.301 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:01:56.302 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:01:56.302 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:02:03.966 [http-nio-8085-exec-3] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=user)
-00:02:03.967 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated processing...
-00:02:03.968 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1.1/3  authenticate method controller processing...
-00:02:03.969 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1.2/3 authenticate method controller successfully confirm user credential.
-00:02:04.380 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:02:04.792 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:02:05.116 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 1/3 controller login jwt authenticated completed.
-00:02:05.117 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail processing...
-00:02:05.117 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:02:05.128 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:02:05.129 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 2/3 controller login jwt UserDetail  completed.
-00:02:05.129 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken processing...
-00:02:05.188 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - stage 3/3 controller login jwtToken generateToken completed.
-00:02:05.189 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - login completed jwt token generated and send in response.
-00:02:24.441 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:02:24.441 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:02:24.441 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:02:24.448 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:02:24.557 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:02:24.558 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
-00:02:24.558 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:02:24.558 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:02:24.558 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:02:24.564 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:02:24.565 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:02:24.582 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentStatusController - Request to get all the Status of student: {
-    "rollNo":"RN10001"
-} 
-00:03:58.307 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 11196 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-00:03:58.312 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-00:03:58.314 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-00:04:08.046 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-00:04:11.648 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 13.789 seconds (process running for 14.922)
-00:04:11.657 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-00:04:16.790 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:04:16.790 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:04:16.790 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:04:16.890 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:04:17.155 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:04:17.157 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
-00:04:17.157 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:04:17.157 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:04:17.157 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:04:17.159 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:04:17.159 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:04:17.217 [http-nio-8085-exec-2] INFO  com.server.controller.student.StudentStatusController - Request to get all the Status of student: RN10001 
-00:05:17.501 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 15088 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-00:05:17.505 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-00:05:17.506 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-00:05:24.181 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-00:05:26.061 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 8.966 seconds (process running for 9.997)
-00:05:26.072 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-00:05:35.607 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:05:35.607 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:05:35.608 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:05:35.707 [http-nio-8085-exec-1] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:05:35.932 [http-nio-8085-exec-1] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:05:35.936 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
-00:05:35.936 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:05:35.936 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:05:35.936 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:05:35.939 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:05:35.939 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:05:36.032 [http-nio-8085-exec-1] INFO  com.server.controller.student.StudentStatusController - Request to get all the Status of student: RN10001 
-00:05:45.958 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:05:45.958 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:05:45.958 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:05:45.962 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:05:45.972 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:05:45.973 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
-00:05:45.973 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:05:45.973 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:05:45.973 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:05:45.978 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:05:45.979 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:05:45.989 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentStatusController - Request to get all the Status of student: RN10001 
-00:08:23.312 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 12072 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-00:08:23.316 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-00:08:23.318 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-00:08:30.241 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-00:08:33.541 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 10.646 seconds (process running for 11.592)
-00:08:33.563 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-00:08:48.558 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:08:48.559 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:08:48.559 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:10.144 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:09:10.144 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:10.144 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:10.148 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:09:10.361 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:09:10.365 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
-00:09:10.366 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:09:10.366 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:10.366 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:10.369 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:10.369 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:10.493 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentStatusController - Request to create the Status of student: StudentStatusDTO(id=null, studentRollNo=RN10001, subject=Science, subjectCode=MATH101, facultyName=Dr. Smith, present=20, absent=5, submitted=18, notSubmitted=0) 
-00:09:10.509 [http-nio-8085-exec-3] INFO  com.server.service.impl.student.StatusServiceImpl - Request Processing...
-00:09:10.703 [http-nio-8085-exec-3] INFO  com.server.service.impl.student.StatusServiceImpl - Request Saved in DataBase: [!!!com.server.entities.student.StudentStatus@7a8fbc3a=>java.lang.StackOverflowError:null!!!]
-00:09:10.735 [http-nio-8085-exec-3] INFO  com.server.controller.student.StudentStatusController - Successfully created status: 2
-00:09:51.423 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:09:51.423 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:51.423 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:51.426 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:09:51.432 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:09:51.433 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
-00:09:51.433 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:09:51.433 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:51.433 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:51.436 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:51.437 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:51.444 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentStatusController - Request to create the Status of student: StudentStatusDTO(id=null, studentRollNo=RN10001, subject=COmputer, subjectCode=KCS601, facultyName=Bahubali, present=20, absent=5, submitted=18, notSubmitted=0) 
-00:09:51.445 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StatusServiceImpl - Request Processing...
-00:09:51.461 [http-nio-8085-exec-4] INFO  com.server.service.impl.student.StatusServiceImpl - Request Saved in DataBase: [!!!com.server.entities.student.StudentStatus@43a5c34d=>java.lang.StackOverflowError:null!!!]
-00:09:51.469 [http-nio-8085-exec-4] INFO  com.server.controller.student.StudentStatusController - Successfully created status: 3
-00:09:57.176 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:09:57.176 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:57.176 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:57.180 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-00:09:57.187 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
-00:09:57.187 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Process JwtToken ValidationToken...
-00:09:57.187 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getUsernameFromToken stage.
-00:09:57.187 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:57.187 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:57.190 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getClaimFromToken stage.
-00:09:57.190 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - At JwtToken getAllClaimsFromToken stage.
-00:09:57.206 [http-nio-8085-exec-7] INFO  com.server.controller.student.StudentStatusController - Request to get all the Status of student: RN10001 
-00:09:57.206 [http-nio-8085-exec-7] INFO  com.server.service.impl.student.StatusServiceImpl - Processing get All Status...
-00:09:57.225 [http-nio-8085-exec-7] INFO  com.server.service.impl.student.StatusServiceImpl - Successfully get all the status 
-00:09:57.226 [http-nio-8085-exec-7] INFO  com.server.service.impl.student.StatusServiceImpl - status: StudentStatusDTO(id=2, studentRollNo=RN10001, subject=Science, subjectCode=MATH101, facultyName=Dr. Smith, present=20, absent=5, submitted=18, notSubmitted=0)
-00:09:57.226 [http-nio-8085-exec-7] INFO  com.server.service.impl.student.StatusServiceImpl - status: StudentStatusDTO(id=3, studentRollNo=RN10001, subject=COmputer, subjectCode=KCS601, facultyName=Bahubali, present=20, absent=5, submitted=18, notSubmitted=0)
-00:09:57.226 [http-nio-8085-exec-7] INFO  com.server.controller.student.StudentStatusController - Process Completed.
+14:20:01.058 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 12316 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+14:20:01.062 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+14:20:01.064 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+14:20:09.102 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
+14:20:11.471 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 10.886 seconds (process running for 12.445)
+14:20:11.482 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+14:20:39.965 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:20:39.965 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Generating Otp from service
+14:20:39.966 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Generated otp: 502223
+14:20:39.967 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:20:39.967 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 502223
+14:21:09.481 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:21:09.481 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Generating Otp from service
+14:21:09.481 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Generated otp: 578283
+14:21:09.481 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:21:09.482 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 578283
+14:29:43.955 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:29:43.956 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Generating Otp from service
+14:29:43.956 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Generated otp: 637463
+14:29:43.957 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:29:43.957 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 637463
+14:31:15.780 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:31:15.780 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Generating Otp from service
+14:31:15.781 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Generated otp: 300598
+14:31:15.781 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:31:15.781 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 300598
+14:31:30.397 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:31:30.398 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Generating Otp from service
+14:31:30.398 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Generated otp: 977817
+14:31:30.398 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:31:30.398 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 977817
+14:31:53.329 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:31:53.329 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Generating Otp from service
+14:31:53.330 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Generated otp: 338733
+14:31:53.330 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:31:53.330 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 338733
+14:32:05.243 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:32:05.243 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Generating Otp from service
+14:32:05.244 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Generated otp: 266255
+14:32:05.244 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:32:05.244 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 266255
+14:34:07.137 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:34:07.138 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Generating Otp from service
+14:34:07.138 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Generated otp: 301961
+14:34:07.138 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:34:07.138 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 301961
+14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Generating Otp from service
+14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Generated otp: 889831
+14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 889831
+14:45:19.009 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to send the Otp: 
+14:45:19.009 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Generating Otp from service
+14:45:19.010 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Generated otp: 421995
+14:45:19.010 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:45:19.010 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 421995
+14:45:28.700 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:45:28.700 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Generating Otp from service
+14:45:28.700 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Generated otp: 896274
+14:45:28.701 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:45:28.701 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 896274
+14:46:05.177 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+14:46:05.178 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Generating Otp from service
+14:46:05.178 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Generated otp: 438683
+14:46:05.178 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:46:05.178 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 438683
+14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request to send the Otp: 
+14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Generating Otp from service
+14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Generated otp: 806288
+14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 806288
+14:46:42.977 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request to send the Otp: vbnb
+14:46:42.978 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Generating Otp from service
+14:46:42.978 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Generated otp: 953579
+14:46:42.978 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:46:42.978 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=vbnb; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 953579
+14:49:06.655 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request to send the Otp: 
+14:49:06.655 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Generating Otp from service
+14:49:06.656 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Generated otp: 651850
+14:49:06.656 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:49:06.656 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 651850
+14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Request to send the Otp: gfhgf
+14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Generating Otp from service
+14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Generated otp: 730390
+14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Sending the otp on email..
+14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=gfhgf; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 730390
+15:28:32.198 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to forget password.
+15:28:32.198 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Processing the password change...
+15:28:32.259 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - null
+15:28:32.259 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request completed.
+15:36:36.464 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to forget password.
+15:36:36.464 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Processing the password change...
+15:36:36.477 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - null
+15:36:36.477 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request completed.
+15:37:03.240 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to forget password.
+15:37:03.241 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Processing the password change...
+15:37:03.247 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - null
+15:37:03.248 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request completed.
+15:37:05.699 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request to forget password.
+15:37:05.699 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Processing the password change...
+15:37:05.704 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - null
+15:37:05.704 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request completed.
+15:37:25.912 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request to forget password.
+15:37:25.913 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Processing the password change...
+15:37:25.919 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - null
+15:37:25.920 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request completed.
+15:37:54.751 [http-nio-8085-exec-6] INFO  com.server.otp.OTPController - Request to forget password.
+15:37:54.751 [http-nio-8085-exec-6] INFO  com.server.otp.EmailService - Processing the password change...
+15:37:54.757 [http-nio-8085-exec-6] INFO  com.server.otp.EmailService - null
+15:37:54.757 [http-nio-8085-exec-6] INFO  com.server.otp.OTPController - Request completed.
+15:42:05.542 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Request to forget password.
+15:42:05.543 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Processing the password change...
+15:42:05.548 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - null
+15:42:05.548 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Request completed.
+15:42:18.837 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Request to forget password.
+15:42:18.837 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Processing the password change...
+15:42:18.842 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - null
+15:42:18.842 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Request completed.
+15:42:30.840 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request to forget password.
+15:42:30.840 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Processing the password change...
+15:42:30.843 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - null
+15:42:30.844 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request completed.
+15:43:04.987 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request to forget password.
+15:43:04.987 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Processing the password change...
+15:43:04.994 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - null
+15:43:04.994 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request completed.
+15:43:07.171 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Request to forget password.
+15:43:07.171 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Processing the password change...
+15:43:07.176 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - null
+15:43:07.176 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Request completed.
+15:43:25.797 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to forget password.
+15:43:25.797 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Processing the password change...
+15:43:25.801 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - null
+15:43:25.801 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request completed.
+15:44:39.590 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to forget password.
+15:44:39.590 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Processing the password change...
+15:44:39.594 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - null
+15:44:39.594 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request completed.
+15:50:08.439 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to forget password.
+15:50:08.440 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Processing the password change...
+15:50:08.450 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - null
+15:50:08.450 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request completed.
+15:56:27.620 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request to forget password.
+15:56:27.620 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Processing the password change...
+15:56:27.629 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - null
+15:56:27.629 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request completed.
+15:59:46.304 [http-nio-8085-exec-7] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=, password=)
+15:59:46.458 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+15:59:46.624 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Invalid Detail !!
+15:59:46.625 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+15:59:51.811 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to forget password.
+15:59:51.811 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Processing the password change...
+15:59:51.818 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - null
+15:59:51.818 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request completed.
+16:01:54.352 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to forget password.
+16:01:54.352 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Processing the password change...
+16:01:54.360 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - null
+16:01:54.360 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request completed.
+16:09:09.708 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to forget password.
+16:09:09.708 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Processing the password change...
+16:09:09.716 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - null
+16:09:09.716 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request completed.

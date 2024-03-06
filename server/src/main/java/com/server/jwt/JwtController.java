@@ -3,6 +3,8 @@ package com.server.jwt;
 import com.server.constant.API;
 import com.server.dto.student.StudentDetailDTO;
 import com.server.dto.student.StudentRegisterDTO;
+import com.server.otp.OTPModel;
+import com.server.otp.OTPRepository;
 import com.server.service.student.StudentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -41,41 +43,52 @@ public class JwtController {
 
     private Logger log = LoggerFactory.getLogger(JwtController.class);
 
+    @Autowired
+    private OTPRepository otpRepository;
+
     @PostMapping(API.login)
     public ResponseEntity<JwtResponseDTO> login(@RequestBody JwtRequestDTO jwtRequestDTO) throws Exception{
 
         log.debug("Auth Request: {}",jwtRequestDTO);
-        log.info("stage 1/3 controller login jwt authenticated processing...");
+//        log.info("stage 1/3 controller login jwt authenticated processing...");
+        try{
         this.authenticate(jwtRequestDTO.getUsername(),jwtRequestDTO.getPassword());
-
-        log.info("stage 1/3 controller login jwt authenticated completed.");
-        log.info("stage 2/3 controller login jwt UserDetail processing...");
-
+//        log.info("stage 1/3 controller login jwt authenticated completed.");
+//        log.info("stage 2/3 controller login jwt UserDetail processing...");
         UserDetails userDetails = this.userDetailsService.loadUserByUsername(jwtRequestDTO.getUsername());
-
-        log.info("stage 2/3 controller login jwt UserDetail  completed.");
-        log.info("stage 3/3 controller login jwtToken generateToken processing...");
-
+//        log.info("stage 2/3 controller login jwt UserDetail  completed.");
+//        log.info("stage 3/3 controller login jwtToken generateToken processing...");
         String token = this.jwtToken.generateToken(userDetails);
-        log.info("stage 3/3 controller login jwtToken generateToken completed.");
+//        log.info("stage 3/3 controller login jwtToken generateToken completed.");
 
         JwtResponseDTO res = new JwtResponseDTO();
         res.setToken(token);
 
         log.info("login completed jwt token generated and send in response.");
         return new ResponseEntity<>(res, HttpStatus.OK);
+        }catch (BadCredentialsException ex) {
+            log.info("Authentication failed: Incorrect username or password.");
+            JwtResponseDTO res = new JwtResponseDTO();
+            res.setToken("Incorrect username and password !!!");
+            return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            // Handle other exceptions as needed
+            JwtResponseDTO res = new JwtResponseDTO();
+            res.setToken("Internal Server error !!!");
+            return new ResponseEntity<>(res, HttpStatus.INTERNAL_SERVER_ERROR);  }
     }
 
     private void authenticate (String username, String password)throws Exception{
 
-        log.info("stage 1.1/3  authenticate method controller processing...");
+//        log.info("stage 1.1/3  authenticate method controller processing...");
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,password);
         try{
-            log.info("stage 1.2/3 authenticate method controller successfully confirm user credential.");
+//            log.info("stage 1.2/3 authenticate method controller successfully confirm user credential.");
             this.authenticationManager.authenticate(authenticationToken);
         }catch (BadCredentialsException ex){
-            log.info("stage 1.2/3 authenticate method controller failed not find user credential.");
+//            log.info("stage 1.2/3 authenticate method controller failed not find user credential.");
             log.info("Invalid Detail !!");
+            throw new BadCredentialsException("Invalid credentials");
         }
     }
 
@@ -142,4 +155,10 @@ public class JwtController {
             return new ResponseEntity<>(res,HttpStatus.BAD_REQUEST);
         }
     }
+
+//    @PostMapping("/forget_password")
+//    public ResponseEntity<?> forgetPassword(@RequestBody String password){
+//        OTPModel res = otpRepository.findByUsername(req.getUsername());
+//
+//    }
 }

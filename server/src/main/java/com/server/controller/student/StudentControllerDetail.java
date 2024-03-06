@@ -107,6 +107,16 @@ public class StudentControllerDetail {
       }
       return new ResponseEntity<>(res,HttpStatus.CREATED);
    }
+   @GetMapping("/course/registration/{id}")
+   public ResponseEntity<?> getRegisteredCourse(@PathVariable String id) {
+      Log.info("Get Registered Course List");
+      List<StudentCourseRegistrationDTO> res = this.studentService.getAllRegisteredCourses(id);
+      Log.info("Successfully got registered list for Course. Size: {}", res.size());
+      return new ResponseEntity<>(res, HttpStatus.OK);
+   }
+
+
+
 
    @DeleteMapping("/course/registration")
    public ResponseEntity<ApiResponse> registerCourseDelete(@RequestBody StudentCourseRegistrationDTO req){

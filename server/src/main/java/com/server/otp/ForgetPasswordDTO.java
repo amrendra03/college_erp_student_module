@@ -1,2 +1,10 @@
-package com.server.otp;public class ForgetPasswordDTO {
+package com.server.otp;
+
+import lombok.Data;
+
+@Data
+public class ForgetPasswordDTO {
+    private String otp;
+    private String password;
+    private String email;
 }

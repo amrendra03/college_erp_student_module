@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { AgChartsReact } from 'ag-charts-react';
 
-const Doughnut = () => {
+const Doughnut = ({ data }) => {
+
    const [options, setOptions] = useState({
-      data: getData(),
       title: {
-         text: 'Attendence',
+         text: 'Attendance',
       },
       series: [
          {
@@ -21,15 +21,31 @@ const Doughnut = () => {
          },
       },
    });
+
+   useEffect(() => {
+      let totalPresent = 0;
+      let totalAbsent = 0;
+
+      data.forEach(item => {
+         totalPresent += item.present;
+         totalAbsent += item.absent;
+      });
+
+      const newOptions = {
+         ...options,
+         data: [
+            { asset: 'present', amount: totalPresent },
+            { asset: 'absent', amount: totalAbsent },
+         ],
+      };
+
+      setOptions(newOptions);
+   }, [data]);
+
+
    return <AgChartsReact options={options} />;
 };
 
-const getData = () => {
-   return [
-      { asset: 'present', amount: 50000 },
-      { asset: 'absent', amount: 30000 },
 
-   ];
-};
 
 export default Doughnut;

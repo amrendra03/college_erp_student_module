@@ -51,11 +51,9 @@ public class JwtFilter  extends OncePerRequestFilter {
           }catch (Exception ex){
               log.info("Internal issue !! : {}",ex.getMessage());
           }
-
         }else{
             log.info("Invalid Header value !!");
         }
-
         if(username !=null && SecurityContextHolder.getContext().getAuthentication()==null){
             UserDetails userDetails  = this.userDetailsService.loadUserByUsername(username);
             Boolean validation = this.jwtToken.validateToken(token,userDetails);
@@ -69,7 +67,6 @@ public class JwtFilter  extends OncePerRequestFilter {
         }else{
             log.info("Processing Authentication Username is null stage JWT Filter");
         }
-
         filterChain.doFilter(request,response);
     }
 }

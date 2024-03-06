@@ -4,86 +4,82 @@ import { useCookies } from 'react-cookie';
 import Doughnut from '../component/chart/Doughnut';
 import Header from '../component/header/Header';
 import CalendarC from '../component/other/Calendar';
+import LoadingComponent from '../component/other/Loading';
 import { API } from '../config/env';
 import './dashboard.css';
 
 const Dashboard = () => {
-
    const [cookies, setCookie] = useCookies(['token', 'student']);
-
    const [student, setStudent] = useState({});
+   const [status, setStatus] = useState([]);
+   const [loading, setLoading] = useState(true);  // Added loading state
 
-   const [status, setStatus] = useState([])
+   const [count, setCount] = useState([])
 
-   // const data = [
-   //    { subject: 'Math', faculty: 'Dr. Smith', present: 8, absent: 2, totalAssignment: 15, submitted: 12, notSubmitted: 3 },
-   //    { subject: 'English', faculty: 'Prof. Johnson', present: 9, absent: 1, totalAssignment: 12, submitted: 10, notSubmitted: 2 },
-   //    { subject: 'Science', faculty: 'Dr. Brown', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
-   //    { subject: 'History', faculty: 'Prof. Davis', present: 6, absent: 4, totalAssignment: 8, submitted: 7, notSubmitted: 1 },
-   //    { subject: 'Geography', faculty: 'Dr. Wilson', present: 8, absent: 2, totalAssignment: 12, submitted: 9, notSubmitted: 3 },
-   //    { subject: 'Computer Science', faculty: 'Prof. Miller', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
-   //    { subject: 'Art', faculty: 'Dr. Turner', present: 9, absent: 1, totalAssignment: 15, submitted: 12, notSubmitted: 3 },
-   //    { subject: 'Physical Education', faculty: 'Prof. Clark', present: 8, absent: 2, totalAssignment: 12, submitted: 10, notSubmitted: 2 },
-   //    { subject: 'Music', faculty: 'Dr. Harris', present: 6, absent: 4, totalAssignment: 8, submitted: 7, notSubmitted: 1 },
-   //    { subject: 'Language', faculty: 'Prof. Robinson', present: 7, absent: 3, totalAssignment: 10, submitted: 8, notSubmitted: 2 },
-   // ];
+   const statusCall = async (data) => {
+      // console.log("Status:")
+      // console.log(data)
+      if (data.rollNo) {
+         // console.log(data.rollNo)
+         try {
+            const response = await axios.get(`${API.status}/${data.rollNo}`, {
+               withCredentials: true,
+               headers: {
+                  'Authorization': `Bearer ${cookies.token}`
+               }
+            });
+            setStatus(response.data);
 
-   const statusCall = async () => {
+            setCount(response.data)
 
-      console.log("STATUS.......")
-      // console.log("Token get from cookies: " + cookies.token)
-      const student = cookies.student;
-      const rollNo = student.rollNo;
-      // console.log(student);
-      // console.log(rollNo)
-      try {
-
-         const response = await axios.get(`${API.status}/${rollNo}`, {
-            withCredentials: true,
-            headers: {
-               'Authorization': `Bearer ${cookies.token}`
-            }
-         });
-         // console.log("Student Status:")
-         console.log(response.data);
-         setStatus(response.data)
-
-      } catch (error) {
-         console.log(error)
+         } catch (error) {
+            console.log(error);
+         }
       }
-      console.log("Status exite.")
-   }
+      setLoading(false);  // Set loading to false after API call
+      // console.log("Status exit.")
+   };
+   // console.log("check")
    const studentDetail = async () => {
-      console.log("Student DETAIL.........")
-      // console.log("Token get from cookies: " + cookies.token)
       try {
          const response = await axios.get(API.studentDetail, {
             headers: {
                'Authorization': `Bearer ${cookies.token}`
             }
-         })
-
-
-         // console.log(response.data);
+         });
          setStudent(response.data);
-         // console.log("Student detail:");
-         console.log(student);
          setCookie('student', response.data, { path: '/' });
-         // console.log(student.rollNo)
-         statusCall();
-
+         statusCall(response.data);
       } catch (error) {
-         console.log(error)
+         console.log(error);
       }
-      console.log("Student Detail exit.")
-
-   }
-
+      setLoading(false);  // Set loading to false after API call
+   };
 
    useEffect(() => {
-      studentDetail();
-   }, [])
+      const fetchData = async () => {
+         try {
+            await studentDetail();
+            await statusCall(student);
+         } catch (error) {
+            console.log(error);
+         } finally {
+            // Set loading to false after API calls
+            setLoading(false);
+         }
+      };
 
+      // Simulating a 3-second interval before showing the main content
+      const timer = setTimeout(() => {
+         fetchData();
+      }, 200);
+
+      return () => clearTimeout(timer);
+   }, []); // Added dependency to useEffect
+
+   if (loading) {
+      return <LoadingComponent />;
+   }
 
 
    const notifi = [
@@ -175,7 +171,8 @@ const Dashboard = () => {
             <div className='ds-4'>
 
                <div className='ds-hex'>
-                  <Doughnut style={{ borderRadius: 10 }} />
+
+                  <Doughnut data={count} style={{ borderRadius: 10 }} />
                </div>
                {/* <div className='ds-cal'>
                </div> */}

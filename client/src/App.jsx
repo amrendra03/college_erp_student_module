@@ -40,15 +40,20 @@ function App() {
   };
 
   const handleLogout = () => {
-    console.log("Logout procede")
+    // console.log("Logout procede")
     setAuthenticated(false);
     document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     cookies.token = "";
+
+    document.cookie.split(";").forEach((c) => {
+      document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
+
     navigate('/login')
   };
 
   useEffect(() => {
-    console.log("authentication update: " + authenticated)
+    // console.log("authentication update: " + authenticated)
 
   }, [authenticated])
 
