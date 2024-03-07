@@ -6,6 +6,7 @@ import './global/global.css';
 
 import { useCookies } from 'react-cookie';
 import Login from './auth/Login';
+import Signup from './auth/Signup';
 import Nav from './component/nav/Nav';
 import Course from './course/Course';
 import Dashboard from './dashboard/Dashboard';
@@ -25,8 +26,9 @@ function App() {
 
   useEffect(() => {
     const isAuthenticatedUser = !!cookies.token;
+    const isSignupPage = location.pathname === '/signup';
 
-    if (!isAuthenticatedUser) {
+    if (!isAuthenticatedUser && !isSignupPage) {
       setRedirectedFrom(location.pathname);
       navigate('/login'); // Redirect to login if not authenticated
     }
@@ -54,17 +56,18 @@ function App() {
 
   useEffect(() => {
     // console.log("authentication update: " + authenticated)
-
   }, [authenticated])
 
   return (
     <div className={authenticated ? 'app' : 'app2'}>
       {authenticated && <Nav authenticated={authenticated} onLogout={handleLogout} />}
       <Routes>
+        <Route path="/signup" element={<Signup />} />
         <Route
           path="/login"
           element={authenticated ? <Navigate to={redirectedFrom || '/'} /> : <Login onLogin={handleLogin} setRedirectedFrom={setRedirectedFrom} />}
         />
+
         <Route path='/' element={authenticated ? <Dashboard /> : <Navigate to='/login' />} />
         <Route path='/course' element={authenticated ? <Course /> : <Navigate to='/login' />} />
         <Route path='/exam' element={authenticated ? <Exam /> : <Navigate to='/login' />} />
@@ -72,6 +75,7 @@ function App() {
         <Route path='/payment' element={authenticated ? <Payment /> : <Navigate to='/login' />} />
         <Route path='/setting' element={authenticated ? <Setting /> : <Navigate to='/login' />} />
         <Route path='/logout' element={authenticated ? <></> : <Navigate to='/login' />} />
+
       </Routes>
     </div>
   );

@@ -19,14 +19,14 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
    const [newPassword, setNewPassword] = useState('');
    const [confirmPassword, setConfirmPassword] = useState('');
 
-   const [otpsend, setOtpsend] = useState(null);
+
 
    const [emailwarning, setEmailwarning] = useState({ content: '', Display: "none" });
    const [otpwarning, setOtpwarning] = useState({ content: '', Display: "none" });
    const [newpasswordwarning, setNewPasswordwarning] = useState({ content: '', Display: "none", color: "gray" });
    const [confirmwarning, setConfirmwarning] = useState({ content: '', Display: "none" });
-
-
+   const [submitwarning, setSubmitmwarning] = useState({ content: '', Display: "none" });
+   const [loginerror, setLoginerror] = useState({ content: '', Display: "none" });
 
    const handleInputChange = (e) => {
       setFormData({
@@ -54,7 +54,20 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
          setRedirectedFrom(location.state?.from || '/');
       } catch (e) {
          // console.log(e);
-         alert("Server error 500");
+         if (e.code === "ERR_NETWORK") {
+            setLoginerror({
+               content: e.code,
+               Display: "block"
+            });
+         } else {
+            // console.log(e.response)
+            setLoginerror({
+               content: e.response.data.token,
+               Display: "block"
+            });
+
+            // console.log(loginerror.content)
+         }
       }
    };
 
@@ -74,43 +87,40 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
          // return;
       }
 
+      try {
+         // console.log("sending request.. api")
 
+         const url = `http://localhost:8085/auth/send-otp?email=`;
+         const response = await axios.post(url + forgetPasswordEmail);
+         // console.log(response.data);
 
-      // try {
-      //    // console.log("sending request.. api")
+         if (response.data.success == true) {
+            setShowForgetPasswordForm(false);
+            // setShowVerifyCode(true);
+            setShowResetPassword(true);
+         } else {
+            setOtpsend(response.data.message);
+            // console.log(response.data.message);
+         }
 
-      //    const url = `http://localhost:8085/auth/send-otp?email=`;
-      //    const response = await axios.post(url + forgetPasswordEmail);
-      //    // console.log(response.data);
-
-      //    if (response.data.success == true) {
-      //       setShowForgetPasswordForm(false);
-      //       // setShowVerifyCode(true);
-      //       setShowResetPassword(true);
-      //    } else {
-      //       setOtpsend(response.data.message);
-      //       console.log(response.data.message);
-      //    }
-
-      // } catch (e) {
-      //    console.log(e.code)
-      //    if (e.code === "ERR_NETWORK") {
-      //       setEmailwarning({
-      //          content: e.code,
-      //          Display: "block"
-      //       });
-      //    } else {
-      //       setEmailwarning({
-      //          content: e.response.data.message,
-      //          Display: "block"
-      //       });
-      //    }
-      //    console.log(e.response.data)
-      // }
-      console.log('Forget Password submitted for:', forgetPasswordEmail);
-      setShowForgetPasswordForm(false);
-      // setShowVerifyCode(true);
-      setShowResetPassword(true);
+      } catch (e) {
+         console.log(e.code)
+         if (e.code === "ERR_NETWORK") {
+            setEmailwarning({
+               content: e.code,
+               Display: "block"
+            });
+         } else {
+            setEmailwarning({
+               content: e.response.data.message,
+               Display: "block"
+            });
+         }
+         // console.log(e.response.data)
+      }
+      // setShowForgetPasswordForm(false);
+      // // setShowVerifyCode(true);
+      // setShowResetPassword(true);
    };
 
    const validatePassword = (password) => {
@@ -141,88 +151,91 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
       return "";
    };
 
-
    const handleResetPasswordSubmit = async (e) => {
-      console.log("function rest password")
+      // console.log("function call.")
       e.preventDefault();
       if (otpcode === "") {
-         console.log("otp: ", otpcode)
+         console.log("otp: ", otpcode);
          setOtpwarning({
             content: "Please enter the OTP.",
-            Display: "block"
-         });
-         return;
-      }
-      if (newPassword === "") {
-         console.log("newPassword: ", newPassword)
-         setOtpwarning({
-            content: "",
-            Display: "none"
-         });
-         setNewPasswordwarning({
-            content: "Please enter the new password.",
-            Display: "block"
-         });
-         return;
-      }
-      if (newPassword !== confirmPassword) {
-         setNewPasswordwarning({
-            content: "",
-            Display: "none"
-         });
-         setConfirmwarning({
-            content: "Confirm password does not match with the new password.",
-            Display: "block"
+            Display: "block",
          });
          return;
       }
 
       setOtpwarning({
          content: "",
-         Display: "none"
+         Display: "none",
       });
-      if (newPassword != "") {
+
+      if (newPassword === "") {
+         console.log("newPassword: ", newPassword);
          setNewPasswordwarning({
-            content: validatePassword(newPassword),
-            Display: "none"
+            content: "Please enter the new password.",
+            Display: "block",
          });
+         return;
       }
-      // Reset the warnings
+
+      const newPasswordValidationMessage = validatePassword(newPassword);
+      if (newPasswordValidationMessage !== "") {
+         setNewPasswordwarning({
+            content: newPasswordValidationMessage,
+            Display: "block",
+         });
+         return;
+      }
+
+      setNewPasswordwarning({
+         content: "",
+         Display: "none",
+      });
+
+      if (newPassword !== confirmPassword) {
+         setConfirmwarning({
+            content: "Confirm password does not match with the new password.",
+            Display: "block",
+         });
+         return;
+      }
+
       setConfirmwarning({
          content: "",
-         Display: "none"
+         Display: "none",
       });
 
       try {
-         console.log("submit on api... rest password");
+         // console.log("submit on api... reset password");
          const url = `http://localhost:8085/auth/forget_password`;
          const response = await axios.post(url, {
             email: forgetPasswordEmail,
             otp: otpcode,
-            password: confirmPassword
-         })
-         console.log(reponse.data);
-         console.log('Password reset successful!');
+            password: confirmPassword,
+         });
+         // console.log(response.data);
          setShowForgetPasswordForm(false);
          setShowResetPassword(false);
          setSuccessfullyCode(true);
-
-      } catch (error) {
-         // setShowForgetPasswordForm(false);
-         // setShowResetPassword(false);
-         // setSuccessfullyCode(true);
-         console.log(error);
+         // console.log('Password reset successful!');
+      } catch (e) {
+         // console.log(e);
+         // console.log("error---.")
+         // console.log(e.code)
+         if (e.code === "ERR_NETWORK") {
+            setSubmitmwarning({
+               content: e.code,
+               Display: "block"
+            });
+         } else {
+            // console.log(e.response)
+            setSubmitmwarning({
+               content: e.response.data.message,
+               Display: "block"
+            });
+         }
+         // console.log(e.response)
       }
    };
-
-   const handleSuccessfullyResetPassword = (e) => {
-      console.log("Successfully reset the password.")
-      e.preventDefault();
-      //    // Add logic to verify the reset code with the server
-      //    // You can use an API call or any other method
-      //    // For demonstration purposes, we'll show the reset password component
-   };
-
 
    return (
       <div className='login-a'>
@@ -230,7 +243,6 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
             <div className='login-a-icon'></div>
             <h1>College ERP</h1>
          </div>
-
          {!showForgetPasswordForm && !showSuccessfullyCode && !showResetPassword && (
             <form onSubmit={handleFormSubmit} className='login-a-b'>
                <h1 className='login-ab-log'>Login</h1>
@@ -243,11 +255,12 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
                         name="username"
                         value={formData.username}
                         onChange={handleInputChange}
+                        required
                      />
                   </div>
                </div>
 
-               <div className='login-ab' style={{ height: "100px" }}>
+               <div className='login-ab' style={{ height: "80px" }}>
                   <p className='login-p'>Password</p>
                   <div className='login-ab-a'>
                      <div className='login-password'></div>
@@ -256,6 +269,7 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
                         name="password"
                         value={formData.password}
                         onChange={handleInputChange}
+                        required
                      />
                   </div>
                   <p className='login-forget' onClick={() => setShowForgetPasswordForm(true)}>
@@ -266,7 +280,8 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
                <button className='login-ab-c' type="submit">
                   Login
                </button>
-               <div className='login-ab-d'>
+               <p className='login-p' style={{ marginTop: "2px", fontSize: "15px", color: "red", display: `${loginerror.Display}` }}>{loginerror.content}</p>
+               <div className='login-ab-d' >
                   <div className='login-abd-a'>
                      <span style={{ backgroundImage: "var(--auth-faculty)" }}></span>
                      <p>Faculty</p>
@@ -291,6 +306,7 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
                         name="forgetPasswordEmail"
                         value={forgetPasswordEmail}
                         onChange={(e) => setForgetPasswordEmail(e.target.value)}
+                        required
                      />
                   </div>
                   <p className='login-p' style={{ fontSize: "12px", color: "red", display: `${emailwarning.Display}` }}>{emailwarning.content}</p>
@@ -330,7 +346,7 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
                   <div className='login-ab-a'>
                      <input
                         type="password"
-                        name="newPassword"
+                        name="new-password"
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
                         style={{ borderRadius: "7px", borderLeft: "1px solid rgb(71, 71, 71)" }}
@@ -352,6 +368,7 @@ const Login = ({ onLogin, setRedirectedFrom }) => {
                   <p className='login-p' style={{ fontSize: "12px", color: "red", display: `${confirmwarning.Display}` }}>{confirmwarning.content}</p>
                </div>
                <button className='login-ab-c' type="submit">Reset Password</button>
+               <p className='login-p' style={{ fontSize: "12px", color: "red", display: `${submitwarning.Display}`, margin: "4px 0px" }}>{submitwarning.content}</p>
                <p className='login-forget' onClick={() => setShowResetPassword(false)}>
                   Go back to Login
                </p>

@@ -1,162 +1,111 @@
-14:20:01.058 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 12316 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
-14:20:01.062 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-14:20:01.064 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
-14:20:09.102 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
-14:20:11.471 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 10.886 seconds (process running for 12.445)
-14:20:11.482 [restartedMain] INFO  com.server.ServerApplication - Server Started......
-14:20:39.965 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:20:39.965 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Generating Otp from service
-14:20:39.966 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Generated otp: 502223
-14:20:39.967 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:20:39.967 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 502223
-14:21:09.481 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:21:09.481 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Generating Otp from service
-14:21:09.481 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Generated otp: 578283
-14:21:09.481 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:21:09.482 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 578283
-14:29:43.955 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:29:43.956 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Generating Otp from service
-14:29:43.956 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Generated otp: 637463
-14:29:43.957 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:29:43.957 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 637463
-14:31:15.780 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:31:15.780 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Generating Otp from service
-14:31:15.781 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Generated otp: 300598
-14:31:15.781 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:31:15.781 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 300598
-14:31:30.397 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:31:30.398 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Generating Otp from service
-14:31:30.398 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Generated otp: 977817
-14:31:30.398 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:31:30.398 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 977817
-14:31:53.329 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:31:53.329 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Generating Otp from service
-14:31:53.330 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Generated otp: 338733
-14:31:53.330 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:31:53.330 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 338733
-14:32:05.243 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:32:05.243 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Generating Otp from service
-14:32:05.244 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Generated otp: 266255
-14:32:05.244 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:32:05.244 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 266255
-14:34:07.137 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:34:07.138 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Generating Otp from service
-14:34:07.138 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Generated otp: 301961
-14:34:07.138 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:34:07.138 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 301961
-14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Generating Otp from service
-14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Generated otp: 889831
-14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:35:14.009 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 889831
-14:45:19.009 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to send the Otp: 
-14:45:19.009 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Generating Otp from service
-14:45:19.010 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Generated otp: 421995
-14:45:19.010 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:45:19.010 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 421995
-14:45:28.700 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:45:28.700 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Generating Otp from service
-14:45:28.700 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Generated otp: 896274
-14:45:28.701 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:45:28.701 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 896274
-14:46:05.177 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
-14:46:05.178 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Generating Otp from service
-14:46:05.178 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Generated otp: 438683
-14:46:05.178 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:46:05.178 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 438683
-14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request to send the Otp: 
-14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Generating Otp from service
-14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Generated otp: 806288
-14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:46:33.263 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 806288
-14:46:42.977 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request to send the Otp: vbnb
-14:46:42.978 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Generating Otp from service
-14:46:42.978 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Generated otp: 953579
-14:46:42.978 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:46:42.978 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=vbnb; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 953579
-14:49:06.655 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request to send the Otp: 
-14:49:06.655 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Generating Otp from service
-14:49:06.656 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Generated otp: 651850
-14:49:06.656 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:49:06.656 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 651850
-14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Request to send the Otp: gfhgf
-14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Generating Otp from service
-14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Generated otp: 730390
-14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Sending the otp on email..
-14:49:37.078 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=gfhgf; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 730390
-15:28:32.198 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to forget password.
-15:28:32.198 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Processing the password change...
-15:28:32.259 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - null
-15:28:32.259 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request completed.
-15:36:36.464 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to forget password.
-15:36:36.464 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Processing the password change...
-15:36:36.477 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - null
-15:36:36.477 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request completed.
-15:37:03.240 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to forget password.
-15:37:03.241 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Processing the password change...
-15:37:03.247 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - null
-15:37:03.248 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request completed.
-15:37:05.699 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request to forget password.
-15:37:05.699 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Processing the password change...
-15:37:05.704 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - null
-15:37:05.704 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request completed.
-15:37:25.912 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request to forget password.
-15:37:25.913 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Processing the password change...
-15:37:25.919 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - null
-15:37:25.920 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request completed.
-15:37:54.751 [http-nio-8085-exec-6] INFO  com.server.otp.OTPController - Request to forget password.
-15:37:54.751 [http-nio-8085-exec-6] INFO  com.server.otp.EmailService - Processing the password change...
-15:37:54.757 [http-nio-8085-exec-6] INFO  com.server.otp.EmailService - null
-15:37:54.757 [http-nio-8085-exec-6] INFO  com.server.otp.OTPController - Request completed.
-15:42:05.542 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Request to forget password.
-15:42:05.543 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Processing the password change...
-15:42:05.548 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - null
-15:42:05.548 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Request completed.
-15:42:18.837 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Request to forget password.
-15:42:18.837 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - Processing the password change...
-15:42:18.842 [http-nio-8085-exec-3] INFO  com.server.otp.EmailService - null
-15:42:18.842 [http-nio-8085-exec-3] INFO  com.server.otp.OTPController - Request completed.
-15:42:30.840 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request to forget password.
-15:42:30.840 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - Processing the password change...
-15:42:30.843 [http-nio-8085-exec-4] INFO  com.server.otp.EmailService - null
-15:42:30.844 [http-nio-8085-exec-4] INFO  com.server.otp.OTPController - Request completed.
-15:43:04.987 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request to forget password.
-15:43:04.987 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - Processing the password change...
-15:43:04.994 [http-nio-8085-exec-8] INFO  com.server.otp.EmailService - null
-15:43:04.994 [http-nio-8085-exec-8] INFO  com.server.otp.OTPController - Request completed.
-15:43:07.171 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Request to forget password.
-15:43:07.171 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - Processing the password change...
-15:43:07.176 [http-nio-8085-exec-7] INFO  com.server.otp.EmailService - null
-15:43:07.176 [http-nio-8085-exec-7] INFO  com.server.otp.OTPController - Request completed.
-15:43:25.797 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to forget password.
-15:43:25.797 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Processing the password change...
-15:43:25.801 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - null
-15:43:25.801 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request completed.
-15:44:39.590 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to forget password.
-15:44:39.590 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Processing the password change...
-15:44:39.594 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - null
-15:44:39.594 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request completed.
-15:50:08.439 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to forget password.
-15:50:08.440 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Processing the password change...
-15:50:08.450 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - null
-15:50:08.450 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request completed.
-15:56:27.620 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request to forget password.
-15:56:27.620 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Processing the password change...
-15:56:27.629 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - null
-15:56:27.629 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request completed.
-15:59:46.304 [http-nio-8085-exec-7] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=, password=)
-15:59:46.458 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
-15:59:46.624 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Invalid Detail !!
-15:59:46.625 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
-15:59:51.811 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to forget password.
-15:59:51.811 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Processing the password change...
-15:59:51.818 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - null
-15:59:51.818 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request completed.
-16:01:54.352 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to forget password.
-16:01:54.352 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Processing the password change...
-16:01:54.360 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - null
-16:01:54.360 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request completed.
-16:09:09.708 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request to forget password.
-16:09:09.708 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - Processing the password change...
-16:09:09.716 [http-nio-8085-exec-5] INFO  com.server.otp.EmailService - null
-16:09:09.716 [http-nio-8085-exec-5] INFO  com.server.otp.OTPController - Request completed.
+00:00:01.774 [http-nio-8085-exec-5] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=er)
+00:00:01.931 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:00:01.947 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+00:00:02.229 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:00:02.229 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:00:58.852 [http-nio-8085-exec-7] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=er)
+00:00:58.853 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:00:58.861 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+00:00:59.090 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:00:59.090 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:04:05.984 [http-nio-8085-exec-9] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=123)
+00:04:05.985 [http-nio-8085-exec-9] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:04:05.993 [http-nio-8085-exec-9] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+00:04:06.227 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:04:06.227 [http-nio-8085-exec-9] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:04:06.839 [http-nio-8085-exec-10] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=123)
+00:04:06.839 [http-nio-8085-exec-10] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:04:06.846 [http-nio-8085-exec-10] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+00:04:07.072 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:04:07.073 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:04:18.662 [http-nio-8085-exec-2] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=123)
+00:04:18.663 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:04:18.669 [http-nio-8085-exec-2] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+00:04:18.902 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:04:18.902 [http-nio-8085-exec-2] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:04:19.213 [http-nio-8085-exec-3] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=123)
+00:04:19.213 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:04:19.219 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+00:04:19.425 [http-nio-8085-exec-4] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=user@gmail.com, password=123)
+00:04:19.425 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:04:19.438 [http-nio-8085-exec-4] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
+00:04:19.453 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:04:19.453 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:04:19.650 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:04:19.651 [http-nio-8085-exec-4] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:06:21.644 [http-nio-8085-exec-6] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=, password=)
+00:06:21.645 [http-nio-8085-exec-6] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:06:21.873 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:06:21.873 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:07:07.841 [http-nio-8085-exec-8] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=, password=)
+00:07:07.841 [http-nio-8085-exec-8] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:07:08.076 [http-nio-8085-exec-8] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:07:08.076 [http-nio-8085-exec-8] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:07:39.533 [http-nio-8085-exec-10] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=, password=)
+00:07:39.533 [http-nio-8085-exec-10] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:07:39.780 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:07:39.781 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:07:44.085 [http-nio-8085-exec-1] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=hello, password=)
+00:07:44.085 [http-nio-8085-exec-1] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:07:44.327 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:07:44.327 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:07:44.795 [http-nio-8085-exec-3] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=hello, password=)
+00:07:44.796 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:07:45.022 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:07:45.022 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:10:15.430 [http-nio-8085-exec-5] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=hello, password=)
+00:10:15.430 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:10:15.665 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:10:15.665 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:10:16.153 [http-nio-8085-exec-6] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=hello, password=)
+00:10:16.153 [http-nio-8085-exec-6] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:10:16.385 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:10:16.386 [http-nio-8085-exec-6] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:10:35.054 [http-nio-8085-exec-8] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=hello, password=)
+00:10:35.055 [http-nio-8085-exec-8] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:10:35.287 [http-nio-8085-exec-8] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:10:35.288 [http-nio-8085-exec-8] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:11:31.781 [http-nio-8085-exec-10] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=hello, password=)
+00:11:31.781 [http-nio-8085-exec-10] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:11:31.991 [http-nio-8085-exec-1] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=hello, password=)
+00:11:31.991 [http-nio-8085-exec-1] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:11:32.016 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:11:32.017 [http-nio-8085-exec-10] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:11:32.222 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:11:32.222 [http-nio-8085-exec-1] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:12:16.915 [http-nio-8085-exec-3] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=hello, password=)
+00:12:16.916 [http-nio-8085-exec-3] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:12:17.154 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:12:17.154 [http-nio-8085-exec-3] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:14:51.879 [http-nio-8085-exec-5] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=, password=)
+00:14:51.880 [http-nio-8085-exec-5] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:14:52.121 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:14:52.121 [http-nio-8085-exec-5] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:17:42.561 [http-nio-8085-exec-7] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=, password=)
+00:17:42.561 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:17:42.773 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:17:42.773 [http-nio-8085-exec-7] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:17:46.484 [http-nio-8085-exec-8] DEBUG com.server.jwt.JwtController - Auth Request: JwtRequestDTO(username=, password=)
+00:17:46.484 [http-nio-8085-exec-8] INFO  com.server.jwt.CustomUserDetailService - Processing Authentication CustomUserDetailService Stage.
+00:17:46.727 [http-nio-8085-exec-8] INFO  com.server.jwt.JwtController - Invalid Detail !!
+00:17:46.728 [http-nio-8085-exec-8] INFO  com.server.jwt.JwtController - Authentication failed: Incorrect username or password.
+00:17:51.781 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Request to send the Otp: 
+00:17:51.781 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Generating Otp from service
+00:17:51.781 [http-nio-8085-exec-9] INFO  com.server.otp.OTPController - Generated otp: 553182
+00:17:51.782 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Sending the otp on email..
+00:17:51.782 [http-nio-8085-exec-9] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 553182
+00:17:53.632 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Request to send the Otp: 
+00:17:53.632 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Generating Otp from service
+00:17:53.632 [http-nio-8085-exec-10] INFO  com.server.otp.OTPController - Generated otp: 290727
+00:17:53.632 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Sending the otp on email..
+00:17:53.632 [http-nio-8085-exec-10] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 290727
+00:17:55.221 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Request to send the Otp: 
+00:17:55.221 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Generating Otp from service
+00:17:55.221 [http-nio-8085-exec-1] INFO  com.server.otp.OTPController - Generated otp: 795939
+00:17:55.221 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Sending the otp on email..
+00:17:55.221 [http-nio-8085-exec-1] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 795939
+00:19:30.447 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Request to send the Otp: amrendra123@
+00:19:30.448 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Generating Otp from service
+00:19:30.448 [http-nio-8085-exec-2] INFO  com.server.otp.OTPController - Generated otp: 732499
+00:19:30.448 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Sending the otp on email..
+00:19:30.448 [http-nio-8085-exec-2] INFO  com.server.otp.EmailService - Data: SimpleMailMessage: from=null; replyTo=null; to=amrendra123@; cc=; bcc=; sentDate=null; subject=OTP Verification; text=Your OTP for verification is: 732499
