@@ -1,8 +1,6 @@
 package com.server.controller.student;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.server.constant.API;
 import com.server.dto.student.StudentCourseRegistrationDTO;
@@ -112,11 +110,10 @@ public class StudentControllerDetail {
       Log.info("Get Registered Course List");
       List<StudentCourseRegistrationDTO> res = this.studentService.getAllRegisteredCourses(id);
       Log.info("Successfully got registered list for Course. Size: {}", res.size());
+      Collections.sort(res, Comparator.comparing(StudentCourseRegistrationDTO::getType));
+
       return new ResponseEntity<>(res, HttpStatus.OK);
    }
-
-
-
 
    @DeleteMapping("/course/registration")
    public ResponseEntity<ApiResponse> registerCourseDelete(@RequestBody StudentCourseRegistrationDTO req){
@@ -128,6 +125,4 @@ public class StudentControllerDetail {
       }
       return new ResponseEntity<>(res,HttpStatus.CREATED);
    }
-
-
 }

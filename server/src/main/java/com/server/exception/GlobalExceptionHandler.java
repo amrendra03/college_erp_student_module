@@ -65,4 +65,13 @@ public class GlobalExceptionHandler {
    }
 
 
+
+   // Default handler for unhandled exceptions
+//   @ExceptionHandler(Exception.class)
+//   public ResponseEntity<ApiResponse> handleOtherExceptions(Exception ex) {
+//      String message = "Internal Server Error";
+//      ApiResponse apiResponse = new ApiResponse(message, false);
+//      return new ResponseEntity<>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+//   }
+
 }

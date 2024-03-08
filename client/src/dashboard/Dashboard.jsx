@@ -13,6 +13,19 @@ const Dashboard = () => {
    const [student, setStudent] = useState({});
    const [status, setStatus] = useState([]);
    const [loading, setLoading] = useState(true);  // Added loading state
+   const [registerdcourse, setRegisteredcourse] = useState({});
+   const [courseData, setcoursedata] = useState({})
+   const [semesterprogress, setSemesterProgress] = useState({});
+   const [fee, setFee] = useState({});
+   let page = 0;
+   var countNotifi = 5;
+   const notifiData = [
+      // { message: "Final exam date", active: 0 },
+      // { message: "Project submission deadline", active: 0 }
+   ];
+
+   const [notifi, setNotifi] = useState(notifiData)
+
 
    const [count, setCount] = useState([])
 
@@ -39,8 +52,8 @@ const Dashboard = () => {
       setLoading(false);  // Set loading to false after API call
       // console.log("Status exit.")
    };
-   // console.log("check")
    const studentDetail = async () => {
+      // e.preventDefault();
       try {
          const response = await axios.get(API.studentDetail, {
             headers: {
@@ -50,17 +63,145 @@ const Dashboard = () => {
          setStudent(response.data);
          setCookie('student', response.data, { path: '/' });
          statusCall(response.data);
+         semesterProgress(response.data);
+         getFeeStatus(response.data);
+         getNotification(page)
+         // getNotification();
       } catch (error) {
          console.log(error);
       }
       setLoading(false);  // Set loading to false after API call
    };
 
+   const registerdCourse = async () => {
+      // e.preventDefault();
+
+      try {
+
+         const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+         // console.log(token)
+         // Set the token in the headers
+         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+
+         // console.log("get the registration course list")
+         const response = await axios.get(`http://localhost:8085/student/course/registration/RN10000`);
+         // console.log(response.data);
+
+         const sortedData = sortDataByTypePriority(response.data);
+         // console.log(sortedData[0]);
+
+         setRegisteredcourse(response.data[0]);
+
+         // console.log("get data of a course")
+         const response2 = await axios.get(`http://localhost:8085/student/course/${sortedData[0].studentCourseDetailId}`)
+         // console.log(response2.data);
+         setcoursedata(response2.data);
+
+      } catch (error) {
+         console.error('Error fetching data:', error);
+      }
+   };
+
+   const sortDataByTypePriority = (data) => {
+      return data.sort((a, b) => {
+         const typePriority = { "PG": 1, "UG": 2, "DP": 3 };
+         return typePriority[a.type] - typePriority[b.type];
+      });
+   };
+
+   const semesterProgress = async (student) => {
+
+      // console.log("semester progress call api. rollNo: " + student.rollNo);
+      try {
+         const apiUrl = `http://localhost:8085/student/courses/${student.rollNo}/semesters`;
+         // Make a POST request
+         const response = await axios.get(apiUrl, {
+            headers: {
+               'Authorization': `Bearer ${cookies.token}`
+            }
+         });
+
+         // Handle the response
+         // console.log('Response:', response.data);
+
+         const inProgressArray = response.data.filter(item => item.status === "In Progress");
+         setSemesterProgress(inProgressArray[0]);
+
+         // console.log("Filtered Array with 'In Progress' status:", inProgressArray);
+
+      } catch (error) {
+         // Handle errors
+         console.error('Error:', error);
+      }
+   };
+
+   const getFeeStatus = async (student) => {
+      // console.log("from fee status api call..")
+      try {
+         const url = `http://localhost:8085/student/fee-records/${student.rollNo}`;
+         const response = await axios.get(url, {
+            headers: {
+               "Authorization": `Bearer ${cookies.token}`
+            }
+         })
+
+         // console.log(response);
+
+         response.data.forEach(x => {
+            if (x.status != "PAID") {
+               setFee(x);
+               // console.log(x)
+            }
+         })
+         // setFee(response.data);
+         // console.log(fee);
+      } catch (error) {
+         console.log(error);
+
+      }
+   }
+
+   const getNotification = async (page) => {
+
+      try {
+         const url = `http://localhost:8085/notification/?page=${page}`;
+         const response = await axios.get(url, {
+            headers: {
+               "Authorization": `Bearer ${cookies.token}`
+            }
+         });
+
+         // console.log(response.data[0])
+         response.data.forEach((x) => {
+            if (countNotifi > 0) {
+               x["active"] = 0
+               countNotifi -= 1;
+            } else {
+               x["active"] = 1
+
+            }
+            notifiData.push(x)
+         });
+         setNotifi(notifiData);
+         console.log(notifi)
+      } catch (error) {
+         console.log(error);
+      }
+   }
+   console.log("check useEffect")
+
+   const test = (page) => {
+      console.log(page);
+   }
+
    useEffect(() => {
       const fetchData = async () => {
          try {
             await studentDetail();
             await statusCall(student);
+            await registerdCourse();
+            // await getNotification(page);
          } catch (error) {
             console.log(error);
          } finally {
@@ -81,22 +222,6 @@ const Dashboard = () => {
       return <LoadingComponent />;
    }
 
-
-   const notifi = [
-      { message: "Final exam date", active: 0 },
-      { message: "Project submission deadline", active: 0 },
-      { message: "Club meeting tomorrow", active: 0 },
-      { message: "Library closed for renovations", active: 0 },
-      { message: "Guest lecture on Friday", active: 0 },
-      { message: "Reminder: Pay tuition fees", active: 1 },
-      { message: "Sports day announcement", active: 1 },
-      { message: "Holiday schedule update", active: 1 },
-      { message: "Career fair next week", active: 1 },
-      { message: "Book return deadline", active: 1 },
-   ];
-
-
-
    return (
       <div className='dashboard' >
          <Header data={"Dashboard"} />
@@ -111,28 +236,28 @@ const Dashboard = () => {
             <div className="Status2 display" >
                <div className='st-icon-2' />
                <div>
-                  <span className='txt'>B.Tech CSE( AI &ML)</span><br />
-                  <span className='txt'>sem 7th</span>
+                  <span className='txt'>{courseData.courseName}</span><br />
+                  <span className='txt'>{semesterprogress.name}</span>
                </div>
             </div>
             <div className="Status3 display" >
                <div className='st-icon-3' />
                <div>
                   <span className='txt'>Fee</span><br />
-                  <span className='txt'>1,00,000</span>
+                  <span className='txt' style={{ color: "red" }}>{fee ? fee.feeAmount : 0}</span>
                </div>
             </div>
             <div className="Status4 display" >
                <div className='st-icon-4' />
                <div>
                   <span className='txt'>Fine</span><br />
-                  <span className='txt'>1,00,000</span>
+                  <span className='txt' style={{ color: "red" }}>{fee ? fee.fineAmount : 0}</span>
                </div></div>
             <div className="Status5 display" >
                <div className='st-icon-5' />
                <div>
                   <span className='txt'>Comptetive Score</span><br />
-                  <span className='txt'>26546465688798</span>
+                  <span className='txt' style={{ color: "green" }}>{student.score}</span>
                </div>
             </div>
          </div>
@@ -161,7 +286,7 @@ const Dashboard = () => {
                         Notification
                      </span>
                   </div>
-                  <div className='notifi-3'>
+                  <div className='notifi-3'  >
                      {notifi.map((item, index) => (
                         <Notifi key={index} data={item} />
                      ))}
@@ -201,6 +326,7 @@ const Row = ({ data }) => {
 };
 
 const Notifi = ({ data }) => {
+
    const notifiClass = data.active === 1 ? 'notifi-icon-img-d' : 'notifi-icon-img-h';
    const notirow = data.active === 1 ? 'notifi-row-color' : '';
    const notimess = data.active === 1 ? 'notifi-row-mess' : '';

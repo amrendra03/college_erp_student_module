@@ -5,20 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.server.dto.ApiResponse;
 import com.server.dto.NotificationDto;
 import com.server.service.NotificationService;
 
 @RestController
-@RequestMapping("/notifi")
+@RequestMapping("/notification")
 public class NotificationController {
 
    @Autowired
@@ -35,9 +29,10 @@ public class NotificationController {
 
    // get all
    @GetMapping("/")
-   public ResponseEntity<List<NotificationDto>> getAll() {
+   public ResponseEntity<List<NotificationDto>> getAll( @RequestParam(defaultValue = "0") int page,
+                                                        @RequestParam(defaultValue = "10") int pageSize) {
 
-      List<NotificationDto> x = this.notificationService.getall();
+      List<NotificationDto> x = this.notificationService.getall(page, pageSize);
 
       return new ResponseEntity<>(x, HttpStatus.OK);
    }

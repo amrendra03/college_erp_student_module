@@ -6,6 +6,10 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.server.dto.NotificationDto;
@@ -40,13 +44,21 @@ public class NotificationServiceImpl implements NotificationService {
    }
 
    @Override
-   public List<NotificationDto> getall() {
-      List<Notification> all = this.notificationRepo.findAll();
-
+   public List<NotificationDto> getall(int page, int pageSize) {
+      Page<Notification> all = this.getAllNotificationsOrderByTimestampDesc(page,pageSize);
       List<NotificationDto> x = all.stream().map((y) -> this.modelMapper.map(y, NotificationDto.class))
             .collect(Collectors.toList());
 
       return x;
+   }
+
+   public  Page<Notification> getAllNotificationsOrderByTimestampDesc(int page, int pageSize) {
+      // Create a PageRequest object to represent the requested page
+//      Pageable pageable = PageRequest.of(page, pageSize, Sort.by("candidateModel.candidateId").descending());
+      Pageable pageable = PageRequest.of(page, pageSize, Sort.by("id").descending());
+
+      // Use the repository method to get paginated notifications
+      return notificationRepo.findAll(pageable);
    }
 
 }

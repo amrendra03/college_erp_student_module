@@ -23,6 +23,8 @@ public class StudentDetail implements UserDetails {
     @NotBlank(message = "Name must not be blank")
     private String name;
 
+    private String score;
+
     @Column(unique = true)
     @NotBlank(message = "Email must not be blank")
     @Email(message = "Invalid email format")

@@ -26,6 +26,8 @@ public class StudentSemesterProgress {
    @JoinColumn(name = "semester_id")
    private StudentSemester studentSemester;
 
+   private String name;
+
    private String status; // Status of the student in the current semester (e.g., "In Progress",
                           // "Completed")
    private double gpa; // Grade Point Average for the current semester

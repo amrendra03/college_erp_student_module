@@ -2,6 +2,7 @@ package com.server.dto.fee;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -21,6 +22,9 @@ public class FeeRecordDTO {
 
     @PositiveOrZero(message = "Fine amount must be a positive number or zero")
     private double fineAmount;
+
+
+    private String status;
 
     @NotNull(message = "Record date must not be null")
     private Date recordDate;

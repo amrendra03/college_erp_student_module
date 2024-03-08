@@ -10,6 +10,7 @@ public class StudentSemesterProgressDTO {
    private Long studentDetailId;
    private Long studentSemesterId;
    private String status;
+   private String name;
    private double gpa;
    private Date progressDate;
 }

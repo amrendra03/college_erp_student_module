@@ -4,12 +4,7 @@ import java.util.Date;
 
 import com.server.entities.student.StudentDetail;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -25,6 +20,10 @@ public class FeeRecord {
     private StudentDetail studentDetail; // Changed the type to StudentDetail
 
     private double feeAmount;
+
+    @Column(columnDefinition = "VARCHAR(255) DEFAULT 'ACTIVE'")
+    private String status;
+
     private double fineAmount;
     private Date recordDate;
     // Constructors, getters, and setters can be added as needed

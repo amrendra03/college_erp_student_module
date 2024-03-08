@@ -10,6 +10,9 @@ public interface NotificationService {
 
    void delete(Long id);
 
-   List<NotificationDto> getall();
+   List<NotificationDto> getall(int page, int pageSize);
+
+
+
 
 }

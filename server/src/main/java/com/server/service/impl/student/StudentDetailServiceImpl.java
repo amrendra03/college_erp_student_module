@@ -209,6 +209,7 @@ public class StudentDetailServiceImpl implements StudentService {
          res.setStudentDetail(st);
          res.setStudentCourseDetail(cor.get());
          res.setRollNo(req.getStudentRollNo());
+         res.setType(req.getType());
 
          // Save the StudentCourseRegistration entity
          this.studentCourseRegistrationRepo.save(res);

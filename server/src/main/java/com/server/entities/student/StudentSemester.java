@@ -2,14 +2,8 @@ package com.server.entities.student;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import com.server.entities.enums.SemesterStatus;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -20,6 +14,9 @@ public class StudentSemester {
    private Long semesterId;
 
    private int semesterNumber;
+
+   @Enumerated(EnumType.STRING)
+   private SemesterStatus status;
 
    @ManyToOne
    @JoinColumn(name = "student_course_id")
