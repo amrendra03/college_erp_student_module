@@ -4,6 +4,9 @@ import com.server.dto.student.StudentCourseRegistrationDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Data
 @Entity
 public class StudentCourseRegistration {
@@ -24,5 +27,7 @@ public class StudentCourseRegistration {
     private String type;
 
     private String rollNo;
+
+    private LocalDateTime date = LocalDateTime.now();
 
 }

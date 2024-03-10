@@ -9,4 +9,5 @@ public class NotificationDto {
    private Long id;
    private String message;
    private Date timestamp;
+   private boolean active;
 }

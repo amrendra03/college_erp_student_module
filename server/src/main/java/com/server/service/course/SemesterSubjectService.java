@@ -14,7 +14,7 @@ public interface SemesterSubjectService {
 
     StudentSubjectDto get(Long courseId,int semId,Long subId);
 
-    List<StudentSubjectDto> getAll(Long courseId,int semId);
+    List<StudentSubjectDto> getAll(Long courseId,Long semId);
 
     ApiResponse delete(Long courseId, int semId, Long subId);
 

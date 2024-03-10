@@ -48,7 +48,7 @@ public class StudentCourseStatusServiceImpl implements StudentCourseStatusServic
             log.info("Successfully saved the semester progress");
             return res;
         } catch (Exception ex) {
-            log.error("Error during semester progress creation: {}", ex.getMessage());
+//            log.error("Error during semester progress creation: {}", ex.getMessage());
             throw new DataOperationException("Error during semester progress creation", ex);
         }
     }
@@ -65,7 +65,7 @@ public class StudentCourseStatusServiceImpl implements StudentCourseStatusServic
             log.info("Successfully updated semester progress");
             return modelMapper.map(updatedProgress, StudentSemesterProgressDTO.class);
         } catch (Exception ex) {
-            log.error("Error during semester progress update: {}", ex.getMessage());
+//            log.error("Error during semester progress update: {}", ex.getMessage());
             throw new DataOperationException("Error during semester progress update", ex);
         }
     }
@@ -81,14 +81,14 @@ public class StudentCourseStatusServiceImpl implements StudentCourseStatusServic
 
             if (progress.getStudentSemester().getSemesterId().equals(semId)) {
                 studentSemesterProgressRepo.delete(progress);
-                log.info("Successfully deleted semester progress: {}", semId);
+//                log.info("Successfully deleted semester progress: {}", semId);
                 return new ApiResponse("Successfully deleted semester progress:" + rollNo + " / " + semId, true);
             } else {
-                log.info("Semester progress not found: {}", semId);
+//                log.info("Semester progress not found: {}", semId);
                 return new ApiResponse("Semester progress not found !!", false);
             }
         } catch (Exception ex) {
-            log.error("Error during semester progress deletion: {}", ex.getMessage());
+//            log.error("Error during semester progress deletion: {}", ex.getMessage());
             throw new DataOperationException("Error during semester progress deletion", ex);
         }
     }
@@ -110,7 +110,7 @@ public class StudentCourseStatusServiceImpl implements StudentCourseStatusServic
             log.info("Successfully retrieved semester progress list.");
             return res;
         } catch (Exception ex) {
-            log.error("Error during getting semester progress list: {}", ex.getMessage());
+//            log.error("Error during getting semester progress list: {}", ex.getMessage());
             throw new DataOperationException("Error during getting semester progress list", ex);
         }
     }

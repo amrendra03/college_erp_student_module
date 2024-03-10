@@ -25,7 +25,7 @@ public class JwtToken {
     private Logger log = LoggerFactory.getLogger(JwtController.class);
 
     public String getUsernameFromToken(String token){
-        log.info("At JwtToken getUsernameFromToken stage.");
+//        log.info("At JwtToken getUsernameFromToken stage.");
         return getClaimFromToken(token, Claims::getSubject);
     }
 
@@ -35,14 +35,14 @@ public class JwtToken {
     }
 
     public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver){
-        log.info("At JwtToken getClaimFromToken stage.");
+//        log.info("At JwtToken getClaimFromToken stage.");
         final Claims claims = getAllClaimsFromToken(token);
 
         return claimsResolver.apply(claims);
     }
 
     private Claims getAllClaimsFromToken(String token) {
-        log.info("At JwtToken getAllClaimsFromToken stage.");
+//        log.info("At JwtToken getAllClaimsFromToken stage.");
         return Jwts.parserBuilder().setSigningKey(secret).build().parseClaimsJws(token).getBody();
 
     }
@@ -66,7 +66,7 @@ public class JwtToken {
 
     public Boolean validateToken(String token, UserDetails userDetails){
 
-        log.info("Process JwtToken ValidationToken...");
+//        log.info("Process JwtToken ValidationToken...");
         final String username = getUsernameFromToken(token);
 
         return (username.equals(userDetails.getUsername()) && ! isTokenExpired(token));

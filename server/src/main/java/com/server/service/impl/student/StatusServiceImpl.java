@@ -99,7 +99,7 @@ public class StatusServiceImpl implements StatusService {
             List<StudentStatus> allStatus = this.statusRepo.findByStudentDetail(st);
             res = allStatus.stream().map(x->this.modelMapper.map(x,StudentStatusDTO.class)).collect(Collectors.toList());
             log.info("Successfully get all the status ");
-            res.forEach(x-> log.info("status: {}",x));
+//            res.forEach(x-> log.info("status: {}",x));
         }catch (Exception exception){
             throw new ResourceNotFoundException("Student not found","Roll No",Long.parseLong(rollNo));
         }

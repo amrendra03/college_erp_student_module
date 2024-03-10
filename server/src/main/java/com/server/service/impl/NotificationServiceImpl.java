@@ -1,10 +1,14 @@
 package com.server.service.impl;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,9 +30,13 @@ public class NotificationServiceImpl implements NotificationService {
    @Autowired
    private ModelMapper modelMapper;
 
+   private Logger log  = LoggerFactory.getLogger(Notification.class);
+
    @Override
    public NotificationDto create(NotificationDto notificationDto) {
 
+      notificationDto.setTimestamp(new Date());
+      notificationDto.setActive(true);
       Notification x = this.notificationRepo.save(this.modelMapper.map(notificationDto, Notification.class));
 
       return this.modelMapper.map(x, NotificationDto.class);
@@ -45,11 +53,27 @@ public class NotificationServiceImpl implements NotificationService {
 
    @Override
    public List<NotificationDto> getall(int page, int pageSize) {
+      log.info("Processing notification list...");
       Page<Notification> all = this.getAllNotificationsOrderByTimestampDesc(page,pageSize);
-      List<NotificationDto> x = all.stream().map((y) -> this.modelMapper.map(y, NotificationDto.class))
-            .collect(Collectors.toList());
+//      List<NotificationDto> x = all.stream().map((y) -> this.modelMapper.map(y, NotificationDto.class))
+//            .collect(Collectors.toList());
 
-      return x;
+      List<NotificationDto> notificationDtos = new ArrayList<>();
+
+      for (Notification notification : all) {
+         if (notification.isOlderThanFiveDays()) {
+//            log.info("notification is older than 5 days");
+            notification.setActive(true);
+         }else{
+//            log.info("notification is not older than 5 days ");
+            notification.setActive(false);
+         }
+
+         NotificationDto dto = this.modelMapper.map(notification, NotificationDto.class);
+         notificationDtos.add(dto);
+      }
+
+      return notificationDtos;
    }
 
    public  Page<Notification> getAllNotificationsOrderByTimestampDesc(int page, int pageSize) {

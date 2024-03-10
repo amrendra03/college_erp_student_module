@@ -87,7 +87,7 @@ public class SemesterSubjectServiceImpl implements SemesterSubjectService {
     }
 
     @Override
-    public List<StudentSubjectDto> getAll(Long courseId,int semId) {
+    public List<StudentSubjectDto> getAll(Long courseId,Long semId) {
 
         List<StudentSubject> res = this.semesterSubjectRepo.findAllByCourseIdAndSemesterNumber(courseId,semId);
 

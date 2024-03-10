@@ -56,7 +56,7 @@ public class SemesterSubjectController {
     }
 
     @GetMapping("/{courseId}/semester/{semId}/subject")
-    public ResponseEntity<?> getAll(@PathVariable Long courseId,@PathVariable int semId){
+    public ResponseEntity<?> getAll(@PathVariable Long courseId,@PathVariable Long semId){
 
        List<StudentSubjectDto> res = this.semesterSubjectService.getAll(courseId,semId);
         if(res==null){
