@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Doughnut from '../component/chart/Doughnut';
 import Header from '../component/header/Header';
@@ -17,15 +17,6 @@ const Dashboard = () => {
    const [courseData, setcoursedata] = useState({})
    const [semesterprogress, setSemesterProgress] = useState({});
    const [fee, setFee] = useState({});
-   let page = 0;
-   var countNotifi = 5;
-   const notifiData = [
-      // { message: "Final exam date", active: 0 },
-      // { message: "Project submission deadline", active: 0 }
-   ];
-
-   const [notifi, setNotifi] = useState(notifiData)
-
 
    const [count, setCount] = useState([])
 
@@ -65,7 +56,7 @@ const Dashboard = () => {
          statusCall(response.data);
          semesterProgress(response.data);
          getFeeStatus(response.data);
-         getNotification(page)
+         // getNotification(page)
          // getNotification();
       } catch (error) {
          console.log(error);
@@ -159,34 +150,6 @@ const Dashboard = () => {
       } catch (error) {
          console.log(error);
 
-      }
-   }
-
-   const getNotification = async (page) => {
-
-      try {
-         const url = `http://localhost:8085/notification/?page=${page}`;
-         const response = await axios.get(url, {
-            headers: {
-               "Authorization": `Bearer ${cookies.token}`
-            }
-         });
-
-         // console.log(response.data[0])
-         response.data.forEach((x) => {
-            if (countNotifi > 0) {
-               x["active"] = 0
-               countNotifi -= 1;
-            } else {
-               x["active"] = 1
-
-            }
-            notifiData.push(x)
-         });
-         setNotifi(notifiData);
-         console.log(notifi)
-      } catch (error) {
-         console.log(error);
       }
    }
    console.log("check useEffect")
@@ -286,11 +249,12 @@ const Dashboard = () => {
                         Notification
                      </span>
                   </div>
-                  <div className='notifi-3'  >
+                  {/* <div className='notifi-3'  >
                      {notifi.map((item, index) => (
                         <Notifi key={index} data={item} />
                      ))}
-                  </div>
+                  </div> */}
+                  <Notifi />
                </div>
             </div>
             <div className='ds-4'>
@@ -310,7 +274,6 @@ const Dashboard = () => {
    )
 }
 
-
 const Row = ({ data }) => {
    return (
       <div className='ds-6-row-1'>
@@ -325,17 +288,61 @@ const Row = ({ data }) => {
    );
 };
 
-const Notifi = ({ data }) => {
+const NotifiA = () => {
 
-   const notifiClass = data.active === 1 ? 'notifi-icon-img-d' : 'notifi-icon-img-h';
-   const notirow = data.active === 1 ? 'notifi-row-color' : '';
-   const notimess = data.active === 1 ? 'notifi-row-mess' : '';
+   let page = 0;
+   var countNotifi = 5;
+   const notifiData = [
+      // { message: "Final exam date", active: 0 },
+      // { message: "Project submission deadline", active: 0 }
+   ];
+
+   const [notifi, setNotifi] = useState(notifiData)
+
+   const getNotification = async () => {
+
+      try {
+         const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+         // console.log(token)
+         // Set the token in the headers
+         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+         const url = `http://localhost:8085/notification/?page=${page}`;
+         const response = await axios.get(url);
+
+         // console.log(response.data[0])
+         response.data.forEach((x) => {
+            if (countNotifi > 0) {
+               x["active"] = 0
+               countNotifi -= 1;
+            } else {
+               x["active"] = 1
+
+            }
+            notifiData.push(x)
+         });
+         setNotifi(notifiData);
+         console.log(notifi)
+      } catch (error) {
+         console.log(error);
+      }
+   }
+
+   useEffect(() => {
+      getNotification();
+   }, [page])
+
+   // getNotification(page);
+
 
    return (
       <>
-         <div className={`notifi-row ${notirow}`}>
-            <div className={`notifi-icon ${notifiClass}`} />
-            <div className={`notifi-text ${notimess}`}>{data.message}</div>
+         <div className='notifi-3'  >
+            {notifi.map((data, index) => (
+               <div className={`notifi-row ${data.active === 1 ? 'notifi-row-color' : ''}`}>
+                  <div className={`notifi-icon ${data.active === 1 ? 'notifi-icon-img-d' : 'notifi-icon-img-h'}`} />
+                  <div className={`notifi-text ${data.active === 1 ? 'notifi-row-mess' : ''}`}>{data.message}</div>
+               </div>
+            ))}
          </div>
       </>
    )
@@ -343,4 +350,53 @@ const Notifi = ({ data }) => {
 }
 
 
+
+const Notifi = () => {
+   const scrollContainerRef = useRef();
+   const [currPage, setCurrPage] = useState(0);
+   const [notifi, setNotifi] = useState([]);
+   var count = 5;
+
+   const fetchNotification = async () => {
+      const url = `http://localhost:8085/notification/?page=${currPage}`;
+      try {
+         const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+         const response = await axios.get(url);
+         // console.log(response.data);
+         // response.data ? setCurrPage(currPage - 1) : 0;
+         setNotifi((prevNotifi) => [...prevNotifi, ...response.data]);
+      } catch (error) {
+         console.log(error);
+      }
+   };
+
+   const handleScroll = () => {
+      // console.log("scrollA ")
+      const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+      const bottomReached = Math.abs(scrollTop + clientHeight - scrollHeight) < 1;
+
+      if (bottomReached) {
+         // User has scrolled to the bottom
+         // console.log("scroll C");
+         setCurrPage(currPage + 1);
+      }
+   };
+
+   useEffect(() => {
+      fetchNotification();
+   }, [currPage])
+
+   return (
+      <div className='notifi-3' ref={scrollContainerRef} onScroll={handleScroll} style={{ height: "150px" }}>
+         {notifi.map((data, index) => (
+            <div key={index} className={`notifi-row ${data.active ? '' : 'notifi-row-color'}`}>
+               <div className={`notifi-icon ${data.active ? 'notifi-icon-img-h' : 'notifi-icon-img-d'}`} />
+               <div className={`notifi-text ${data.active === 1 ? '' : 'notifi-row-mess'}`}>{data.message}</div>
+               {/* {count -= 1} */}
+            </div>
+         ))}
+      </div>
+   );
+};
 export default Dashboard
