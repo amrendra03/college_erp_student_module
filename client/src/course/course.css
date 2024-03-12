@@ -44,10 +44,7 @@
    letter-spacing: 0.84px;
    line-height: 20px;
    width: 272px;
-
-
-
-
+   color: #1f1f1f;
 }
 
 .stc .stc-course {
@@ -64,11 +61,12 @@
 }
 
 .stc .text-wrapper {
-   color: #ff0000;
+   color: #494949;
+   font-size: 12px;
 }
 
 .stc .span {
-   color: #000000;
+   color: #1f1f1f;
 }
 
 .stc .total-sem {
@@ -85,7 +83,8 @@
 }
 
 .stc .text-wrapper-2 {
-   color: #0047ff;
+   color: #494949;
+   font-size: 12px;
 }
 
 .stc .total-subject {
@@ -102,7 +101,8 @@
 }
 
 .stc .text-wrapper-3 {
-   color: #009918;
+   color: #494949;
+   font-size: 12px;
 }
 
 /* block a course detail panel a.1*/
@@ -283,4 +283,14 @@ td {
 
 .course-time-table tbody {
    border-radius: 0 0 10px 10px;
+}
+
+
+.course-faculty-list-a {
+   height: 230px;
+   overflow: auto;
+}
+
+.course-faculty-list-a::-webkit-scrollbar {
+   display: none;
 }

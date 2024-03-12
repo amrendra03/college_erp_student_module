@@ -102,6 +102,7 @@ public class ResponseStudentServiceIMPL implements ResponseStudentDataService {
             res.setDuration(studentCourseDetail.getDuration());
             res.setCompleted(String.valueOf((semData.getSemesterNumber() - 1)));
             res.setCurrent(String.valueOf(semData.getSemesterNumber()));
+            res.setCourseId(studentCourseDetail.getCourseId());
 
 //            log.info("successfully fetched data: {}", res);
             return res;

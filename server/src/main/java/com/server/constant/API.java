@@ -11,4 +11,6 @@ public final class API {
     public static final String checkToken = "/checktoken";
 
     public static final String status="/status";
+    public static final String timeTable="/time_table";
 }
+

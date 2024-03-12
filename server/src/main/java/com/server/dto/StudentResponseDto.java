@@ -18,5 +18,6 @@ public class StudentResponseDto {
     private int totalSem;
     private String completed;
     private String current;
+    private Long courseId;
 
 }
