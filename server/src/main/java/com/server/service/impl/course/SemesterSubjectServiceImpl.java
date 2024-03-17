@@ -32,27 +32,28 @@ public class SemesterSubjectServiceImpl implements SemesterSubjectService {
     private ModelMapper modelMapper;
 
     @Override
-    public StudentSubjectDto create(Long courseId, Long semId, StudentSubjectDto sub) {
+    public StudentSubjectDto create(Long courseId, Long semNum, StudentSubjectDto sub) {
 
-        StudentCourseDetail course = this.studentCourseDetailRepo.findById(courseId).orElseThrow(()->new ResourceNotFoundException("Course not found ","course ID",courseId));
-        StudentSubject subject =  this.modelMapper.map(sub,StudentSubject.class);
-        StudentSubjectDto res=null;
+        StudentCourseDetail course = this.studentCourseDetailRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course not found ", "course ID", courseId));
+        StudentSubject subject = this.modelMapper.map(sub, StudentSubject.class);
+        StudentSubjectDto res = null;
 
-        for(StudentSemester sem: course.getStudentSemesters()){
-            if(sem.getSemesterId()==semId){
+        for (StudentSemester sem : course.getStudentSemesters()) {
+            if (sem.getSemesterNumber() == semNum) {
                 subject.setStudentSemester(sem);
                 subject.setCourseId(courseId);
                 subject.setSemesterNumber(sem.getSemesterNumber());
-               res = this.modelMapper.map(this.semesterSubjectRepo.save(subject),StudentSubjectDto.class);
+                res = this.modelMapper.map(this.semesterSubjectRepo.save(subject), StudentSubjectDto.class);
             }
         }
         return res;
     }
+
     @Override
-    public StudentSubjectDto update(Long courseId,int semId,Long subId,StudentSubjectDto studentSubjectDto) {
+    public StudentSubjectDto update(Long courseId, int semId, Long subId, StudentSubjectDto studentSubjectDto) {
         // Find the existing entity by ID
         StudentSubject existingStudentSubject = null;
-        StudentSubject res=null;
+        StudentSubject res = null;
         try {
             existingStudentSubject = this.semesterSubjectRepo.findByCourseIdAndSemesterNumberAndSubjectId(courseId, semId, subId);
 
@@ -80,26 +81,38 @@ public class SemesterSubjectServiceImpl implements SemesterSubjectService {
     }
 
     @Override
-    public StudentSubjectDto get(Long courseId,int semId,Long subId) {
+    public StudentSubjectDto get(Long courseId, int semId, Long subId) {
 
-        StudentSubject res=this.semesterSubjectRepo.findByCourseIdAndSemesterNumberAndSubjectId(courseId,semId,subId);
-        return this.modelMapper.map(res,StudentSubjectDto.class);
+        StudentSubject res = this.semesterSubjectRepo.findByCourseIdAndSemesterNumberAndSubjectId(courseId, semId, subId);
+        return this.modelMapper.map(res, StudentSubjectDto.class);
     }
 
     @Override
-    public List<StudentSubjectDto> getAll(Long courseId,Long semId) {
+    public List<StudentSubjectDto> getAll(Long courseId, Long semId) {
 
-        List<StudentSubject> res = this.semesterSubjectRepo.findAllByCourseIdAndSemesterNumber(courseId,semId);
+        List<StudentSubject> res = this.semesterSubjectRepo.findAllByCourseIdAndSemesterNumber(courseId, semId);
 
-        return res.stream().map(x->this.modelMapper.map(x,StudentSubjectDto.class)).collect(Collectors.toList());
+        return res.stream().map(x -> this.modelMapper.map(x, StudentSubjectDto.class)).collect(Collectors.toList());
 
     }
 
     @Override
     public ApiResponse delete(Long courseId, int semId, Long subId) {
-        StudentSubject res = this.semesterSubjectRepo.findByCourseIdAndSemesterNumberAndSubjectId(courseId,semId,subId);
+        StudentSubject res = this.semesterSubjectRepo.findByCourseIdAndSemesterNumberAndSubjectId(courseId, semId, subId);
         this.semesterSubjectRepo.delete(res);
-        return new ApiResponse("Successfully deleted subId "+subId,true);
+        return new ApiResponse("Successfully deleted subId " + subId, true);
     }
+
+    @Override
+    public List<StudentSubjectDto> getAllByCourseId(Long courseId) {
+        try {
+            List<StudentSubject> subject = semesterSubjectRepo.findAllByCourseId(courseId);
+            List<StudentSubjectDto> res = subject.stream().map(x -> modelMapper.map(x, StudentSubjectDto.class)).collect(Collectors.toList());
+            return res;
+        } catch (Exception ex) {
+            throw new ResourceNotFoundException("Course id not found", "", courseId);
+        }
+    }
+
 
 }

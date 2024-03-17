@@ -11,6 +11,7 @@ public class StudentSubjectDto {
 
    private String subjectName;
    private String facultyName;
+   private String subjectCode;
    private int semesterNumber;
 
    private Long courseId;

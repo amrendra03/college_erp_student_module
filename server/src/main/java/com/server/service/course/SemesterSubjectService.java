@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface SemesterSubjectService {
 
-    StudentSubjectDto create(Long courseId,Long semId, StudentSubjectDto sub);
+    StudentSubjectDto create(Long courseId,Long semNum, StudentSubjectDto sub);
 
     StudentSubjectDto update(Long courseId,int semId,Long subId,StudentSubjectDto courseDetailDTO);
 
@@ -17,5 +17,7 @@ public interface SemesterSubjectService {
     List<StudentSubjectDto> getAll(Long courseId,Long semId);
 
     ApiResponse delete(Long courseId, int semId, Long subId);
+
+    List<StudentSubjectDto> getAllByCourseId(Long courseId);
 
 }

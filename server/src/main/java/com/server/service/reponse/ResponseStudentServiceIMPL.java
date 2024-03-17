@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @Service
 public class ResponseStudentServiceIMPL implements ResponseStudentDataService {
 
-    private Logger log = LoggerFactory.getLogger(ResponseStudentDataController.class);
+    private final Logger log = LoggerFactory.getLogger(ResponseStudentDataController.class);
     @Autowired
     private StudentDetailRepo studentDetailRepo;
 

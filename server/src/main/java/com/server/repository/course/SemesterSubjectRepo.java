@@ -9,6 +9,8 @@ public interface SemesterSubjectRepo extends JpaRepository<StudentSubject,Long> 
 
     StudentSubject findByCourseIdAndSemesterNumberAndSubjectId(Long courseId,int semesterNumber,Long subjectId);
     List<StudentSubject> findAllByCourseIdAndSemesterNumber(Long courseId, Long semesterNumber);
+    List<StudentSubject> findAllByCourseId(Long courseId);
+
 
 
 }
