@@ -22,11 +22,13 @@ public class ExamRecordDTO {
 
    @Positive(message = "GPA must be a Positive number or zero")
    private double gpa;
-
    private Long courseId;
 
    @NotNull(message = "Progress date must not be null")
    private Date progressDate;
-
    private String name;
+   private String message;
+   private String solution;
+   private String comment;
+   private String result;
 }

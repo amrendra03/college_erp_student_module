@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.util.Date;
+
 @Entity
 @Data
 public class ExamSubject {
@@ -16,4 +18,7 @@ public class ExamSubject {
     private String subjectCode;
     private String subjectName;
     private String cost;
+    private Date date;
+    private Long internalMarks;
+    private Long externalMarks;
 }

@@ -19,4 +19,10 @@ public class ExamStudentSubject {
     private String message;
     @NotNull(message = "Student rollNo must be filled ")
     private String rollNo;
+
+
+    private Long internalMarks;
+    private Long externalMarks;
+
+    private String result;
 }

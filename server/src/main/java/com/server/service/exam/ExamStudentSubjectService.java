@@ -13,7 +13,7 @@ public interface ExamStudentSubjectService {
      *
      * @return List of ExamStudentSubjectDTO objects representing all subjects.
      */
-    List<ExamStudentSubjectDTO> getAllExamStudentSubjects();
+    List<ExamStudentSubjectDTO> getAllExamStudentSubjects(String rollNo,String status);
 
     /**
      * Retrieve an exam student subject by its ID.

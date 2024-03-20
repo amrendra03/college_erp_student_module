@@ -46,12 +46,27 @@ public class ExamStudentSubjectServiceImpl implements ExamStudentSubjectService 
     }
 
     @Override
-    public List<ExamStudentSubjectDTO> getAllExamStudentSubjects() {
-        List<ExamStudentSubject> examStudentSubjects = examStudentSubjectRepo.findAll();
-        logger.info("Retrieved all exam student subjects from the database.");
-        return examStudentSubjects.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+    public List<ExamStudentSubjectDTO> getAllExamStudentSubjects(String rollNo,String status) {
+        try{
+            List<ExamStudentSubject> examStudentSubjects = examStudentSubjectRepo.findAllByRollNo(rollNo);
+            logger.info("Retrieved all exam student subjects from the database.");
+
+            Iterator<ExamStudentSubject> iterator = examStudentSubjects.iterator();
+            while(iterator.hasNext()) {
+                ExamStudentSubject i = iterator.next();
+                if (!i.getStatus().equals(status)) {
+                    iterator.remove(); // Remove the current element safely
+                }
+            }
+
+            logger.info("Processed subject list successfully");
+
+            return examStudentSubjects.stream()
+                    .map(this::convertToDTO)
+                    .collect(Collectors.toList());
+        }catch (Exception ex){
+            throw  new ResourceNotFoundException("Student not submited subject list","Subject data not found",0L);
+        }
     }
 
     @Override

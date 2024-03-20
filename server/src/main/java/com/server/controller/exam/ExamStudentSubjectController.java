@@ -28,10 +28,10 @@ public class ExamStudentSubjectController {
         this.examStudentSubjectService = examStudentSubjectService;
     }
 
-    @GetMapping
-    public List<ExamStudentSubjectDTO> getAllExamStudentSubjects() {
+    @GetMapping("/roll_no/{rollNo}/status/{status}")
+    public List<ExamStudentSubjectDTO> getAllExamStudentSubjects(@PathVariable String rollNo,@PathVariable String status) {
         log.info("getAll Exam Student Subjects...");
-        return examStudentSubjectService.getAllExamStudentSubjects();
+        return examStudentSubjectService.getAllExamStudentSubjects(rollNo,status);
     }
 
     @GetMapping("/{id}")
