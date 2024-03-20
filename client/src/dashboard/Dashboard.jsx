@@ -4,7 +4,7 @@ import { useCookies } from 'react-cookie';
 import Doughnut from '../component/chart/Doughnut';
 import Header from '../component/header/Header';
 import CalendarC from '../component/other/Calendar';
-import LoadingComponent from '../component/other/Loading';
+import LoadingComponent from '../component/other/LoadingComponent';
 import { API } from '../config/env';
 import './dashboard.css';
 
@@ -348,8 +348,6 @@ const NotifiA = () => {
    )
 
 }
-
-
 
 const Notifi = () => {
    const scrollContainerRef = useRef();

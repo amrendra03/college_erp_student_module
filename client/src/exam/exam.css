@@ -80,6 +80,11 @@
    height: 20;
    padding: 4px 0 4px 0;
    margin-bottom: 2px;
+   cursor: pointer;
+}
+
+.exam-list-item:hover {
+   background-color: #e2e2e2;
 }
 
 .exam-list-item p {
@@ -581,4 +586,13 @@
 
    border-bottom: 1px solid #aeaeae;
 
+}
+
+.form-process-step-btn {
+   cursor: pointer;
+}
+
+.form-process-step-btn:hover {
+   background-color: white;
+   color: black;
 }

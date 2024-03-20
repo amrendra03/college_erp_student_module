@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Header from '../component/header/Header';
-import LoadingComponent from '../component/other/Loading';
+import LoadingComponent from '../component/other/LoadingComponent';
 import './course.css';
 
 
@@ -23,9 +23,7 @@ const Course = () => {
 
          let data = response.data;
          data.registrationDate = formatDateTime(data.registrationDate);
-
          setStudentData(data);
-         // getTimeTable();
          // console.log(response.data)
       } catch (error) {
          console.log(error);
@@ -38,8 +36,6 @@ const Course = () => {
       const formattedDate = new Date(inputDateTime).toLocaleDateString('en-GB', options);
       return formattedDate;
    }
-
-
 
    useEffect(() => {
       const fetchData = async () => {
