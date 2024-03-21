@@ -89,3 +89,15 @@
 15:35:10.930 [http-nio-8085-exec-7] INFO  com.server.jwt.CustomUserDetailService - CustomUserDetailService stage completed successfully.
 15:35:10.941 [http-nio-8085-exec-7] INFO  com.server.service.impl.fee.PaymentServiceImpl - Processing the  all payment list by student ID
 15:35:10.954 [http-nio-8085-exec-7] INFO  com.server.service.impl.fee.PaymentServiceImpl - Successfully fetched payment list
+15:51:16.481 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 15824 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+15:51:16.485 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+15:51:16.487 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+15:51:24.182 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
+15:51:26.812 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 10.769 seconds (process running for 11.815)
+15:51:26.824 [restartedMain] INFO  com.server.ServerApplication - Server Started......
+15:56:01.891 [restartedMain] INFO  com.server.ServerApplication - Starting ServerApplication using Java 17.0.9 with PID 13276 (D:\college_erp_student_module\server\target\classes started by Lenovo in D:\college_erp_student_module\server)
+15:56:01.896 [restartedMain] DEBUG com.server.ServerApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+15:56:01.897 [restartedMain] INFO  com.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+15:56:10.226 [restartedMain] DEBUG com.server.jwt.JwtFilter - Filter 'jwtFilter' configured for use
+15:56:12.978 [restartedMain] INFO  com.server.ServerApplication - Started ServerApplication in 11.515 seconds (process running for 12.519)
+15:56:12.984 [restartedMain] INFO  com.server.ServerApplication - Server Started......

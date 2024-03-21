@@ -17,10 +17,6 @@ const Signup = () => {
    const [submitwarning, setSubmitmwarning] = useState({ content: '', Display: "none" });
 
 
-
-
-
-
    const [validationErrors, setValidationErrors] = useState({
       name: '',
       email: '',
