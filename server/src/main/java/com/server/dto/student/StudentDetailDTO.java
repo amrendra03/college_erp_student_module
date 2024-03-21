@@ -39,4 +39,6 @@ public class StudentDetailDTO {
    private Date registrationDate;
 
    private List<StudentCourseRegistrationDTO> studentCourseRegistrations;
+
+   private String password;
 }

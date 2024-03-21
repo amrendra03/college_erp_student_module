@@ -28,8 +28,15 @@
    border-bottom: 0.50px white solid;
 }
 
+.nav-c0-sec {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
 .nav-c1 {
-   height: 230px;
+   height: 180px;
    width: auto;
 
    display: flex;
@@ -40,7 +47,8 @@
 }
 
 .nav-c2 {
-   margin-top: 245px;
+   /* margin-top: 245px; */
+   margin-bottom: 5px;
    width: auto;
    height: 84px;
    display: flex;
@@ -48,6 +56,7 @@
    justify-content: space-around;
 
    align-self: center;
+
 
 }
 

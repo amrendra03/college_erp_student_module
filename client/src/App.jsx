@@ -11,7 +11,6 @@ import Nav from './component/nav/Nav';
 import Course from './course/Course';
 import Dashboard from './dashboard/Dashboard';
 import Exam from './exam/Exam';
-import Faculty from './faculty/Faculty';
 import Payment from './payment/Payment';
 import Setting from './setting/Setting';
 // import Logout from './auth/Logout';
@@ -62,16 +61,16 @@ function App() {
     <div className={authenticated ? 'app' : 'app2'}>
       {authenticated && <Nav authenticated={authenticated} onLogout={handleLogout} />}
       <Routes>
-        <Route path="/signup" element={<Signup />} />
         <Route
           path="/login"
           element={authenticated ? <Navigate to={redirectedFrom || '/'} /> : <Login onLogin={handleLogin} setRedirectedFrom={setRedirectedFrom} />}
         />
+        <Route path="/signup" element={authenticated ? <Navigate to='/' /> : <Signup />} />
 
         <Route path='/' element={authenticated ? <Dashboard /> : <Navigate to='/login' />} />
         <Route path='/course' element={authenticated ? <Course /> : <Navigate to='/login' />} />
         <Route path='/exam' element={authenticated ? <Exam /> : <Navigate to='/login' />} />
-        <Route path='/faculty' element={authenticated ? <Faculty /> : <Navigate to='/login' />} />
+        {/* <Route path='/faculty' element={authenticated ? <Faculty /> : <Navigate to='/login' />} /> */}
         <Route path='/payment' element={authenticated ? <Payment /> : <Navigate to='/login' />} />
         <Route path='/setting' element={authenticated ? <Setting /> : <Navigate to='/login' />} />
         <Route path='/logout' element={authenticated ? <></> : <Navigate to='/login' />} />

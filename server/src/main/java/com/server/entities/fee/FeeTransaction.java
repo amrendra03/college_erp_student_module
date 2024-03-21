@@ -27,4 +27,9 @@ public class FeeTransaction {
    private double amount;
    private Date transactionDate;
    private String description;
+   private String status;
+   private String type;
+   private String comment;
+
+   private  String name;
 }

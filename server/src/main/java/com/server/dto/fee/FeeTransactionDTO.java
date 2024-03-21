@@ -9,18 +9,25 @@ import lombok.Data;
 
 @Data
 public class FeeTransactionDTO {
-   private Long transactionId;
+    private Long transactionId;
 
-   @NotNull(message = "Student detail must be not null")
-   @Positive(message = "Studetn detail Id must be a positive number")
-   private Long studentDetailId;
+    @NotNull(message = "Student detail must be not null")
+    @Positive(message = "Studetn detail Id must be a positive number")
+    private Long studentDetailId;
 
-   @Positive(message = "Transaction amount must be a positive number")
-   private double amount;
+    @Positive(message = "Transaction amount must be a positive number")
+    private double amount;
 
-   @NotNull(message = "Transaction date must not be null")
-   private Date transactionDate;
+    @NotNull(message = "Transaction date must not be null")
+    private Date transactionDate;
 
-   @NotBlank(message = "Description must not be blank")
-   private String description;
+    private String description;
+
+    @NotBlank(message = "Status must not be blank")
+    private String status;
+    private String type;
+
+    private String comment;
+
+    private  String name;
 }

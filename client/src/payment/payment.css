@@ -1,8 +1,117 @@
 .payment {
    width: 1013px;
    height: 660px;
-   background-color: rgb(255, 255, 255);
+   /* background-color: rgb(255, 255, 255); */
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+}
+
+.payment-panel {
+   height: 578px;
+   width: 100%;
+   /* background-color: bisque; */
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.payment-list {
+   width: 196px;
+   height: 100%;
+   border-radius: 10px;
+   border: 1px solid #000454;
+   background: #ffffff;
+}
+
+.payment-form {
+   width: 780px;
+   height: 100%;
+   border-radius: 10px;
+
+   border: 1px solid #000454;
+
+   /* background: #E0F9FF; */
+   background: #ffffff;
+}
+
+.payment-list .p {
+   width: 100%;
+   color: #FFF;
+   text-align: center;
+   font-family: "Inria Sans";
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 17px;
+   letter-spacing: 0.6px;
+   background-color: #000454;
+   height: 20px;
+
+   padding-top: 2px;
+
+   margin: 0px;
+   border-radius: 10px 10px 0 0;
+}
+
+.payment-list-container {
+   height: 556px;
+   /* background-color: bisque; */
+   width: 100%;
+   border-radius: 0 0 10px 10px;
+   overflow: auto;
+}
+
+.payment-list-container::-webkit-scrollbar {
+   display: none;
+}
+
+.payment-list-item {
+   color: var(--dlight-text, #9F9F9F);
+   text-align: center;
+   font-family: "Inria Sans";
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 17px;
+
+   letter-spacing: 0.6px;
+
+   height: 20;
+   padding: 4px 0 4px 0;
+   margin-bottom: 2px;
+   cursor: pointer;
+}
+
+.payment-list-item:hover {
+   background-color: #e2e2e2;
+}
+
+.payment-list-item p {
+   margin: 0;
+}
+
+.active-payment {
+   background-color: yellow;
+   color: red;
+
+}
+
+.payment-f-n {
+   width: 100%;
+   color: #FFF;
+   text-align: center;
+   font-family: "Inria Sans";
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 17px;
+   letter-spacing: 0.6px;
+   background-color: #000454;
+   height: 20px;
+
+   padding-top: 2px;
+
+   margin: 0px;
+   border-radius: 10px 10px 0 0;
 }
